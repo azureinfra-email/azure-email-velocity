@@ -13,40 +13,40 @@ import {
 
 const features = [
   {
-    icon: Shield,
-    title: "Azure-Powered Reliability",
-    description: "Built on Microsoft Azure infrastructure for maximum uptime and security. Enterprise-grade reliability you can count on.",
-    highlight: "99.9% Uptime"
-  },
-  {
-    icon: Zap,
-    title: "Lightning Fast Delivery",
-    description: "No MS-365 bottlenecks. Our optimized infrastructure ensures your emails reach recipients faster than ever.",
-    highlight: "2x Faster"
-  },
-  {
     icon: Target,
-    title: "Superior Outlook Delivery",
-    description: "Best-in-class delivery rates to Outlook mailboxes. Our proven strategies ensure your emails land in the inbox.",
-    highlight: "35% Better"
+    title: "Inbox Delivery Mastery",
+    description: "Proven warmup techniques that ensure your emails reach the inbox, not spam folders. Our methods build sender reputation systematically.",
+    highlight: "Inbox Focused"
   },
   {
     icon: Clock,
-    title: "Fine-Grained Control",
-    description: "Complete control over your email infrastructure. Configure, monitor, and optimize every aspect of your delivery pipeline.",
-    highlight: "Full Control"
+    title: "15-Day Minimum Warmup",
+    description: "Our recommended 15-day warmup protocol gradually builds your sender reputation, ensuring long-term inbox delivery success.",
+    highlight: "15+ Days"
+  },
+  {
+    icon: Shield,
+    title: "Reputation Protection",
+    description: "Built on Azure infrastructure with advanced warmup protocols that protect and enhance your sender reputation over time.",
+    highlight: "Protected Rep"
   },
   {
     icon: CheckCircle,
-    title: "Zero Fuckups",
-    description: "Unlike cheap email providers, we maintain consistent quality and reliability. No surprises, no downtime.",
-    highlight: "100% Reliable"
+    title: "Proven Warmup Process",
+    description: "Step-by-step warmup methodology that's been tested across thousands of mailboxes to ensure consistent inbox placement.",
+    highlight: "Tested Process"
   },
   {
     icon: TrendingUp,
-    title: "Proven Results",
-    description: "Our clients see measurable improvements in their email campaign performance and response rates.",
-    highlight: "35% More Opens"
+    title: "Gradual Volume Scaling",
+    description: "Smart volume progression during warmup ensures mailbox providers trust your sending patterns for better inbox delivery.",
+    highlight: "Smart Scaling"
+  },
+  {
+    icon: Zap,
+    title: "Optimized Send Patterns",
+    description: "Advanced sending patterns and timing optimization that mimics natural email behavior for maximum inbox delivery.",
+    highlight: "Natural Patterns"
   }
 ];
 
@@ -62,12 +62,12 @@ const FeaturesSection = () => {
           
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
             Built for 
-            <span className="bg-gradient-primary bg-clip-text text-transparent"> Performance</span>
+            <span className="bg-gradient-primary bg-clip-text text-transparent"> Inbox Delivery</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our cold email infrastructure delivers results where others fail. 
-            Experience the difference of enterprise-grade email delivery.
+            Master inbox delivery with proven warmup techniques and strategic sender reputation building. 
+            Our 15-day minimum warmup ensures your emails reach inboxes consistently.
           </p>
         </div>
         

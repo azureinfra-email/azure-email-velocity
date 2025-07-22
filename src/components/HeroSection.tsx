@@ -16,15 +16,15 @@ const HeroSection = () => {
             </div>
             
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-              Reliable Cold Email
+              Straight to Inbox
               <span className="block bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">
-                Infrastructure
+                Email Delivery
               </span>
             </h1>
             
             <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
-              Powered by Azure infrastructure. No MS-365 bottlenecks. 
-              <strong className="text-white"> 35% better delivery to Outlook mailboxes</strong> than other providers.
+              Master inbox delivery with proven warmup techniques. Our 15-day minimum warmup protocol ensures 
+              <strong className="text-white"> your emails land in inboxes, not spam folders</strong>.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -43,8 +43,8 @@ const HeroSection = () => {
                 <div className="text-blue-200 text-sm">Uptime</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">35%</div>
-                <div className="text-blue-200 text-sm">Better Delivery</div>
+                <div className="text-2xl font-bold text-white">15+</div>
+                <div className="text-blue-200 text-sm">Day Warmup</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-white">&lt;2s</div>
