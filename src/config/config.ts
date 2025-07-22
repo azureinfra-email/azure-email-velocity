@@ -5,29 +5,34 @@ export const siteConfig = {
   // Basic site information
   name: "Azure Email Velocity",
   domain: "azureinfra.email",
-  tagline: "Enterprise Email Infrastructure",
-  description: "Enterprise-grade Outlook 365 email infrastructure provider offering professional mailboxes with Microsoft Azure backing, enterprise security, and 99.9% uptime guarantee.",
+  tagline: "Cold Email Infrastructure for Maximum Deliverability",
+  description: "Premium Azure-powered cold email infrastructure for marketers who need maximum deliverability. Enterprise-grade Outlook 365 mailboxes with dedicated IPs, domain isolation, and 99.9% inbox rates.",
   
   // Pricing
   pricing: {
-    price: 3.33,
+    price: 1.50,
     currency: "USD",
     period: "per mailbox/month",
-    displayPrice: "$3.33"
+    displayPrice: "$1.50"
   },
   
   // Contact information
   contact: {
     email: "support@azureinfra.email",
     responseTime: "< 3 hours",
-    responseTimeShort: "< 3h"
+    responseTimeShort: "< 3h",
+    calendly: "https://calendly.com/dharm-azureinfra/30min"
   },
   
   // Company details
   company: {
-    founded: "2025",
+    get founded () {
+        return new Date().getFullYear();
+    },
     location: "Global",
-    copyright: "© 2025 azureinfra.email. All rights reserved."
+    get copyright() {
+      return `© ${new Date().getFullYear()} ${siteConfig.domain}. All rights reserved.`;
+    }
   },
   
   // Social media links (add your actual social media URLs)
@@ -110,7 +115,7 @@ export const siteConfig = {
       label: "Support"
     },
     network: {
-      value: "Global",
+      value: "USA",
       label: "Azure Network"
     },
     responseTime: {
@@ -129,22 +134,24 @@ export const siteConfig = {
   
   // SEO metadata
   seo: {
-    title: "Azure Email Velocity - Enterprise Outlook 365 Infrastructure Provider",
-    metaDescription: "Get enterprise-grade Outlook 365 email infrastructure at $3.33/mailbox. Microsoft Azure-powered, 99.9% uptime, enterprise security, instant activation. No compromise on quality.",
-    ogTitle: "Enterprise Email Infrastructure - Azure Email Velocity",
-    ogDescription: "Professional Outlook 365 mailboxes with enterprise-grade security and reliability. Built on Microsoft Azure with 99.9% uptime guarantee.",
+    title: "Azure Email Velocity - Premium Cold Email Infrastructure for Maximum Deliverability",
+    metaDescription: "Premium Azure-powered cold email infrastructure at $1.50/mailbox. 99.9% inbox rates, dedicated IPs, domain isolation, instant setup. Built for high-volume cold email marketers.",
+    ogTitle: "Premium Cold Email Infrastructure - Azure Email Velocity",
+    ogDescription: "99.9% inbox rates with dedicated Azure infrastructure. Premium cold email deliverability at $1.50/mailbox with domain isolation and instant setup.",
     ogImage: "/assets/hero-email.jpg",
     keywords: [
-      "email infrastructure",
-      "outlook 365", 
-      "microsoft azure",
-      "enterprise email",
-      "email hosting",
-      "business email",
-      "exchange online",
-      "email service provider",
-      "azure cloud",
-      "enterprise security"
+      "cold email infrastructure",
+      "email deliverability", 
+      "azure email",
+      "dedicated IPs",
+      "cold email marketing",
+      "email campaigns",
+      "inbox delivery",
+      "outlook 365 cold email",
+      "domain isolation",
+      "high volume email",
+      "cold outreach",
+      "email reputation"
     ]
   },
   
@@ -181,5 +188,6 @@ export const getResponseTime = () => siteConfig.contact.responseTime;
 export const getResponseTimeShort = () => siteConfig.contact.responseTimeShort;
 export const getUptime = () => siteConfig.tech.uptime;
 export const getWebsiteUrl = () => siteConfig.links.homepage;
+export const getCalendlyLink = () => siteConfig.contact.calendly;
 
 export default siteConfig;

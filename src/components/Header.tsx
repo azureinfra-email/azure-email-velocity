@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Menu } from "lucide-react";
 import { useState } from "react";
+import { siteConfig } from "@/config/config";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,6 +49,11 @@ const Header = () => {
             <Button variant="ghost">
               Sign In
             </Button>
+            <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer">
+              <Button variant="outline">
+                Book a Call
+              </Button>
+            </a>
             <Button>
               Get Started
             </Button>
@@ -86,6 +92,11 @@ const Header = () => {
                 <Button variant="ghost" className="justify-start">
                   Sign In
                 </Button>
+                <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="justify-start w-full">
+                    Book a Call
+                  </Button>
+                </a>
                 <Button className="justify-start">
                   Get Started
                 </Button>
