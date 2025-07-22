@@ -34,6 +34,9 @@ const HeroSection = () => {
             <span className="block mt-3 text-cyan-200 font-semibold">
               🚀 Mailboxes ready in just 3 hours!
             </span>
+            <span className="block mt-2 text-green-200 font-medium">
+              ✅ SPF, DKIM, DMARC auto-configured - 100% compliant
+            </span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-8">

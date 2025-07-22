@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import GetStartedButton from "@/components/ui/GetStartedButton";
 import { Mail, Menu } from "lucide-react";
 import { useState } from "react";
 import { siteConfig } from "@/config/config";
@@ -17,7 +18,10 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
+          <div 
+            className="flex items-center gap-2 cursor-pointer" 
+            onClick={() => window.location.reload()}
+          >
             <div className="p-2 bg-primary rounded-lg">
               <Mail className="w-6 h-6 text-white" />
             </div>
@@ -44,6 +48,12 @@ const Header = () => {
               Compare
             </button>
             <button 
+              onClick={() => scrollToSection('calculator')}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Calculator
+            </button>
+            <button 
               onClick={() => scrollToSection('contact')}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
@@ -60,9 +70,7 @@ const Header = () => {
                 Book a Call
               </Button>
             </a>
-            <Button>
-              Get Started
-            </Button>
+            <GetStartedButton compact />
           </div>
           
           <button
@@ -95,6 +103,12 @@ const Header = () => {
                 Compare
               </button>
               <button 
+                onClick={() => scrollToSection('calculator')}
+                className="text-muted-foreground hover:text-primary transition-colors text-left"
+              >
+                Calculator
+              </button>
+              <button 
                 onClick={() => scrollToSection('contact')}
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
               >
@@ -109,9 +123,7 @@ const Header = () => {
                     Book a Call
                   </Button>
                 </a>
-                <Button className="justify-start">
-                  Get Started
-                </Button>
+                <GetStartedButton className="justify-start" compact />
               </div>
             </nav>
           </div>

@@ -2,18 +2,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import GetStartedButton from "@/components/ui/GetStartedButton";
 import { Check, X, AlertTriangle, Calculator } from "lucide-react";
 import { siteConfig } from "@/config/config";
 import { useState } from "react";
 
 const PriceComparisonSection = () => {
   const [mailboxCount, setMailboxCount] = useState(600);
-  const [domainCount, setDomainCount] = useState(12);
+  const [domainCount, setDomainCount] = useState(1);
   
   // Calculator logic
   const setupCost = 0;
   const mailboxPrice = siteConfig.pricing.price;
-  const domainPrice = 15;
+  const domainPrice = siteConfig.pricing.domain.price;
   
   const monthlyMailboxCost = mailboxCount * mailboxPrice;
   const totalDomainCost = domainCount * domainPrice;
@@ -23,10 +24,10 @@ const PriceComparisonSection = () => {
       provider: "AzureInfra",
       setupCost: "Free",
       mailboxCost: `${siteConfig.pricing.displayPrice} each`,
-      domainCost: "$15 one-time",
+      domainCost: `${siteConfig.pricing.domain.displayPrice} one-time`,
       domainsNeeded: "4-12 domains",
       setupTime: "3 hours",
-      dnsSetup: "Automated",
+      dnsSetup: "Auto SPF/DKIM/DMARC",
       infraQuality: "Real Azure",
       ipQuality: "Extremely high",
       isolation: "Per domain + beyond",
@@ -72,7 +73,7 @@ const PriceComparisonSection = () => {
     "Cost (domains)",
     "Domains needed",
     "Speed to deploy",
-    "DNS setup",
+    "Email compliance",
     "Infra quality", 
     "IP quality",
     "Isolation",
@@ -140,6 +141,11 @@ const PriceComparisonSection = () => {
                     <p className="font-semibold">{provider.isolation}</p>
                   </div>
                 </div>
+                {provider.highlight && (
+                  <div className="pt-4 border-t border-primary/20">
+                    <GetStartedButton className="w-full" />
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}
@@ -243,134 +249,21 @@ const PriceComparisonSection = () => {
                       {provider.userCreation}
                     </span>
                   </div>
+                  
+                  {provider.highlight && (
+                    <div className="h-12 flex items-center justify-center text-center pt-2">
+                      <GetStartedButton 
+                        className="w-full max-w-[120px]" 
+                        size="sm"
+                        compact
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Cost Breakdown Section */}
-        <div className="mt-16 grid md:grid-cols-2 gap-8">
-          <Card className="bg-gradient-card border-primary/10">
-            <CardHeader>
-              <CardTitle className="text-primary">Why Choose Us?</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-foreground">No Setup Fees</h4>
-                  <p className="text-sm text-muted-foreground">Get started immediately without any upfront costs</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-foreground">3-Hour Setup</h4>
-                  <p className="text-sm text-muted-foreground">Your mailboxes ready in just 3 hours, not days or weeks</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-foreground">Premium Infrastructure</h4>
-                  <p className="text-sm text-muted-foreground">True Azure infrastructure with enterprise-grade deliverability</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-foreground">Complete Isolation</h4>
-                  <p className="text-sm text-muted-foreground">Each domain gets its own isolated infrastructure</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-card border-border">
-            <CardHeader>
-              <CardTitle className="text-foreground flex items-center gap-2">
-                <Calculator className="w-5 h-5" />
-                Cost Calculator
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Calculator Inputs */}
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="mailboxes" className="text-sm font-medium">
-                    Number of Mailboxes
-                  </Label>
-                  <Input
-                    id="mailboxes"
-                    type="number"
-                    value={mailboxCount}
-                    onChange={(e) => setMailboxCount(Number(e.target.value) || 0)}
-                    className="text-lg font-semibold"
-                    min="1"
-                    max="10000"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="domains" className="text-sm font-medium">
-                    Number of Domains
-                  </Label>
-                  <Input
-                    id="domains"
-                    type="number"
-                    value={domainCount}
-                    onChange={(e) => setDomainCount(Number(e.target.value) || 0)}
-                    className="text-lg font-semibold"
-                    min="1"
-                    max="100"
-                  />
-                </div>
-              </div>
-              
-              {/* Cost Breakdown */}
-              <div className="space-y-3 pt-4 border-t border-border">
-                <div className="flex justify-between items-center py-2">
-                  <span className="text-muted-foreground">Setup Cost</span>
-                  <span className="font-semibold text-green-500">${setupCost}</span>
-                </div>
-                <div className="flex justify-between items-center py-2">
-                  <span className="text-muted-foreground">
-                    Monthly Mailbox Cost ({mailboxCount} × ${mailboxPrice})
-                  </span>
-                  <span className="font-semibold text-foreground">
-                    ${monthlyMailboxCost.toLocaleString()}/mo
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-2">
-                  <span className="text-muted-foreground">
-                    Domain Cost ({domainCount} × ${domainPrice})
-                  </span>
-                  <span className="font-semibold text-foreground">
-                    ${totalDomainCost}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-3 bg-primary/10 px-3 rounded-lg">
-                  <span className="font-semibold text-foreground">First Month Total</span>
-                  <span className="font-bold text-primary text-lg">
-                    ${firstMonthTotal.toLocaleString()}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-2 text-sm text-muted-foreground">
-                  <span>Monthly Cost (after first month)</span>
-                  <span className="font-medium">
-                    ${monthlyMailboxCost.toLocaleString()}/mo
-                  </span>
-                </div>
-              </div>
-              
-              <div className="pt-4">
-                <Button className="w-full" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Get Started Today
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>

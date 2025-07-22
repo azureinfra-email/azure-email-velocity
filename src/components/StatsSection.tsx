@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { TrendingUp, Users, Mail, Clock } from "lucide-react";
+import { TrendingUp, Users, Mail, Shield } from "lucide-react";
 
 const stats = [
   {
@@ -9,10 +9,10 @@ const stats = [
     description: "Compared to other providers"
   },
   {
-    icon: Users,
-    value: "10K+",
-    label: "Active Users",
-    description: "Trust our infrastructure"
+    icon: Shield,
+    value: "100%",
+    label: "Email Compliant",
+    description: "Auto SPF/DKIM/DMARC setup"
   },
   {
     icon: Mail,
@@ -21,10 +21,10 @@ const stats = [
     description: "Monthly volume"
   },
   {
-    icon: Clock,
+    icon: Users,
     value: "99.9%",
-    label: "Uptime Guarantee",
-    description: "Azure-powered reliability"
+    label: "Inbox Rate",
+    description: "Azure-powered delivery"
   }
 ];
 

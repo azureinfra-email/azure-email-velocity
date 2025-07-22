@@ -27,9 +27,9 @@ const features = [
   },
   {
     icon: Zap,
-    title: "Instant Campaign Ready",
-    description: "Pre-configured SPF, DKIM, DMARC, and DNS settings. Start sending high-volume cold campaigns within minutes of setup.",
-    highlight: "Zero Setup Time"
+    title: "100% Compliance - Auto Setup",
+    description: "SPF, DKIM, DMARC, and DNS records automatically configured and maintained. Fully compliant with all email authentication standards - no technical setup required.",
+    highlight: "Auto SPF/DKIM/DMARC"
   },
   {
     icon: Mail,
