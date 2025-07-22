@@ -1,11 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, Mail, Users, Building2 } from "lucide-react";
+import { Check, Mail } from "lucide-react";
+import siteConfig from "@/config/config";
 
 const plans = [
   {
     name: "Email Infrastructure",
-    price: "$3.33",
+    price: siteConfig.pricing.displayPrice,
     period: "per mailbox/month",
     description: "Enterprise-grade Outlook 365 infrastructure without compromising on quality",
     features: [

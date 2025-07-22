@@ -1,49 +1,47 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, MessageSquare, Phone, MapPin, Clock, Send } from "lucide-react";
-import { useState } from "react";
+import { Mail, MessageSquare, MapPin, Clock, Calendar } from "lucide-react";
+import { useEffect } from "react";
+import { siteConfig } from "@/config/config";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    company: "",
-    mailboxes: "",
-    message: ""
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  useEffect(() => {
+    // Load Tally embed script
+    const script = document.createElement('script');
+    script.src = 'https://tally.so/widgets/embed.js';
+    script.async = true;
+    script.onload = () => {
+      // Initialize Tally embeds
+      const windowWithTally = window as unknown as { Tally?: { loadEmbeds: () => void } };
+      if (typeof window !== 'undefined' && windowWithTally.Tally) {
+        windowWithTally.Tally.loadEmbeds();
+      } else {
+        // Fallback: manually set src for iframes
+        document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((iframe) => {
+          const iframeElement = iframe as HTMLIFrameElement;
+          const tallySource = iframeElement.getAttribute('data-tally-src');
+          if (tallySource) {
+            iframeElement.src = tallySource;
+          }
+        });
+      }
+    };
+    script.onerror = () => {
+      // Fallback: manually set src for iframes
+      document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((iframe) => {
+        const iframeElement = iframe as HTMLIFrameElement;
+        const tallySource = iframeElement.getAttribute('data-tally-src');
+        if (tallySource) {
+          iframeElement.src = tallySource;
+        }
+      });
+    };
     
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Email Infrastructure Inquiry - ${formData.company || 'New Request'}`);
-    const body = encodeURIComponent(`
-Hello,
-
-I'm interested in your email infrastructure services. Here are my details:
-
-Name: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Company: ${formData.company}
-Mailboxes Needed: ${formData.mailboxes}
-
-Message:
-${formData.message}
-
-Please get back to me with more information about your Outlook 365 infrastructure services.
-
-Best regards,
-${formData.firstName} ${formData.lastName}
-    `);
-    
-    window.location.href = `mailto:support@azureinfra.email?subject=${subject}&body=${body}`;
-  };
+    // Only add script if it doesn't already exist
+    if (!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
+      document.head.appendChild(script);
+    }
+  }, []);
 
   return (
     <section id="contact" className="py-24 bg-muted/30">
@@ -62,6 +60,9 @@ ${formData.firstName} ${formData.lastName}
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to get started with enterprise-grade email infrastructure? 
             Our team is here to help you set up your Outlook 365 mailboxes quickly and efficiently.
+            <span className="block mt-3 text-primary font-semibold">
+              ⚡ Get your mailboxes ready in just 3 hours!
+            </span>
           </p>
         </div>
         
@@ -101,12 +102,35 @@ ${formData.firstName} ${formData.lastName}
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
+                      <Calendar className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-foreground mb-2">Schedule a Call</h4>
+                      <p className="text-muted-foreground mb-3">Speak with our team directly</p>
+                      <a 
+                        href={siteConfig.contact.calendly} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" className="w-full">
+                          Book a Call
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-gradient-card border-primary/10">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
                       <Clock className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-2">Response Time</h4>
-                      <p className="text-muted-foreground mb-2">We typically respond within</p>
-                      <p className="text-primary font-medium">&lt; 3 hours</p>
+                      <h4 className="font-semibold text-foreground mb-2">Setup Time</h4>
+                      <p className="text-muted-foreground mb-2">Your mailboxes ready in</p>
+                      <p className="text-primary font-bold text-lg">3 hours</p>
                     </div>
                   </div>
                 </CardContent>
@@ -130,120 +154,61 @@ ${formData.firstName} ${formData.lastName}
           </div>
           
           {/* Contact Form */}
-          <Card className="bg-gradient-card border-primary/10">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold text-foreground">
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-bold text-foreground mb-2">
                 Ready to Get Started?
-              </CardTitle>
-              <p className="text-muted-foreground">
+              </h3>
+              <p className="text-muted-foreground mb-4">
                 Tell us about your email infrastructure needs and we'll help you get set up.
               </p>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      First Name *
-                    </label>
-                    <input 
-                      type="text" 
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="John"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Last Name *
-                    </label>
-                    <input 
-                      type="text" 
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="Doe"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Email Address *
-                  </label>
-                  <input 
-                    type="email" 
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="john@company.com"
-                  />
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Company Name
-                  </label>
-                  <input 
-                    type="text" 
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="Your Company"
-                  />
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Number of Mailboxes Needed
-                  </label>
-                  <select 
-                    name="mailboxes"
-                    value={formData.mailboxes}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
-                  >
-                    <option value="">Select range</option>
-                    <option value="1-10">1-10 mailboxes</option>
-                    <option value="11-50">11-50 mailboxes</option>
-                    <option value="51-100">51-100 mailboxes</option>
-                    <option value="100+">100+ mailboxes</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Message
-                  </label>
-                  <textarea 
-                    rows={4}
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
-                    placeholder="Tell us about your email infrastructure needs..."
-                  />
-                </div>
-                
-                <Button type="submit" className="w-full" size="lg">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
-                
-                <p className="text-xs text-muted-foreground text-center">
-                  By submitting this form, you agree to our privacy policy and terms of service.
+              <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 mb-6">
+                <p className="text-primary font-semibold text-center">
+                  🚀 Fast Setup: Your mailboxes will be ready in just 3 hours!
                 </p>
-              </form>
-            </CardContent>
-          </Card>
+              </div>
+            </div>
+            <div className="relative">
+              <iframe 
+                data-tally-src="https://tally.so/embed/mZbrYB?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                loading="lazy"
+                width="100%"
+                height="500"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                title="Contact Form"
+                className="min-h-[500px] border-0"
+                style={{ background: 'transparent' }}
+              ></iframe>
+              <style>{`
+                iframe[data-tally-src] {
+                  overflow: hidden !important;
+                }
+                
+                /* Hide Tally logo and branding */
+                .tally-logo,
+                .tally-branding,
+                [class*="tally"]:has(img),
+                [class*="branding"],
+                [class*="logo"],
+                iframe[data-tally-src] + div,
+                iframe[data-tally-src] ~ div:has(img),
+                div:has(> a[href*="tally.so"]),
+                a[href*="tally.so"],
+                .tally-footer,
+                .tally-powered-by {
+                  display: none !important;
+                  visibility: hidden !important;
+                  opacity: 0 !important;
+                  height: 0 !important;
+                  overflow: hidden !important;
+                  position: absolute !important;
+                  left: -9999px !important;
+                }
+              `}</style>
+            </div>
+          </div>
         </div>
         
         {/* Quick Stats */}

@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "name": "Azure Email Velocity",
-  "description": "Enterprise-grade Outlook 365 email infrastructure provider offering professional mailboxes with Microsoft Azure backing, enterprise security, and 99.9% uptime guarantee at $3.33 per mailbox.",
+  "description": "Premium Azure-powered cold email infrastructure for marketers who need maximum deliverability. 99.9% inbox rates, dedicated IPs, domain isolation at $1.50 per mailbox.",
   "url": "https://azureinfra.email",
   "logo": "https://azureinfra.email/logo.png",
   "contact": {
@@ -10,43 +10,43 @@
   },
   "services": [
     {
-      "name": "Outlook 365 Infrastructure",
-      "description": "Enterprise-grade Outlook 365 mailboxes with full Microsoft infrastructure backing",
-      "category": "Email Infrastructure",
+      "name": "Premium Cold Email Infrastructure",
+      "description": "Azure-powered cold email infrastructure with maximum deliverability for high-volume campaigns",
+      "category": "Cold Email Infrastructure",
       "pricing": {
         "model": "subscription",
-        "price": 3.33,
+        "price": 1.50,
         "currency": "USD",
         "period": "monthly",
         "unit": "mailbox"
       },
       "features": [
-        "Azure-powered infrastructure",
-        "99.9% uptime guarantee",
-        "Full Outlook 365 capabilities",
-        "Enterprise security standards",
-        "Real-time monitoring",
-        "Pre-configured domains & authentication",
-        "Exchange Online integration",
-        "Microsoft ecosystem access",
-        "24/7 infrastructure monitoring",
-        "Instant activation"
+        "99.9% inbox delivery rates",
+        "Dedicated Azure IPs per domain",
+        "Complete domain isolation",
+        "Pre-configured SPF/DKIM/DMARC",
+        "High-volume campaign support (10k+ emails/day)",
+        "Outlook 365 infrastructure",
+        "Instant setup (zero configuration)",
+        "Backup domain infrastructure",
+        "Advanced reputation management",
+        "Cold email campaign optimization"
       ]
     }
   ],
   "technology": {
     "platform": "Microsoft Azure",
     "email_service": "Outlook 365",
-    "security": "Enterprise-grade with ATP",
-    "uptime": "99.9%",
-    "support": "24/7"
+    "infrastructure": "Dedicated IPs & Domain Isolation",
+    "deliverability": "99.9% inbox rate",
+    "volume": "High-volume campaigns supported"
   },
   "target_market": [
-    "Small to medium businesses",
-    "Enterprise organizations",
-    "Companies requiring reliable email infrastructure",
-    "Organizations needing Microsoft ecosystem integration",
-    "Businesses seeking professional email hosting"
+    "Cold email marketers",
+    "Lead generation agencies",
+    "Sales development teams",
+    "B2B outreach specialists",
+    "High-volume email campaigns (10k+ per day)"
   ],
   "competitive_advantages": [
     "No compromise on quality",
