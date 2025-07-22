@@ -1,12 +1,28 @@
 import { Mail } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { siteConfig } from "@/config/config";
 
 const Footer = () => {
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ 
-      behavior: 'smooth' 
-    });
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (sectionId: string) => {
+    // If we're not on the homepage, navigate to homepage first
+    if (location.pathname !== '/') {
+      navigate(`/#${sectionId}`);
+      // Small delay to allow navigation to complete before scrolling
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      }, 100);
+    } else {
+      // We're on homepage, just scroll
+      document.getElementById(sectionId)?.scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
   };
 
   return (
@@ -30,12 +46,21 @@ const Footer = () => {
             <ul className="space-y-2">
               {siteConfig.navigation.footer.product.map((item, index) => (
                 <li key={index}>
-                  <button 
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-muted-foreground hover:text-primary transition-colors text-left"
-                  >
-                    {item.name}
-                  </button>
+                  {item.link ? (
+                    <a 
+                      href={item.link}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <button 
+                      onClick={() => handleNavigation(item.id)}
+                      className="text-muted-foreground hover:text-primary transition-colors text-left"
+                    >
+                      {item.name}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -55,7 +80,7 @@ const Footer = () => {
                     </a>
                   ) : (
                     <button 
-                      onClick={() => scrollToSection(item.id!)}
+                      onClick={() => handleNavigation(item.id!)}
                       className="text-muted-foreground hover:text-primary transition-colors text-left"
                     >
                       {item.name}

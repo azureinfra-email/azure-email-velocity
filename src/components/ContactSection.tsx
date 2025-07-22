@@ -63,6 +63,9 @@ const ContactSection = () => {
             <span className="block mt-3 text-primary font-semibold">
               ⚡ Get your mailboxes ready in just 3 hours!
             </span>
+            <span className="block mt-2 text-green-600 font-medium">
+              🛡️ Risk-free with our 30-day money-back guarantee
+            </span>
           </p>
         </div>
         

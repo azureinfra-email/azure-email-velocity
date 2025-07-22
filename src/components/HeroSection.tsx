@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Shield } from "lucide-react";
+import { Mail, Shield, BookOpen } from "lucide-react";
 import { siteConfig } from "@/config/config";
 import heroImage from "@/assets/hero-email.jpg";
 
@@ -29,13 +29,16 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
-            Premium Azure-powered cold email infrastructure for marketers who demand <strong className="text-white">99.9% inbox rates</strong>. 
-            Dedicated IPs, domain isolation, and enterprise-grade deliverability at competitive pricing.
+            Premium Azure-powered cold email infrastructure for marketers who demand <strong className="text-white">maximum deliverability potential</strong>. 
+            Dedicated IPs, domain isolation, and enterprise-grade infrastructure built for high inbox rates.
             <span className="block mt-3 text-cyan-200 font-semibold">
-              🚀 Mailboxes ready in just 3 hours!
+              🚀 Mailboxes ready in just 1 hour!
             </span>
             <span className="block mt-2 text-green-200 font-medium">
               ✅ SPF, DKIM, DMARC auto-configured - 100% compliant
+            </span>
+            <span className="block mt-2 text-yellow-200 font-medium">
+              🛡️ 30-day money-back guarantee
             </span>
           </p>
           
@@ -52,6 +55,13 @@ const HeroSection = () => {
             >
               Compare Prices
             </Button>
+          </div>
+          
+          <div className="mb-8">
+            <a href="/warmup-guide" className="inline-flex items-center gap-2 text-cyan-200 hover:text-white transition-colors group">
+              <BookOpen className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium underline">Learn proper warmup strategies for maximum deliverability →</span>
+            </a>
           </div>
           
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">

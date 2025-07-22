@@ -8,16 +8,18 @@ import {
   TrendingUp,
   Cloud,
   Mail,
-  BarChart3
+  BarChart3,
+  AlertTriangle,
+  BookOpen
 } from "lucide-react";
 import { siteConfig } from "@/config/config";
 
 const features = [
   {
     icon: Target,
-    title: "Maximum Inbox Delivery",
-    description: "99.9% inbox rates with dedicated Azure IPs, advanced reputation management, and pre-warmed domain infrastructure for cold email campaigns.",
-    highlight: "99.9% Inbox Rate"
+    title: "Maximum Deliverability Potential",
+    description: "Optimized infrastructure with dedicated Azure IPs, advanced reputation management, and pre-warmed domain infrastructure designed for high inbox delivery rates in cold email campaigns.",
+    highlight: "Premium Infrastructure"
   },
   {
     icon: Shield,
@@ -98,6 +100,25 @@ const FeaturesSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        
+        <div className="mt-12 max-w-4xl mx-auto">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <div className="flex items-start gap-3">
+              <AlertTriangle className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold text-blue-800 mb-2">Deliverability Success Requires Proper Execution</h3>
+                <p className="text-blue-700 text-sm mb-3">
+                  While our infrastructure provides the foundation for high deliverability, your actual inbox rates depend on 
+                  proper warmup strategies, list quality, content relevance, and sending patterns.
+                </p>
+                <a href="/warmup-guide" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors group">
+                  <BookOpen className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm font-medium underline">Learn our proven warmup strategies →</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         
         <div className="mt-16 text-center">

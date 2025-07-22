@@ -27,14 +27,14 @@ const PriceComparisonSection = () => {
       setupCost: "Free",
       mailboxCost: `${siteConfig.pricing.displayPrice} each`,
       domainCost: `${siteConfig.pricing.domain.displayPrice} one-time`,
-      domainsNeeded: "4-12 domains",
-      setupTime: "3 hours",
+      domainsNeeded: "2-6 domains",
+      setupTime: "1 hour",
       dnsSetup: "Auto SPF/DKIM/DMARC",
-      infraQuality: "Real Azure",
-      ipQuality: "Extremely high",
-      isolation: "Per domain + beyond",
-      domainBuying: "On-platform (quality)",
-      userCreation: "Automated + AI",
+      infraQuality: "Pure Azure Enterprise",
+      ipQuality: "Premium dedicated",
+      isolation: "Complete domain isolation",
+      domainBuying: "AI-powered selection",
+      userCreation: "Instant AI automation",
       highlight: true
     },
     {
@@ -42,14 +42,14 @@ const PriceComparisonSection = () => {
       setupCost: "$1,500",
       mailboxCost: "$0.50 each",
       domainCost: "$186 one-time",
-      domainsNeeded: "12 domains",
+      domainsNeeded: "12+ domains",
       setupTime: "5-8 hours", 
-      dnsSetup: "Automated",
-      infraQuality: "Azure (O365-based)",
-      ipQuality: "Very high",
-      isolation: "Per domain",
-      domainBuying: "On-platform",
-      userCreation: "Automated",
+      dnsSetup: "Semi-automated",
+      infraQuality: "Shared Azure (O365)",
+      ipQuality: "Shared pool",
+      isolation: "Basic domain separation",
+      domainBuying: "Manual selection",
+      userCreation: "Semi-automated",
       highlight: false
     },
     {
@@ -60,11 +60,11 @@ const PriceComparisonSection = () => {
       domainsNeeded: "20+ domains",
       setupTime: "1-2 weeks",
       dnsSetup: "Manual + Support",
-      infraQuality: "Mixed platforms",
-      ipQuality: "High",
-      isolation: "Shared resources",
-      domainBuying: "Third-party",
-      userCreation: "Manual setup",
+      infraQuality: "Mixed/legacy platforms",
+      ipQuality: "Variable quality",
+      isolation: "Shared infrastructure",
+      domainBuying: "Third-party vendors",
+      userCreation: "Manual configuration",
       highlight: false
     }
   ];
@@ -93,13 +93,38 @@ const PriceComparisonSection = () => {
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Compare Your
-            <span className="block bg-gradient-primary bg-clip-text text-transparent">Options</span>
+            Why We're The
+            <span className="block bg-gradient-primary bg-clip-text text-transparent">Clear Winner</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            See how we stack up against the competition for 600 mailboxes
+            Premium enterprise infrastructure at startup prices. Compare our advanced features and better value.
           </p>
+          
+          {/* Key Advantages */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Check className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Fastest Setup</h3>
+              <p className="text-sm text-muted-foreground">1 hour vs 5-8 hours (competitors)</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Check className="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Pure Azure Enterprise</h3>
+              <p className="text-sm text-muted-foreground">Not shared O365 like others</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Check className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Fewer Domains Needed</h3>
+              <p className="text-sm text-muted-foreground">2-6 domains vs 12+ (save money)</p>
+            </div>
+          </div>
         </div>
 
         {/* Mobile-friendly comparison cards */}
