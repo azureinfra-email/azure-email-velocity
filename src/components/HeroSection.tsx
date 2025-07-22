@@ -42,9 +42,9 @@ const HeroSection = () => {
               variant="outline" 
               size="lg" 
               className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
-              onClick={() => scrollToSection('features')}
+              onClick={() => scrollToSection('comparison')}
             >
-              Learn More
+              Compare Prices
             </Button>
           </div>
           

@@ -37,6 +37,12 @@ const Header = () => {
               Pricing
             </button>
             <button 
+              onClick={() => scrollToSection('comparison')}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Compare
+            </button>
+            <button 
               onClick={() => scrollToSection('contact')}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
@@ -75,6 +81,12 @@ const Header = () => {
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
               >
                 Pricing
+              </button>
+              <button 
+                onClick={() => scrollToSection('comparison')}
+                className="text-muted-foreground hover:text-primary transition-colors text-left"
+              >
+                Compare
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}

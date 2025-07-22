@@ -89,11 +89,21 @@ const PricingSection = () => {
                 </ul>
                 
                 <Button 
-                  className="w-full" 
+                  className="w-full mb-4" 
                   variant="default"
                   size="lg"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Get Started Now
+                </Button>
+                
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  size="lg"
+                  onClick={() => document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Compare with Competitors
                 </Button>
               </CardContent>
             </Card>

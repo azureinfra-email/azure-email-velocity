@@ -10,10 +10,10 @@ export const siteConfig = {
   
   // Pricing
   pricing: {
-    price: 3.33,
+    price: 1.50,
     currency: "USD",
     period: "per mailbox/month",
-    displayPrice: "$3.33"
+    displayPrice: "$1.50"
   },
   
   // Contact information
@@ -153,12 +153,14 @@ export const siteConfig = {
     main: [
       { name: "Features", id: "features" },
       { name: "Pricing", id: "pricing" },
+      { name: "Compare", id: "comparison" },
       { name: "Contact", id: "contact" }
     ],
     footer: {
       product: [
         { name: "Features", id: "features" },
-        { name: "Pricing", id: "pricing" }, 
+        { name: "Pricing", id: "pricing" },
+        { name: "Compare", id: "comparison" },
         { name: "Contact", id: "contact" }
       ],
       company: [
