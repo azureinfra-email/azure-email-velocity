@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-interface GetStartedButtonProps extends Omit<ButtonProps, 'onClick'> {
+interface GetStartedButtonProps extends Omit<ButtonProps, 'onClick' | 'variant'> {
   /**
    * Text to display on the button
    */
@@ -12,7 +12,7 @@ interface GetStartedButtonProps extends Omit<ButtonProps, 'onClick'> {
    */
   onClick?: () => void;
   /**
-   * Whether to use the full "Get Started Today" text or shorter "Get Started"
+   * Button variant style
    */
   variant?: "default" | "outline" | "secondary" | "destructive" | "ghost" | "link" | "hero";
   /**
