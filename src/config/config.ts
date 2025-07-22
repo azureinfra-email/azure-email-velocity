@@ -6,7 +6,7 @@ export const siteConfig = {
   name: "Azure Email Velocity",
   domain: "azureinfra.email",
   tagline: "Cold Email Infrastructure for Maximum Deliverability",
-  description: "Premium Azure-powered cold email infrastructure for marketers who need maximum deliverability. Enterprise-grade Outlook 365 mailboxes with dedicated IPs, domain isolation, and 99.9% inbox rates.",
+  description: "Premium Azure-powered cold email infrastructure for marketers who need maximum deliverability potential. Enterprise-grade Outlook 365 mailboxes with dedicated IPs, domain isolation, and optimized infrastructure for high inbox rates.",
   
   // Pricing
   pricing: {
@@ -27,6 +27,19 @@ export const siteConfig = {
     responseTime: "< 3 hours",
     responseTimeShort: "< 3h",
     calendly: "https://calendly.com/dharm-azureinfra/30min"
+  },
+  
+  // Money-back guarantee
+  guarantee: {
+    period: "30 days",
+    title: "30-Day Money-Back Guarantee",
+    description: "Try our service risk-free. If you're not completely satisfied with your email deliverability within 30 days, we'll refund your entire first month payment.",
+    features: [
+      "Full refund if not satisfied",
+      "No questions asked policy",
+      "Cancel anytime within 30 days",
+      "Keep all emails sent during trial"
+    ]
   },
   
   // Company details
@@ -140,9 +153,9 @@ export const siteConfig = {
   // SEO metadata
   seo: {
     title: "Azure Email Velocity - Premium Cold Email Infrastructure for Maximum Deliverability",
-    metaDescription: "Premium Azure-powered cold email infrastructure at $1.50/mailbox. 99.9% inbox rates, dedicated IPs, domain isolation, instant setup. Built for high-volume cold email marketers.",
+    metaDescription: "Premium Azure-powered cold email infrastructure at $1.50/mailbox. Maximum deliverability potential with dedicated IPs, domain isolation, instant setup. Built for high-volume cold email marketers.",
     ogTitle: "Premium Cold Email Infrastructure - Azure Email Velocity",
-    ogDescription: "99.9% inbox rates with dedicated Azure infrastructure. Premium cold email deliverability at $1.50/mailbox with domain isolation and instant setup.",
+    ogDescription: "Maximum deliverability potential with dedicated Azure infrastructure. Premium cold email infrastructure at $1.50/mailbox with domain isolation and instant setup.",
     ogImage: "/assets/hero-email.jpg",
     keywords: [
       "cold email infrastructure",
@@ -175,6 +188,7 @@ export const siteConfig = {
         { name: "Pricing", id: "pricing" },
         { name: "Compare", id: "comparison" },
         { name: "Calculator", id: "calculator" },
+        { name: "Warmup Guide", link: "/warmup-guide" },
         { name: "Contact", id: "contact" }
       ],
       company: [

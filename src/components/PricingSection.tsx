@@ -95,6 +95,12 @@ const PricingSection = () => {
                   size="lg"
                   text="Get Started Now"
                 />
+                
+                <div className="text-center">
+                  <p className="text-xs text-muted-foreground">
+                    🛡️ 30-day money-back guarantee
+                  </p>
+                </div>
               </CardContent>
             </Card>
           ))}

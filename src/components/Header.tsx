@@ -1,17 +1,52 @@
 import { Button } from "@/components/ui/button";
 import GetStartedButton from "@/components/ui/GetStartedButton";
 import { Mail, Menu } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { siteConfig } from "@/config/config";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ 
-      behavior: 'smooth' 
-    });
+  // Handle hash-based navigation when component mounts or location changes
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash) {
+      const sectionId = location.hash.substring(1); // Remove the #
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      }, 100);
+    }
+  }, [location]);
+
+  const handleNavigation = (sectionId: string) => {
+    // If we're not on the homepage, navigate to homepage first
+    if (location.pathname !== '/') {
+      navigate(`/#${sectionId}`);
+      // Small delay to allow navigation to complete before scrolling
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      }, 100);
+    } else {
+      // We're on homepage, just scroll
+      document.getElementById(sectionId)?.scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
     setIsMenuOpen(false); // Close mobile menu after clicking
+  };
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      window.location.reload();
+    } else {
+      navigate('/');
+    }
   };
 
   return (
@@ -20,7 +55,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div 
             className="flex items-center gap-2 cursor-pointer" 
-            onClick={() => window.location.reload()}
+            onClick={handleLogoClick}
           >
             <div className="p-2 bg-primary rounded-lg">
               <Mail className="w-6 h-6 text-white" />
@@ -30,31 +65,43 @@ const Header = () => {
           
           <nav className="hidden md:flex items-center gap-8">
             <button 
-              onClick={() => scrollToSection('features')}
+              onClick={() => handleNavigation('features')}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Features
             </button>
             <button 
-              onClick={() => scrollToSection('pricing')}
+              onClick={() => handleNavigation('pricing')}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Pricing
             </button>
             <button 
-              onClick={() => scrollToSection('comparison')}
+              onClick={() => handleNavigation('comparison')}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Compare
             </button>
             <button 
-              onClick={() => scrollToSection('calculator')}
+              onClick={() => handleNavigation('calculator')}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Calculator
             </button>
+            <a 
+              href="/warmup-guide"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Warmup Guide
+            </a>
             <button 
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavigation('guarantee')}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Guarantee
+            </button>
+            <button 
+              onClick={() => handleNavigation('contact')}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Contact
@@ -85,31 +132,43 @@ const Header = () => {
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
               <button 
-                onClick={() => scrollToSection('features')}
+                onClick={() => handleNavigation('features')}
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
               >
                 Features
               </button>
               <button 
-                onClick={() => scrollToSection('pricing')}
+                onClick={() => handleNavigation('pricing')}
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
               >
                 Pricing
               </button>
               <button 
-                onClick={() => scrollToSection('comparison')}
+                onClick={() => handleNavigation('comparison')}
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
               >
                 Compare
               </button>
               <button 
-                onClick={() => scrollToSection('calculator')}
+                onClick={() => handleNavigation('calculator')}
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
               >
                 Calculator
               </button>
+              <a 
+                href="/warmup-guide"
+                className="text-muted-foreground hover:text-primary transition-colors text-left"
+              >
+                Warmup Guide
+              </a>
               <button 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleNavigation('guarantee')}
+                className="text-muted-foreground hover:text-primary transition-colors text-left"
+              >
+                Guarantee
+              </button>
+              <button 
+                onClick={() => handleNavigation('contact')}
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
               >
                 Contact
