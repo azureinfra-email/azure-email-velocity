@@ -51,7 +51,7 @@ const TermsOfService = () => {
               Agreement to Terms
             </h2>
             <p className="text-muted-foreground">
-              By accessing and using {siteConfig.name}'s email infrastructure services, you accept and agree to be bound by the terms and provision of this agreement.
+              By accessing and using {siteConfig.name}'s email infrastructure services, you accept and agree to be bound by the terms and provisions of this agreement.
             </p>
           </div>
 

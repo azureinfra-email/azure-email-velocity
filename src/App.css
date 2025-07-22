@@ -5,6 +5,18 @@
   text-align: center;
 }
 
+.tally-powered {
+  display: none !important;
+}
+
+[data-sentry-component="PoweredByBadge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

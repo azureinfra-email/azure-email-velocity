@@ -18,19 +18,22 @@ const HeroSection = () => {
         <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20">
             <Shield className="w-4 h-4 text-white" />
-            <span className="text-white text-sm font-medium">Microsoft Outlook 365 Infrastructure</span>
+            <span className="text-white text-sm font-medium">Premium Cold Email Infrastructure</span>
           </div>
           
           <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-            Enterprise Email
+            Maximum Deliverability
             <span className="block bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">
-              Infrastructure
+              Cold Email Infrastructure
             </span>
           </h1>
           
           <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
-            Professional Outlook 365 mailboxes with enterprise-grade security and reliability. 
-            <strong className="text-white"> Get instant access to Microsoft's email infrastructure</strong> at competitive pricing.
+            Premium Azure-powered cold email infrastructure for marketers who demand <strong className="text-white">99.9% inbox rates</strong>. 
+            Dedicated IPs, domain isolation, and enterprise-grade deliverability at competitive pricing.
+            <span className="block mt-3 text-cyan-200 font-semibold">
+              🚀 Mailboxes ready in just 3 hours!
+            </span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-8">

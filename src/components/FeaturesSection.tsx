@@ -10,43 +10,44 @@ import {
   Mail,
   BarChart3
 } from "lucide-react";
+import { siteConfig } from "@/config/config";
 
 const features = [
   {
-    icon: Mail,
-    title: "Outlook 365 Infrastructure",
-    description: "Enterprise-grade Outlook 365 mailboxes with full Microsoft infrastructure backing, ensuring maximum deliverability and trust.",
-    highlight: "Office 365"
+    icon: Target,
+    title: "Maximum Inbox Delivery",
+    description: "99.9% inbox rates with dedicated Azure IPs, advanced reputation management, and pre-warmed domain infrastructure for cold email campaigns.",
+    highlight: "99.9% Inbox Rate"
   },
   {
     icon: Shield,
-    title: "Microsoft Security Standards",
-    description: "Built-in security features including Advanced Threat Protection, encryption, and compliance with enterprise security protocols.",
-    highlight: "Enterprise Security"
-  },
-  {
-    icon: Cloud,
-    title: "Azure Cloud Platform",
-    description: "Hosted on Microsoft Azure with 99.9% uptime guarantee, global data centers, and enterprise-level reliability.",
-    highlight: "99.9% Uptime"
-  },
-  {
-    icon: CheckCircle,
-    title: "Exchange Online Integration",
-    description: "Full Exchange Online capabilities with calendar, contacts, and advanced email management features built-in.",
-    highlight: "Exchange Online"
-  },
-  {
-    icon: Target,
-    title: "Domain Reputation Management",
-    description: "Pre-configured domains with established sender reputation, SPF, DKIM, and DMARC records for optimal deliverability.",
-    highlight: "Pre-Configured"
+    title: "Domain Isolation & Protection",
+    description: "Each domain gets dedicated Azure infrastructure with IP isolation, protecting your reputation from other users and campaigns.",
+    highlight: "Dedicated IPs"
   },
   {
     icon: Zap,
-    title: "Instant Activation",
-    description: "Ready-to-use mailboxes with immediate access to full Outlook features, mobile sync, and Microsoft ecosystem integration.",
-    highlight: "Instant Setup"
+    title: "Instant Campaign Ready",
+    description: "Pre-configured SPF, DKIM, DMARC, and DNS settings. Start sending high-volume cold campaigns within minutes of setup.",
+    highlight: "Zero Setup Time"
+  },
+  {
+    icon: Mail,
+    title: "Enterprise Outlook 365",
+    description: "Full Microsoft Outlook 365 infrastructure with Exchange Online, ensuring maximum compatibility and professional appearance.",
+    highlight: "Office 365"
+  },
+  {
+    icon: Cloud,
+    title: "Scalable Azure Infrastructure",
+    description: "Built on Microsoft Azure with auto-scaling capabilities to handle high-volume campaigns (10k+ emails per day per domain).",
+    highlight: "High Volume"
+  },
+  {
+    icon: CheckCircle,
+    title: "Cold Email Optimized",
+    description: "Purpose-built for cold email marketers with advanced deliverability features, backup domains, and campaign management tools.",
+    highlight: "Cold Email Focus"
   }
 ];
 
@@ -57,17 +58,17 @@ const FeaturesSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-card rounded-full px-4 py-2 mb-6 border border-primary/20">
             <BarChart3 className="w-4 h-4 text-primary" />
-            <span className="text-primary text-sm font-medium">Microsoft Infrastructure</span>
+            <span className="text-primary text-sm font-medium">Cold Email Infrastructure</span>
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Enterprise 
-            <span className="bg-gradient-primary bg-clip-text text-transparent"> Email Infrastructure</span>
+            Maximum Deliverability
+            <span className="bg-gradient-primary bg-clip-text text-transparent"> Infrastructure</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Professional Outlook 365 mailboxes with enterprise-grade security, reliability, and Microsoft ecosystem integration. 
-            Get instant access to fully configured email infrastructure at $3.33 per mailbox.
+            Premium Azure-powered infrastructure designed specifically for cold email marketers who need maximum inbox delivery rates. 
+            Get dedicated IPs, domain isolation, and enterprise-grade deliverability at {siteConfig.pricing.displayPrice} per mailbox.
           </p>
         </div>
         
