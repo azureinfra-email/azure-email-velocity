@@ -43,7 +43,7 @@ const CalculatorSection = () => {
   const hypertideSetup = 1500;
   const hypertideMonthly = mailboxCount * 0.50;
   const hypertideDomains = domainCount * 186;
-  const hypertideFirstMonth = hypertideSetup + hyptertideMonthly + hypertideDomains;
+  const hypertideFirstMonth = hypertideSetup + hypertideMonthly + hypertideDomains;
   
   const superwaveSetup = 6000;
   const superwaveMonthly = mailboxCount * 1.00;
