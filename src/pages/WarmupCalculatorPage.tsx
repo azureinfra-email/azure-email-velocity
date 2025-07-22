@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { seoConfig } from "@/config/seo";
 import WarmupCalculator from "@/components/WarmupCalculator";
 import { Calculator, TrendingUp, Users, Clock } from "lucide-react";
 
@@ -22,6 +24,13 @@ const WarmupCalculatorPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={seoConfig.warmupCalculator.title}
+        description={seoConfig.warmupCalculator.description}
+        keywords={seoConfig.warmupCalculator.keywords}
+        canonical={seoConfig.warmupCalculator.canonical}
+        schemaType={seoConfig.warmupCalculator.schemaType}
+      />
       <Header />
       
       {/* Hero Section */}
@@ -157,8 +166,6 @@ const WarmupCalculatorPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

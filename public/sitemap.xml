@@ -7,54 +7,174 @@
   <!-- Homepage -->
   <url>
     <loc>https://azureinfra.email/</loc>
-    <lastmod>2025-07-22</lastmod>
+    <lastmod>2025-01-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- Main sections -->
+  <!-- Main pages -->
   <url>
-    <loc>https://azureinfra.email/#features</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://azureinfra.email/tools</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://azureinfra.email/#pricing</loc>
-    <lastmod>2025-07-22</lastmod>
+    <loc>https://azureinfra.email/warmup-calculator</loc>
+    <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://azureinfra.email/#inbox-delivery</loc>
-    <lastmod>2025-07-22</lastmod>
+    <loc>https://azureinfra.email/warmup-guide</loc>
+    <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- Email tools -->
+  <url>
+    <loc>https://azureinfra.email/tools/username-generator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/domain-generator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/person-generator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/subject-line-generator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/email-validator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/spam-analyzer</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/sequence-planner</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/utm-generator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/email-signature-generator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/spintax-generator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/email-preview</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/ab-subject-line-tester</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/best-send-time-calculator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/timezone-converter</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/dns-record-generator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/tools/template-generator</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Legal pages -->
+  <url>
+    <loc>https://azureinfra.email/privacy</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://azureinfra.email/terms</loc>
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   
   <!-- API and documentation files -->
   <url>
     <loc>https://azureinfra.email/mcp.json</loc>
-    <lastmod>2025-07-22</lastmod>
+    <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
     <loc>https://azureinfra.email/llm.json</loc>
-    <lastmod>2025-07-22</lastmod>
+    <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
-  </url>
-  
-  <!-- Assets -->
-  <url>
-    <loc>https://azureinfra.email/assets/hero-email.jpg</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
   
 </urlset>

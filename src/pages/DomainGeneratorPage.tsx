@@ -227,7 +227,7 @@ const DomainGeneratorPage = () => {
 
   const openDomainChecker = (domain: string) => {
     const domainName = domain.replace(/\./g, '');
-    window.open(`https://whois.net/whois/${domainName}`, '_blank');
+    window?.open(`https://whois.net/whois/${domainName}`, '_blank');
   };
 
   const toggleExtension = (ext: string) => {
@@ -534,8 +534,6 @@ const DomainGeneratorPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
