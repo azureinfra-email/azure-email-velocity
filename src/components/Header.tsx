@@ -13,7 +13,7 @@ const Header = () => {
             <div className="p-2 bg-primary rounded-lg">
               <Mail className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-foreground">EmailFlow</span>
+            <span className="text-xl font-bold text-foreground">azureinfra.email</span>
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
@@ -22,12 +22,6 @@ const Header = () => {
             </a>
             <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">
               Pricing
-            </a>
-            <a href="#docs" className="text-muted-foreground hover:text-primary transition-colors">
-              Documentation
-            </a>
-            <a href="#support" className="text-muted-foreground hover:text-primary transition-colors">
-              Support
             </a>
           </nav>
           
@@ -56,12 +50,6 @@ const Header = () => {
               </a>
               <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">
                 Pricing
-              </a>
-              <a href="#docs" className="text-muted-foreground hover:text-primary transition-colors">
-                Documentation
-              </a>
-              <a href="#support" className="text-muted-foreground hover:text-primary transition-colors">
-                Support
               </a>
               <div className="flex flex-col gap-2 pt-4">
                 <Button variant="ghost" className="justify-start">

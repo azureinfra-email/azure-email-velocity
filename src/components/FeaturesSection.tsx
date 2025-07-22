@@ -32,9 +32,9 @@ const features = [
   },
   {
     icon: Clock,
-    title: "Timely Responses",
-    description: "Real-time email processing and instant reply handling. Never miss an important response or opportunity.",
-    highlight: "<2s Response"
+    title: "Fine-Grained Control",
+    description: "Complete control over your email infrastructure. Configure, monitor, and optimize every aspect of your delivery pipeline.",
+    highlight: "Full Control"
   },
   {
     icon: CheckCircle,

@@ -30,10 +30,10 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button variant="hero" size="lg" className="group">
                 <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                Get Started Now
+                Start at $3.33/mailbox
               </Button>
               <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm">
-                View Demo
+                Learn More
               </Button>
             </div>
             
