@@ -519,8 +519,6 @@ const PersonGeneratorPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

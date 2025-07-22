@@ -7,7 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Mail, Menu, ChevronDown, ThermometerSun, Calculator, Wrench, AtSign, Globe, UserCircle } from "lucide-react";
+import { Mail, Menu, ChevronDown, ThermometerSun, Calculator, Wrench, AtSign, Globe, UserCircle, MessageSquare, CheckCircle, Shield, Calendar, Link, BarChart3, Signature, TestTube2, Clock, Wand2, Eye } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { siteConfig } from "@/config/config";
@@ -50,7 +50,7 @@ const Header = () => {
 
   const handleLogoClick = () => {
     if (location.pathname === '/') {
-      window.location.reload();
+      window?.location?.reload();
     } else {
       navigate('/');
     }
@@ -130,6 +130,84 @@ const Header = () => {
                   <a href="/tools/person-generator" className="flex items-center gap-2 w-full">
                     <UserCircle className="w-4 h-4" />
                     Person Generator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/subject-line-generator" className="flex items-center gap-2 w-full">
+                    <MessageSquare className="w-4 h-4" />
+                    Subject Line Generator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/utm-generator" className="flex items-center gap-2 w-full">
+                    <Link className="w-4 h-4" />
+                    UTM Generator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/email-signature-generator" className="flex items-center gap-2 w-full">
+                    <Signature className="w-4 h-4" />
+                    Email Signature Generator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/spintax-generator" className="flex items-center gap-2 w-full">
+                    <Wand2 className="w-4 h-4" />
+                    Spintax Generator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/email-preview" className="flex items-center gap-2 w-full">
+                    <Eye className="w-4 h-4" />
+                    Email Preview Tool
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <div className="px-2 py-1.5">
+                  <div className="text-xs font-medium text-muted-foreground mb-1">Testing & Optimization</div>
+                </div>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/ab-subject-line-tester" className="flex items-center gap-2 w-full">
+                    <TestTube2 className="w-4 h-4" />
+                    A/B Subject Line Tester
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/best-send-time-calculator" className="flex items-center gap-2 w-full">
+                    <Clock className="w-4 h-4" />
+                    Best Send Time Calculator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/timezone-converter" className="flex items-center gap-2 w-full">
+                    <Globe className="w-4 h-4" />
+                    Timezone Converter
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <div className="px-2 py-1.5">
+                  <div className="text-xs font-medium text-muted-foreground mb-1">Validation & Analysis</div>
+                </div>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/email-validator" className="flex items-center gap-2 w-full">
+                    <CheckCircle className="w-4 h-4" />
+                    Email Validator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/spam-analyzer" className="flex items-center gap-2 w-full">
+                    <Shield className="w-4 h-4" />
+                    Spam Analyzer
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <div className="px-2 py-1.5">
+                  <div className="text-xs font-medium text-muted-foreground mb-1">Campaign Planning</div>
+                </div>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/sequence-planner" className="flex items-center gap-2 w-full">
+                    <Calendar className="w-4 h-4" />
+                    Sequence Planner
                   </a>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -252,6 +330,54 @@ const Header = () => {
                 >
                   <UserCircle className="w-3 h-3" />
                   Person Generator
+                </a>
+                <a 
+                  href="/tools/email-signature-generator"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Signature className="w-3 h-3" />
+                  Email Signature
+                </a>
+                <a 
+                  href="/tools/spintax-generator"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Wand2 className="w-3 h-3" />
+                  Spintax Generator
+                </a>
+                <a 
+                  href="/tools/email-preview"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Eye className="w-3 h-3" />
+                  Email Preview Tool
+                </a>
+                <a 
+                  href="/tools/ab-subject-line-tester"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <TestTube2 className="w-3 h-3" />
+                  A/B Subject Line Tester
+                </a>
+                <a 
+                  href="/tools/best-send-time-calculator"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Clock className="w-3 h-3" />
+                  Best Send Time Calculator
+                </a>
+                <a 
+                  href="/tools/timezone-converter"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Globe className="w-3 h-3" />
+                  Timezone Converter
                 </a>
               </div>
               {/* Warmup section */}

@@ -26,11 +26,10 @@ Disallow: /components.json
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://azureinfra.email/sitemap.xml
+Sitemap: https://sending-ac.vercel.app/sitemap.xml
 
-# Additional sitemaps for different content types
-# Sitemap: https://azureinfra.email/sitemap-images.xml
-# Sitemap: https://azureinfra.email/sitemap-news.xmloglebot
+# Specific user agents
+User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
@@ -40,7 +39,4 @@ User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
 Allow: /

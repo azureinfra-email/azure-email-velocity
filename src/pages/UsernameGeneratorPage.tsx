@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { seoConfig } from "@/config/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -194,6 +196,13 @@ const UsernameGeneratorPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={seoConfig.usernameGenerator.title}
+        description={seoConfig.usernameGenerator.description}
+        keywords={seoConfig.usernameGenerator.keywords}
+        canonical={seoConfig.usernameGenerator.canonical}
+        schemaType={seoConfig.usernameGenerator.schemaType}
+      />
       <Header />
       
       {/* Hero Section */}

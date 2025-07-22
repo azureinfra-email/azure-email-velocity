@@ -10,6 +10,27 @@ import { BarChart3, Settings, Calendar, TrendingUp, Mail, Clock, Download, Info,
 const WarmupCalculator = () => {
   // Helper function to get URL parameters
   const getUrlParams = () => {
+    if (typeof window === 'undefined') {
+      return {
+        mailboxes: 1,
+        maxPerDay: 10,
+        duration: 8,
+        weekdaysOnly: true,
+        readEmulation: true,
+        customTracking: false,
+        increasePerDay: 1,
+        replyRate: 80,
+        openRate: 100,
+        spamProtection: 100,
+        markImportant: 100,
+        slowWarmup: false,
+        dailyLimit: 10,
+        waitTime: 15,
+        slowRamp: true,
+        inboxTestLimit: 3
+      };
+    }
+    
     const params = new URLSearchParams(window.location.search);
     return {
       mailboxes: parseInt(params.get('mailboxes') || '1'),
@@ -58,6 +79,8 @@ const WarmupCalculator = () => {
 
   // Update URL when state changes
   const updateUrl = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    
     const params = new URLSearchParams();
     
     // Only add parameters that differ from defaults
@@ -133,6 +156,8 @@ const WarmupCalculator = () => {
 
   // Export functions
   const exportToCSV = () => {
+    if (typeof window === 'undefined') return;
+    
     const headers = ['Week', 'Per Mailbox/Day', 'Per Mailbox/Week', 'Total Daily', 'Total Weekly', 'Est. Opens', 'Est. Replies'];
     const csvContent = [
       headers.join(','),
@@ -157,6 +182,8 @@ const WarmupCalculator = () => {
   };
 
   const exportToJSON = () => {
+    if (typeof window === 'undefined') return;
+    
     const exportData = {
       settings: {
         mailboxes,
@@ -191,6 +218,8 @@ const WarmupCalculator = () => {
 
   // Copy current configuration URL to clipboard
   const copyLink = async () => {
+    if (typeof window === 'undefined') return;
+    
     try {
       await navigator.clipboard.writeText(window.location.href);
       // You could add a toast notification here

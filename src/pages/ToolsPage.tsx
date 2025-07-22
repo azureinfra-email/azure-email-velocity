@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SimpleSEO from "@/components/SimpleSEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +14,18 @@ import {
   ArrowRight,
   Zap,
   Target,
-  Users
+  Users,
+  MessageSquare,
+  CheckCircle,
+  Shield,
+  Calendar,
+  Link as LinkIcon,
+  BarChart3,
+  Signature,
+  TestTube2,
+  Clock,
+  Wand2,
+  Eye
 } from "lucide-react";
 
 const ToolsPage = () => {
@@ -58,6 +70,105 @@ const ToolsPage = () => {
       link: "/tools/person-generator", 
       features: ["Realistic name combinations", "Professional job titles", "International diversity", "CSV export"],
       category: "Testing & Demo"
+    },
+    {
+      title: "Subject Line Generator",
+      description: "Create compelling subject lines with psychology triggers, A/B testing variations, and spam score analysis.",
+      icon: MessageSquare,
+      color: "orange",
+      link: "/tools/subject-line-generator",
+      features: ["Psychology triggers", "Industry targeting", "A/B test variations", "Spam score analysis"],
+      category: "Content Creation"
+    },
+    {
+      title: "Email Validator",
+      description: "Validate email addresses with comprehensive syntax, domain, and deliverability checking.",
+      icon: CheckCircle,
+      color: "emerald",
+      link: "/tools/email-validator",
+      features: ["Syntax validation", "Domain verification", "MX record checking", "Bulk processing"],
+      category: "Validation"
+    },
+    {
+      title: "Spam Analyzer",
+      description: "Analyze email content for spam triggers and get detailed recommendations to improve deliverability.",
+      icon: Shield,
+      color: "red",
+      link: "/tools/spam-analyzer",
+      features: ["Content analysis", "Spam scoring", "Detailed feedback", "Improvement suggestions"],
+      category: "Deliverability"
+    },
+    {
+      title: "Sequence Planner",
+      description: "Plan multi-touch email sequences with strategic timing, personalized messaging, and proven frameworks.",
+      icon: Calendar,
+      color: "indigo",
+      link: "/tools/sequence-planner",
+      features: ["Multi-touch strategy", "Strategic timing", "Personalized content", "Industry templates"],
+      category: "Campaign Planning"
+    },
+    {
+      title: "UTM Generator",
+      description: "Create trackable URLs with UTM parameters for precise campaign attribution and performance analysis.",
+      icon: LinkIcon,
+      color: "teal",
+      link: "/tools/utm-generator",
+      features: ["Campaign tracking", "Bulk generation", "UTM templates", "Analytics ready"],
+      category: "Analytics"
+    },
+    {
+      title: "Email Signature Generator",
+      description: "Create professional email signatures with multiple templates, social media links, and mobile-responsive design.",
+      icon: Signature,
+      color: "pink",
+      link: "/tools/email-signature-generator",
+      features: ["4 Professional templates", "Customizable colors", "Social media integration", "HTML export"],
+      category: "Branding"
+    },
+    {
+      title: "Spintax Generator",
+      description: "Create dynamic email variations using spintax syntax to avoid spam filters, increase deliverability, and personalize cold email campaigns at scale.",
+      icon: Wand2,
+      color: "purple",
+      link: "/tools/spintax-generator",
+      features: ["8 Pre-built templates", "Smart variation generator", "Unlimited variations", "Copy-paste ready"],
+      category: "Content Creation"
+    },
+    {
+      title: "Email Preview Tool",
+      description: "Preview your cold emails across different email clients and devices with spam analysis to ensure perfect formatting and deliverability.",
+      icon: Eye,
+      color: "cyan",
+      link: "/tools/email-preview",
+      features: ["Multi-client preview", "Device compatibility", "Spam score analysis", "Character count optimizer"],
+      category: "Testing & Optimization"
+    },
+    {
+      title: "A/B Subject Line Tester",
+      description: "Compare two subject lines head-to-head with predictive open rates, psychology analysis, and optimization recommendations.",
+      icon: TestTube2,
+      color: "amber",
+      link: "/tools/ab-subject-line-tester",
+      features: ["Head-to-head comparison", "Predictive open rates", "Psychology analysis", "Optimization tips"],
+      category: "Testing & Optimization"
+    },
+    {
+      title: "Best Send Time Calculator",
+      description: "Find optimal email send times with visual heatmaps, timezone optimization, and A/B testing schedules for maximum engagement.",
+      icon: Clock,
+      color: "blue",
+      link: "/tools/best-send-time-calculator",
+      features: ["Visual send time heatmap", "Multi-timezone optimization", "A/B test schedules", "Industry-specific insights"],
+      category: "Testing & Optimization"
+    },
+    {
+      title: "Timezone Converter",
+      description: "Convert dates and times across multiple global timezones with business hours indicators and international scheduling optimization.",
+      icon: Globe,
+      color: "indigo",
+      link: "/tools/timezone-converter",
+      features: ["50+ Global timezones", "Business hours indicators", "Multiple conversions", "Meeting scheduler"],
+      category: "Testing & Optimization"
     }
   ];
 
@@ -84,6 +195,55 @@ const ToolsPage = () => {
           button: "hover:bg-purple-50",
           gradient: "from-purple-50 to-pink-50"
         };
+      case "orange":
+        return {
+          icon: "text-orange-600",
+          badge: "bg-orange-100 text-orange-700 border-orange-200",
+          button: "hover:bg-orange-50",
+          gradient: "from-orange-50 to-amber-50"
+        };
+      case "emerald":
+        return {
+          icon: "text-emerald-600",
+          badge: "bg-emerald-100 text-emerald-700 border-emerald-200",
+          button: "hover:bg-emerald-50", 
+          gradient: "from-emerald-50 to-green-50"
+        };
+      case "red":
+        return {
+          icon: "text-red-600",
+          badge: "bg-red-100 text-red-700 border-red-200",
+          button: "hover:bg-red-50",
+          gradient: "from-red-50 to-rose-50"
+        };
+      case "indigo":
+        return {
+          icon: "text-indigo-600", 
+          badge: "bg-indigo-100 text-indigo-700 border-indigo-200",
+          button: "hover:bg-indigo-50",
+          gradient: "from-indigo-50 to-blue-50"
+        };
+      case "teal":
+        return {
+          icon: "text-teal-600",
+          badge: "bg-teal-100 text-teal-700 border-teal-200",
+          button: "hover:bg-teal-50",
+          gradient: "from-teal-50 to-cyan-50"
+        };
+      case "pink":
+        return {
+          icon: "text-pink-600",
+          badge: "bg-pink-100 text-pink-700 border-pink-200",
+          button: "hover:bg-pink-50",
+          gradient: "from-pink-50 to-rose-50"
+        };
+      case "amber":
+        return {
+          icon: "text-amber-600",
+          badge: "bg-amber-100 text-amber-700 border-amber-200",
+          button: "hover:bg-amber-50",
+          gradient: "from-amber-50 to-yellow-50"
+        };
       default:
         return {
           icon: "text-gray-600",
@@ -96,6 +256,10 @@ const ToolsPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SimpleSEO 
+        title="Email Marketing Tools - Azure Email Velocity"
+        description="Free email marketing tools collection. Subject line generators, warmup calculators, email validators, spam analyzers and more professional tools."
+      />
       <Header />
       
       {/* Hero Section */}
@@ -115,8 +279,8 @@ const ToolsPage = () => {
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Essential free tools for cold email campaigns. Generate usernames, domain names, 
-              and personas to streamline your outreach setup.
+              Comprehensive free tools for cold email success. From generating content to validating deliverability,
+              everything you need to run professional outreach campaigns.
             </p>
 
             <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
@@ -206,16 +370,17 @@ const ToolsPage = () => {
           <div className="max-w-2xl mx-auto text-center mt-16">
             <Card className="bg-gradient-to-br from-gray-50 to-slate-50 border-dashed">
               <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-4">Need More Tools?</h3>
+                <h3 className="text-xl font-semibold mb-4">Complete Cold Email Toolkit</h3>
                 <p className="text-muted-foreground mb-6">
-                  We're constantly adding new tools to help with your cold email campaigns. 
-                  Have a suggestion? Let us know what you'd like to see next.
+                  All tools are completely free with no signup required. Export your data, 
+                  copy results, and integrate with your existing workflow seamlessly.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2">
-                  <Badge variant="outline">Email Validators</Badge>
-                  <Badge variant="outline">Subject Line Tester</Badge>
-                  <Badge variant="outline">ESP Checker</Badge>
-                  <Badge variant="outline">Spam Score Analyzer</Badge>
+                  <Badge variant="outline">✅ Email Validation</Badge>
+                  <Badge variant="outline">✅ Subject Line Testing</Badge>
+                  <Badge variant="outline">✅ Spam Analysis</Badge>
+                  <Badge variant="outline">✅ Campaign Planning</Badge>
+                  <Badge variant="outline">✅ UTM Tracking</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -223,8 +388,6 @@ const ToolsPage = () => {
           
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

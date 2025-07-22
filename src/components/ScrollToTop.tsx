@@ -6,7 +6,7 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     // Only scroll to top for route changes (not hash changes)
-    window.scrollTo(0, 0);
+    window?.scrollTo(0, 0);
   }, [pathname]);
 
   return null;
