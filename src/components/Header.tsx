@@ -134,7 +134,6 @@ const Header = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            
             {/* Warmup Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors text-sm focus:outline-none">
@@ -219,7 +218,6 @@ const Header = () => {
                 Calculator
               </button>
               
-              
               {/* Tools section */}
               <div className="pl-2 border-l-2 border-muted space-y-2">
                 <div className="text-xs font-medium text-muted-foreground mb-1">Tools</div>
@@ -256,7 +254,6 @@ const Header = () => {
                   Person Generator
                 </a>
               </div>
-              
               {/* Warmup section */}
               <div className="pl-2 border-l-2 border-muted space-y-2">
                 <div className="text-xs font-medium text-muted-foreground mb-1">Warmup Tools</div>
