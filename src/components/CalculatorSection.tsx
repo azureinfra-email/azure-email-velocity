@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button";
 import GetStartedButton from "@/components/ui/GetStartedButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Calculator, TrendingUp, DollarSign } from "lucide-react";
+import { Calculator, TrendingUp, DollarSign, Plus, Minus } from "lucide-react";
 import { siteConfig } from "@/config/config";
 import { useState } from "react";
 
 const CalculatorSection = () => {
   const [mailboxCount, setMailboxCount] = useState(600);
-  const [domainCount, setDomainCount] = useState(1);
+  const [domainCount, setDomainCount] = useState(12);
   
   // Calculator logic
   const setupCost = 0;
@@ -19,6 +19,25 @@ const CalculatorSection = () => {
   const monthlyMailboxCost = mailboxCount * mailboxPrice;
   const totalDomainCost = domainCount * domainPrice;
   const firstMonthTotal = setupCost + monthlyMailboxCost + totalDomainCost;
+  
+  // Helper functions for increment/decrement
+  const incrementMailboxes = () => {
+    setMailboxCount(prev => prev + 50);
+  };
+  
+  const decrementMailboxes = () => {
+    setMailboxCount(prev => Math.max(50, prev - 50));
+  };
+  
+  const incrementDomains = () => {
+    setDomainCount(prev => prev + 1);
+  };
+  
+  const decrementDomains = () => {
+    if (domainCount > 1) {
+      setDomainCount(prev => prev - 1);
+    }
+  };
   
   // Calculate savings vs competitors
   const hypertideSetup = 1500;
@@ -71,17 +90,36 @@ const CalculatorSection = () => {
                     <Label htmlFor="calc-mailboxes" className="text-sm font-medium">
                       Number of Mailboxes
                     </Label>
-                    <Input
-                      id="calc-mailboxes"
-                      type="number"
-                      value={mailboxCount}
-                      onChange={(e) => setMailboxCount(Math.max(10, Number(e.target.value) || 10))}
-                      className="text-lg font-semibold"
-                      min="10"
-                      max="10000"
-                    />
+                    <div className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={decrementMailboxes}
+                        className="px-2"
+                        disabled={mailboxCount <= 50}
+                      >
+                        <Minus className="w-4 h-4" />
+                      </Button>
+                      <Input
+                        id="calc-mailboxes"
+                        type="number"
+                        value={mailboxCount}
+                        onChange={(e) => setMailboxCount(Math.max(50, Number(e.target.value) || 50))}
+                        className="text-lg font-semibold text-center"
+                        min="50"
+                        max="10000"
+                      />
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={incrementMailboxes}
+                        className="px-2"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </Button>
+                    </div>
                     <p className="text-xs text-muted-foreground">
-                      Minimum 10 mailboxes required
+                      Minimum 50 mailboxes required. Click + to add 50 mailboxes.
                     </p>
                   </div>
                   
@@ -89,17 +127,36 @@ const CalculatorSection = () => {
                     <Label htmlFor="calc-domains" className="text-sm font-medium">
                       Number of Domains
                     </Label>
-                    <Input
-                      id="calc-domains"
-                      type="number"
-                      value={domainCount}
-                      onChange={(e) => setDomainCount(Math.max(1, Number(e.target.value) || 1))}
-                      className="text-lg font-semibold"
-                      min="1"
-                      max="100"
-                    />
+                    <div className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={decrementDomains}
+                        className="px-2"
+                        disabled={domainCount <= 1}
+                      >
+                        <Minus className="w-4 h-4" />
+                      </Button>
+                      <Input
+                        id="calc-domains"
+                        type="number"
+                        value={domainCount}
+                        onChange={(e) => setDomainCount(Math.max(1, Number(e.target.value) || 1))}
+                        className="text-lg font-semibold text-center"
+                        min="1"
+                        max="100"
+                      />
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={incrementDomains}
+                        className="px-2"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </Button>
+                    </div>
                     <p className="text-xs text-muted-foreground">
-                      At least 1 domain needed for email infrastructure
+                      <span className="font-semibold text-primary">{Math.round(mailboxCount / domainCount)}</span> mailboxes per domain. Adjust independently.
                     </p>
                   </div>
                 </div>
@@ -119,26 +176,42 @@ const CalculatorSection = () => {
                     <Button 
                       variant="outline" 
                       size="sm"
-                      onClick={() => {setMailboxCount(200); setDomainCount(3);}}
+                      onClick={() => {setMailboxCount(100); setDomainCount(2);}}
                       className="text-xs"
                     >
-                      Growth (200/3)
+                      Small (100/2)
                     </Button>
                     <Button 
                       variant="outline" 
                       size="sm"
-                      onClick={() => {setMailboxCount(600); setDomainCount(6);}}
+                      onClick={() => {setMailboxCount(200); setDomainCount(4);}}
                       className="text-xs"
                     >
-                      Scale (600/6)
+                      Growth (200/4)
                     </Button>
                     <Button 
                       variant="outline" 
                       size="sm"
-                      onClick={() => {setMailboxCount(1000); setDomainCount(10);}}
+                      onClick={() => {setMailboxCount(300); setDomainCount(6);}}
                       className="text-xs"
                     >
-                      Enterprise (1000/10)
+                      Medium (300/6)
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => {setMailboxCount(500); setDomainCount(10);}}
+                      className="text-xs"
+                    >
+                      Scale (500/10)
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => {setMailboxCount(1000); setDomainCount(20);}}
+                      className="text-xs"
+                    >
+                      Enterprise (1000/20)
                     </Button>
                   </div>
                 </div>

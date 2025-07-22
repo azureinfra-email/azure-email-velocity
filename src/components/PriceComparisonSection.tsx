@@ -9,7 +9,9 @@ import { useState } from "react";
 
 const PriceComparisonSection = () => {
   const [mailboxCount, setMailboxCount] = useState(600);
-  const [domainCount, setDomainCount] = useState(1);
+  
+  // Calculate domains automatically (50 mailboxes per domain, minimum 1)
+  const domainCount = Math.max(1, Math.ceil(mailboxCount / 50));
   
   // Calculator logic
   const setupCost = 0;
