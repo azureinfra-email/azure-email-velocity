@@ -4,9 +4,10 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Mail, Menu, ChevronDown, ThermometerSun, Calculator } from "lucide-react";
+import { Mail, Menu, ChevronDown, ThermometerSun, Calculator, Wrench, AtSign, Globe, UserCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { siteConfig } from "@/config/config";
@@ -95,6 +96,44 @@ const Header = () => {
               Calculator
             </button>
             
+            
+            {/* Tools Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors text-sm focus:outline-none">
+                Tools
+                <ChevronDown className="w-3 h-3" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-56">
+                <DropdownMenuItem asChild>
+                  <a href="/tools" className="flex items-center gap-2 w-full">
+                    <Wrench className="w-4 h-4" />
+                    All Tools
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <div className="px-2 py-1.5">
+                  <div className="text-xs font-medium text-muted-foreground mb-1">Generators</div>
+                </div>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/username-generator" className="flex items-center gap-2 w-full">
+                    <AtSign className="w-4 h-4" />
+                    Username Generator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/domain-generator" className="flex items-center gap-2 w-full">
+                    <Globe className="w-4 h-4" />
+                    Domain Generator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/tools/person-generator" className="flex items-center gap-2 w-full">
+                    <UserCircle className="w-4 h-4" />
+                    Person Generator
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             {/* Warmup Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors text-sm focus:outline-none">
@@ -179,6 +218,42 @@ const Header = () => {
                 Calculator
               </button>
               
+              {/* Tools section */}
+              <div className="pl-2 border-l-2 border-muted space-y-2">
+                <div className="text-xs font-medium text-muted-foreground mb-1">Tools</div>
+                <a 
+                  href="/tools"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Wrench className="w-4 h-4" />
+                  All Tools
+                </a>
+                <a 
+                  href="/tools/username-generator"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <AtSign className="w-3 h-3" />
+                  Username Generator
+                </a>
+                <a 
+                  href="/tools/domain-generator"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Globe className="w-3 h-3" />
+                  Domain Generator
+                </a>
+                <a 
+                  href="/tools/person-generator"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <UserCircle className="w-3 h-3" />
+                  Person Generator
+                </a>
+              </div>
               {/* Warmup section */}
               <div className="pl-2 border-l-2 border-muted space-y-2">
                 <div className="text-xs font-medium text-muted-foreground mb-1">Warmup Tools</div>

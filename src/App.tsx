@@ -9,6 +9,10 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import WarmupGuide from "./pages/WarmupGuide";
 import WarmupCalculatorPage from "./pages/WarmupCalculatorPage";
+import ToolsPage from "./pages/ToolsPage";
+import UsernameGeneratorPage from "./pages/UsernameGeneratorPage";
+import DomainGeneratorPage from "./pages/DomainGeneratorPage";
+import PersonGeneratorPage from "./pages/PersonGeneratorPage";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -26,6 +30,10 @@ const App = () => (
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/warmup-guide" element={<WarmupGuide />} />
           <Route path="/warmup-calculator" element={<WarmupCalculatorPage />} />
+          <Route path="/tools" element={<ToolsPage />} />
+          <Route path="/tools/username-generator" element={<UsernameGeneratorPage />} />
+          <Route path="/tools/domain-generator" element={<DomainGeneratorPage />} />
+          <Route path="/tools/person-generator" element={<PersonGeneratorPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
