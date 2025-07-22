@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Shield, Zap, Target } from "lucide-react";
-import heroImage from "@/assets/hero-email.jpg";
+import { Mail, Shield } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -8,58 +7,56 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/20" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20">
-              <Shield className="w-4 h-4 text-white" />
-              <span className="text-white text-sm font-medium">Enterprise Email Infrastructure</span>
-            </div>
-            
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-              Straight to Inbox
-              <span className="block bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">
-                Email Delivery
-              </span>
-            </h1>
-            
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
-              Master inbox delivery with proven warmup techniques. Our 15-day minimum warmup protocol ensures 
-              <strong className="text-white"> your emails land in inboxes, not spam folders</strong>.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button variant="hero" size="lg" className="group">
-                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                Start at $3.33/mailbox
-              </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm">
-                Learn More
-              </Button>
-            </div>
-            
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">99.9%</div>
-                <div className="text-blue-200 text-sm">Uptime</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">15+</div>
-                <div className="text-blue-200 text-sm">Day Warmup</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">&lt;2s</div>
-                <div className="text-blue-200 text-sm">Response Time</div>
-              </div>
-            </div>
+        <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20">
+            <Shield className="w-4 h-4 text-white" />
+            <span className="text-white text-sm font-medium">Microsoft Outlook 365 Infrastructure</span>
           </div>
           
-          <div className="relative lg:block hidden">
-            <div className="absolute inset-0 bg-gradient-card rounded-3xl blur-3xl" />
-            <img 
-              src={heroImage} 
-              alt="Email Infrastructure" 
-              className="relative rounded-3xl shadow-2xl w-full h-auto"
-            />
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+            Enterprise Email
+            <span className="block bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">
+              Infrastructure
+            </span>
+          </h1>
+          
+          <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
+            Professional Outlook 365 mailboxes with enterprise-grade security and reliability. 
+            <strong className="text-white"> Get instant access to Microsoft's email infrastructure</strong> at competitive pricing.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <Button variant="hero" size="lg" className="group">
+              <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              Start at $3.33/mailbox
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
+              onClick={() => {
+                document.getElementById('inbox-delivery')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+            >
+              Learn More
+            </Button>
+          </div>
+          
+          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-white">99.9%</div>
+              <div className="text-blue-200 text-sm">Uptime SLA</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-white">24/7</div>
+              <div className="text-blue-200 text-sm">Support</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-white">Global</div>
+              <div className="text-blue-200 text-sm">Azure Network</div>
+            </div>
           </div>
         </div>
       </div>

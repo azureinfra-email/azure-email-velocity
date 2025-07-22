@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "name": "Azure Email Velocity",
+  "description": "Enterprise-grade Outlook 365 email infrastructure provider offering professional mailboxes with Microsoft Azure backing, enterprise security, and 99.9% uptime guarantee at $3.33 per mailbox.",
+  "url": "https://azureinfra.email",
+  "logo": "https://azureinfra.email/logo.png",
+  "contact": {
+    "email": "support@azureinfra.email",
+    "website": "https://azureinfra.email"
+  },
+  "services": [
+    {
+      "name": "Outlook 365 Infrastructure",
+      "description": "Enterprise-grade Outlook 365 mailboxes with full Microsoft infrastructure backing",
+      "category": "Email Infrastructure",
+      "pricing": {
+        "model": "subscription",
+        "price": 3.33,
+        "currency": "USD",
+        "period": "monthly",
+        "unit": "mailbox"
+      },
+      "features": [
+        "Azure-powered infrastructure",
+        "99.9% uptime guarantee",
+        "Full Outlook 365 capabilities",
+        "Enterprise security standards",
+        "Real-time monitoring",
+        "Pre-configured domains & authentication",
+        "Exchange Online integration",
+        "Microsoft ecosystem access",
+        "24/7 infrastructure monitoring",
+        "Instant activation"
+      ]
+    }
+  ],
+  "technology": {
+    "platform": "Microsoft Azure",
+    "email_service": "Outlook 365",
+    "security": "Enterprise-grade with ATP",
+    "uptime": "99.9%",
+    "support": "24/7"
+  },
+  "target_market": [
+    "Small to medium businesses",
+    "Enterprise organizations",
+    "Companies requiring reliable email infrastructure",
+    "Organizations needing Microsoft ecosystem integration",
+    "Businesses seeking professional email hosting"
+  ],
+  "competitive_advantages": [
+    "No compromise on quality",
+    "Enterprise-grade infrastructure at competitive pricing",
+    "Instant activation and setup",
+    "Microsoft Azure reliability and global infrastructure",
+    "Pre-configured domains with proper authentication",
+    "24/7 infrastructure monitoring and support"
+  ],
+  "compliance": [
+    "GDPR compliant",
+    "SOC 2 Type II",
+    "ISO 27001",
+    "Microsoft Trust Center standards"
+  ],
+  "api": {
+    "available": false,
+    "documentation": null
+  },
+  "support": {
+    "channels": ["email", "web"],
+    "hours": "24/7",
+    "response_time": "< 24 hours"
+  },
+  "metadata": {
+    "industry": "Technology",
+    "founded": "2025",
+    "size": "Startup",
+    "location": "Global",
+    "languages": ["en"],
+    "last_updated": "2025-07-22"
+  }
+}

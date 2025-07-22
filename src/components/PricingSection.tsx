@@ -4,52 +4,23 @@ import { Check, Mail, Users, Building2 } from "lucide-react";
 
 const plans = [
   {
-    name: "Starter",
+    name: "Email Infrastructure",
     price: "$3.33",
     period: "per mailbox/month",
-    description: "Perfect for small teams getting started with cold email campaigns",
+    description: "Enterprise-grade Outlook 365 infrastructure without compromising on quality",
     features: [
       "Azure-powered infrastructure",
       "99.9% uptime guarantee", 
-      "35% better Outlook delivery",
-      "Fine-grained infrastructure control",
+      "Full Outlook 365 capabilities",
+      "Enterprise security standards",
       "Real-time monitoring",
-      "Email authentication setup"
+      "Exchange Online integration",
+      "Microsoft ecosystem access",
+      "24/7 infrastructure monitoring",
+      "Instant activation"
     ],
     icon: Mail,
-    popular: false
-  },
-  {
-    name: "Professional", 
-    price: "Custom",
-    period: "per mailbox/month",
-    description: "Optimized for growing businesses with higher volume needs",
-    features: [
-      "Everything in Starter",
-      "Priority support",
-      "Custom domain configuration",
-      "Advanced analytics",
-      "Dedicated IP pools",
-      "White-label options"
-    ],
-    icon: Users,
     popular: true
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "tailored pricing",
-    description: "For large organizations requiring maximum control and customization",
-    features: [
-      "Everything in Professional",
-      "Dedicated account manager",
-      "Custom SLA agreements",
-      "Multi-region deployment",
-      "Advanced compliance features",
-      "24/7 phone support"
-    ],
-    icon: Building2,
-    popular: false
   }
 ];
 
@@ -60,42 +31,36 @@ const PricingSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-card rounded-full px-4 py-2 mb-6 border border-primary/20">
             <Mail className="w-4 h-4 text-primary" />
-            <span className="text-primary text-sm font-medium">Simple, Transparent Pricing</span>
+            <span className="text-primary text-sm font-medium">Enterprise Quality, Affordable Price</span>
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Scale Your Email
+            Premium Email
             <span className="block bg-gradient-primary bg-clip-text text-transparent">Infrastructure</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Pay only for what you use. No hidden fees, no surprises. 
-            Start at $3.33 per mailbox and scale with your business.
+            Get enterprise-grade Outlook 365 infrastructure at an unbeatable price. 
+            <strong className="text-foreground"> We never compromise on quality</strong> - just transparent, honest pricing.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="flex justify-center max-w-lg mx-auto">
           {plans.map((plan, index) => (
             <Card 
               key={index} 
-              className={`relative group transition-all duration-300 hover:scale-[1.02] ${
-                plan.popular 
-                  ? 'border-primary shadow-card bg-gradient-card scale-105' 
-                  : 'border-border hover:shadow-card bg-card'
-              }`}
+              className="relative group transition-all duration-300 hover:scale-[1.02] border-primary shadow-card bg-gradient-card w-full"
             >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
-                    Most Popular
-                  </div>
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <div className="bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                  No Compromise on Quality
                 </div>
-              )}
+              </div>
               
               <CardHeader className="text-center pb-4">
                 <div className="flex justify-center mb-4">
-                  <div className={`p-3 rounded-lg ${plan.popular ? 'bg-primary/20' : 'bg-muted'}`}>
-                    <plan.icon className={`w-8 h-8 ${plan.popular ? 'text-primary' : 'text-muted-foreground'}`} />
+                  <div className="p-3 rounded-lg bg-primary/20">
+                    <plan.icon className="w-8 h-8 text-primary" />
                   </div>
                 </div>
                 
@@ -125,10 +90,10 @@ const PricingSection = () => {
                 
                 <Button 
                   className="w-full" 
-                  variant={plan.popular ? "default" : "outline"}
+                  variant="default"
                   size="lg"
                 >
-                  {plan.name === "Starter" ? "Start Now" : "Contact Sales"}
+                  Get Started Now
                 </Button>
               </CardContent>
             </Card>
@@ -138,15 +103,27 @@ const PricingSection = () => {
         <div className="mt-16 text-center">
           <div className="bg-gradient-card rounded-2xl p-8 border border-primary/20 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Need a custom solution?
+              Why choose quality over cheap alternatives?
             </h3>
             <p className="text-muted-foreground mb-6">
-              Enterprise clients with specific requirements can get tailored infrastructure 
-              solutions with dedicated support and custom SLAs.
+              Our infrastructure is built on Microsoft Azure with enterprise-grade security and reliability. 
+              <strong className="text-foreground"> We believe in providing premium quality at an honest price</strong> - 
+              no hidden fees, no compromises on performance or security.
             </p>
-            <Button variant="outline" size="lg">
-              Contact Enterprise Sales
-            </Button>
+            <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary" />
+                <span>No setup fees</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary" />
+                <span>No hidden costs</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary" />
+                <span>Enterprise quality</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

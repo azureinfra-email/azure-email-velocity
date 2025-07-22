@@ -1,0 +1,124 @@
+{
+  "name": "Azure Email Velocity",
+  "description": "Enterprise-grade Outlook 365 email infrastructure provider offering professional mailboxes with Microsoft Azure backing, enterprise security, and 99.9% uptime guarantee at $3.33 per mailbox.",
+  "version": "1.0.0",
+  "author": "Sending AC",
+  "homepage": "https://azureinfra.email",
+  "keywords": [
+    "email infrastructure",
+    "outlook 365",
+    "microsoft azure",
+    "enterprise email",
+    "email hosting",
+    "business email",
+    "exchange online",
+    "email service provider",
+    "azure cloud",
+    "enterprise security",
+    "email delivery",
+    "microsoft ecosystem",
+    "professional mailboxes",
+    "email infrastructure as a service"
+  ],
+  "category": "Email Infrastructure",
+  "industry": "Technology",
+  "services": [
+    {
+      "name": "Outlook 365 Infrastructure",
+      "description": "Enterprise-grade Outlook 365 mailboxes with full Microsoft infrastructure backing",
+      "features": [
+        "Azure-powered infrastructure",
+        "99.9% uptime guarantee",
+        "Full Outlook 365 capabilities",
+        "Enterprise security standards",
+        "Real-time monitoring",
+        "Pre-configured domains & authentication",
+        "Exchange Online integration",
+        "Microsoft ecosystem access",
+        "24/7 infrastructure monitoring",
+        "Instant activation"
+      ],
+      "pricing": {
+        "model": "per-mailbox",
+        "price": 3.33,
+        "currency": "USD",
+        "billing": "monthly"
+      }
+    }
+  ],
+  "contact": {
+    "email": "support@azureinfra.email",
+    "website": "https://azureinfra.email"
+  },
+  "technology": {
+    "platform": "Microsoft Azure",
+    "email_service": "Outlook 365",
+    "security": "Enterprise-grade",
+    "uptime": "99.9%",
+    "support": "24/7"
+  },
+  "seo": {
+    "title": "Azure Email Velocity - Enterprise Outlook 365 Infrastructure Provider",
+    "meta_description": "Get enterprise-grade Outlook 365 email infrastructure at $3.33/mailbox. Microsoft Azure-powered, 99.9% uptime, enterprise security, instant activation. No compromise on quality.",
+    "og_title": "Enterprise Email Infrastructure - Azure Email Velocity",
+    "og_description": "Professional Outlook 365 mailboxes with enterprise-grade security and reliability. Built on Microsoft Azure with 99.9% uptime guarantee.",
+    "og_image": "/assets/hero-email.jpg",
+    "twitter_card": "summary_large_image",
+    "canonical_url": "https://azureinfra.email",
+    "robots": "index, follow",
+    "sitemap": "https://azureinfra.email/sitemap.xml"
+  },
+  "structured_data": {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Azure Email Velocity",
+    "description": "Enterprise-grade Outlook 365 email infrastructure provider",
+    "url": "https://azureinfra.email",
+    "logo": "https://azureinfra.email/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "support@azureinfra.email",
+      "contactType": "customer service"
+    },
+    "sameAs": [],
+    "offers": {
+      "@type": "Offer",
+      "name": "Email Infrastructure",
+      "description": "Enterprise-grade Outlook 365 infrastructure",
+      "price": "3.33",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "3.33",
+        "priceCurrency": "USD",
+        "unitText": "mailbox per month"
+      }
+    }
+  },
+  "features": {
+    "infrastructure": "Microsoft Azure",
+    "email_platform": "Outlook 365",
+    "uptime_sla": "99.9%",
+    "security": "Enterprise-grade with ATP",
+    "integration": "Exchange Online",
+    "support": "24/7 monitoring",
+    "activation": "Instant",
+    "ecosystem": "Microsoft"
+  },
+  "target_audience": [
+    "Businesses needing email infrastructure",
+    "Companies requiring Outlook 365",
+    "Organizations seeking enterprise email solutions",
+    "Teams needing reliable email hosting",
+    "Businesses wanting Microsoft ecosystem integration"
+  ],
+  "competitive_advantages": [
+    "No compromise on quality",
+    "Enterprise-grade infrastructure at competitive pricing",
+    "Instant activation",
+    "Microsoft Azure reliability",
+    "Pre-configured domains and authentication",
+    "24/7 infrastructure monitoring"
+  ],
+  "last_updated": "2025-07-22"
+}

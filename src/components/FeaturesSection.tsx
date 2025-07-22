@@ -13,61 +13,61 @@ import {
 
 const features = [
   {
-    icon: Target,
-    title: "Inbox Delivery Mastery",
-    description: "Proven warmup techniques that ensure your emails reach the inbox, not spam folders. Our methods build sender reputation systematically.",
-    highlight: "Inbox Focused"
-  },
-  {
-    icon: Clock,
-    title: "15-Day Minimum Warmup",
-    description: "Our recommended 15-day warmup protocol gradually builds your sender reputation, ensuring long-term inbox delivery success.",
-    highlight: "15+ Days"
+    icon: Mail,
+    title: "Outlook 365 Infrastructure",
+    description: "Enterprise-grade Outlook 365 mailboxes with full Microsoft infrastructure backing, ensuring maximum deliverability and trust.",
+    highlight: "Office 365"
   },
   {
     icon: Shield,
-    title: "Reputation Protection",
-    description: "Built on Azure infrastructure with advanced warmup protocols that protect and enhance your sender reputation over time.",
-    highlight: "Protected Rep"
+    title: "Microsoft Security Standards",
+    description: "Built-in security features including Advanced Threat Protection, encryption, and compliance with enterprise security protocols.",
+    highlight: "Enterprise Security"
+  },
+  {
+    icon: Cloud,
+    title: "Azure Cloud Platform",
+    description: "Hosted on Microsoft Azure with 99.9% uptime guarantee, global data centers, and enterprise-level reliability.",
+    highlight: "99.9% Uptime"
   },
   {
     icon: CheckCircle,
-    title: "Proven Warmup Process",
-    description: "Step-by-step warmup methodology that's been tested across thousands of mailboxes to ensure consistent inbox placement.",
-    highlight: "Tested Process"
+    title: "Exchange Online Integration",
+    description: "Full Exchange Online capabilities with calendar, contacts, and advanced email management features built-in.",
+    highlight: "Exchange Online"
   },
   {
-    icon: TrendingUp,
-    title: "Gradual Volume Scaling",
-    description: "Smart volume progression during warmup ensures mailbox providers trust your sending patterns for better inbox delivery.",
-    highlight: "Smart Scaling"
+    icon: Target,
+    title: "Domain Reputation Management",
+    description: "Pre-configured domains with established sender reputation, SPF, DKIM, and DMARC records for optimal deliverability.",
+    highlight: "Pre-Configured"
   },
   {
     icon: Zap,
-    title: "Optimized Send Patterns",
-    description: "Advanced sending patterns and timing optimization that mimics natural email behavior for maximum inbox delivery.",
-    highlight: "Natural Patterns"
+    title: "Instant Activation",
+    description: "Ready-to-use mailboxes with immediate access to full Outlook features, mobile sync, and Microsoft ecosystem integration.",
+    highlight: "Instant Setup"
   }
 ];
 
 const FeaturesSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section id="inbox-delivery" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-card rounded-full px-4 py-2 mb-6 border border-primary/20">
             <BarChart3 className="w-4 h-4 text-primary" />
-            <span className="text-primary text-sm font-medium">Why Choose Our Infrastructure</span>
+            <span className="text-primary text-sm font-medium">Microsoft Infrastructure</span>
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Built for 
-            <span className="bg-gradient-primary bg-clip-text text-transparent"> Inbox Delivery</span>
+            Enterprise 
+            <span className="bg-gradient-primary bg-clip-text text-transparent"> Email Infrastructure</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Master inbox delivery with proven warmup techniques and strategic sender reputation building. 
-            Our 15-day minimum warmup ensures your emails reach inboxes consistently.
+            Professional Outlook 365 mailboxes with enterprise-grade security, reliability, and Microsoft ecosystem integration. 
+            Get instant access to fully configured email infrastructure at $3.33 per mailbox.
           </p>
         </div>
         
@@ -105,22 +105,22 @@ const FeaturesSection = () => {
               <div className="flex items-center gap-3">
                 <Cloud className="w-8 h-8 text-primary" />
                 <div>
-                  <div className="font-semibold text-foreground">Azure Infrastructure</div>
-                  <div className="text-sm text-muted-foreground">Enterprise Grade</div>
+                  <div className="font-semibold text-foreground">Microsoft Azure</div>
+                  <div className="text-sm text-muted-foreground">Global Infrastructure</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-8 h-8 text-primary" />
                 <div>
-                  <div className="font-semibold text-foreground">Email Delivery</div>
-                  <div className="text-sm text-muted-foreground">Optimized Routes</div>
+                  <div className="font-semibold text-foreground">Outlook 365</div>
+                  <div className="text-sm text-muted-foreground">Enterprise Mailboxes</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Shield className="w-8 h-8 text-primary" />
                 <div>
-                  <div className="font-semibold text-foreground">Security First</div>
-                  <div className="text-sm text-muted-foreground">Best Practices</div>
+                  <div className="font-semibold text-foreground">Enterprise Security</div>
+                  <div className="text-sm text-muted-foreground">ATP & Compliance</div>
                 </div>
               </div>
             </div>

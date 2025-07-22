@@ -1,4 +1,36 @@
-User-agent: Googlebot
+User-agent: *
+Allow: /
+
+# Allow all crawlers to access the site
+# Specific allowances for important files
+Allow: /mcp.json
+Allow: /llm.json
+Allow: /sitemap.xml
+
+# Block access to development and configuration files
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.env*
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /bun.lockb
+Disallow: /tsconfig*.json
+Disallow: /vite.config.ts
+Disallow: /tailwind.config.ts
+Disallow: /postcss.config.js
+Disallow: /eslint.config.js
+Disallow: /components.json
+
+# Crawl delay (optional - be respectful to crawlers)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://azureinfra.email/sitemap.xml
+
+# Additional sitemaps for different content types
+# Sitemap: https://azureinfra.email/sitemap-images.xml
+# Sitemap: https://azureinfra.email/sitemap-news.xmloglebot
 Allow: /
 
 User-agent: Bingbot
