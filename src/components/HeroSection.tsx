@@ -34,6 +34,9 @@ const HeroSection = () => {
             <span className="block mt-3 text-cyan-200 font-semibold">
               🚀 Mailboxes ready in just 3 hours!
             </span>
+            <span className="block mt-2 text-green-200 font-medium">
+              ✅ SPF, DKIM, DMARC auto-configured - 100% compliant
+            </span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -45,9 +48,9 @@ const HeroSection = () => {
               variant="outline" 
               size="lg" 
               className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
-              onClick={() => scrollToSection('features')}
+              onClick={() => scrollToSection('comparison')}
             >
-              Learn More
+              Compare Prices
             </Button>
           </div>
           

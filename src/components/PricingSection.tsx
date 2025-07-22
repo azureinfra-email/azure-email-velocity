@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import GetStartedButton from "@/components/ui/GetStartedButton";
 import { Check, Mail } from "lucide-react";
 import siteConfig from "@/config/config";
 
@@ -89,13 +90,11 @@ const PricingSection = () => {
                   ))}
                 </ul>
                 
-                <Button 
-                  className="w-full" 
-                  variant="default"
+                <GetStartedButton 
+                  className="w-full mb-4" 
                   size="lg"
-                >
-                  Get Started Now
-                </Button>
+                  text="Get Started Now"
+                />
               </CardContent>
             </Card>
           ))}

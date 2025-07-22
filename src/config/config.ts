@@ -13,7 +13,12 @@ export const siteConfig = {
     price: 1.50,
     currency: "USD",
     period: "per mailbox/month",
-    displayPrice: "$1.50"
+    displayPrice: "$1.50",
+    domain: {
+      price: 15.55,
+      displayPrice: "$15.55",
+      period: "one-time"
+    }
   },
   
   // Contact information
@@ -160,12 +165,16 @@ export const siteConfig = {
     main: [
       { name: "Features", id: "features" },
       { name: "Pricing", id: "pricing" },
+      { name: "Compare", id: "comparison" },
+      { name: "Calculator", id: "calculator" },
       { name: "Contact", id: "contact" }
     ],
     footer: {
       product: [
         { name: "Features", id: "features" },
-        { name: "Pricing", id: "pricing" }, 
+        { name: "Pricing", id: "pricing" },
+        { name: "Compare", id: "comparison" },
+        { name: "Calculator", id: "calculator" },
         { name: "Contact", id: "contact" }
       ],
       company: [
@@ -183,6 +192,7 @@ export const siteConfig = {
 
 // Helper functions to get formatted values
 export const getFormattedPrice = () => siteConfig.pricing.displayPrice;
+export const getFormattedDomainPrice = () => siteConfig.pricing.domain.displayPrice;
 export const getContactEmail = () => siteConfig.contact.email;
 export const getResponseTime = () => siteConfig.contact.responseTime;
 export const getResponseTimeShort = () => siteConfig.contact.responseTimeShort;
