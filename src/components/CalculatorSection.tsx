@@ -41,7 +41,7 @@ const CalculatorSection = () => {
   
   // Calculate savings vs competitors
   const hypertideSetup = 1500;
-  const hyptertideMonthly = mailboxCount * 0.50;
+  const hypertideMonthly = mailboxCount * 0.50;
   const hypertideDomains = domainCount * 186;
   const hypertideFirstMonth = hypertideSetup + hyptertideMonthly + hypertideDomains;
   
