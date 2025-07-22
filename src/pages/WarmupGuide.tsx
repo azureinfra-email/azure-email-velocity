@@ -15,9 +15,11 @@ import {
   Target,
   Zap,
   BookOpen,
-  ArrowRight
+  ArrowRight,
+  BarChart3
 } from "lucide-react";
 import { siteConfig } from "@/config/config";
+import WarmupCalculator from "@/components/WarmupCalculator";
 
 const WarmupGuide = () => {
   const warmupSteps = [
@@ -190,20 +192,6 @@ const WarmupGuide = () => {
               Learn the proven strategies to achieve maximum inbox delivery rates. 
               High deliverability isn't guaranteed - it's earned through proper execution.
             </p>
-            
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
-              <div className="flex items-start gap-3">
-                <AlertTriangle className="w-6 h-6 text-yellow-600 mt-1 flex-shrink-0" />
-                <div className="text-left">
-                  <h3 className="font-semibold text-yellow-800 mb-2">Important Disclaimer</h3>
-                  <p className="text-yellow-700 text-sm">
-                    While our infrastructure enables high deliverability, your actual inbox rates depend on 
-                    multiple factors including list quality, warmup execution, content relevance, and sending patterns. 
-                    No email service can guarantee specific delivery rates without proper implementation.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -413,11 +401,17 @@ const WarmupGuide = () => {
               Ready to Build Your Email Infrastructure?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              We provide the premium infrastructure and guidance. You bring the strategy and execution.
-              Together, we'll maximize your deliverability potential.
+              We provide the premium infrastructure and technical foundation. You implement the warmup strategy 
+              using your preferred sequencer. Together, we'll maximize your deliverability potential.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <GetStartedButton />
+              <a href="/warmup-calculator">
+                <Button variant="outline" size="lg">
+                  <BarChart3 className="w-4 h-4 mr-2" />
+                  Use Strategy Planner
+                </Button>
+              </a>
               <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="lg">
                   Discuss Your Strategy

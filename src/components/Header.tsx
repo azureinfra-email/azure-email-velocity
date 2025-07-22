@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import GetStartedButton from "@/components/ui/GetStartedButton";
-import { Mail, Menu } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Mail, Menu, ChevronDown, ThermometerSun, Calculator } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { siteConfig } from "@/config/config";
@@ -52,69 +58,86 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           <div 
             className="flex items-center gap-2 cursor-pointer" 
             onClick={handleLogoClick}
           >
-            <div className="p-2 bg-primary rounded-lg">
-              <Mail className="w-6 h-6 text-white" />
+            <div className="p-1.5 bg-primary rounded-lg">
+              <Mail className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-foreground">azureinfra.email</span>
+            <span className="text-lg font-bold text-foreground">azureinfra.email</span>
           </div>
           
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             <button 
               onClick={() => handleNavigation('features')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors text-sm"
             >
               Features
             </button>
             <button 
               onClick={() => handleNavigation('pricing')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors text-sm"
             >
               Pricing
             </button>
             <button 
               onClick={() => handleNavigation('comparison')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors text-sm"
             >
               Compare
             </button>
             <button 
               onClick={() => handleNavigation('calculator')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors text-sm"
             >
               Calculator
             </button>
-            <a 
-              href="/warmup-guide"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Warmup Guide
-            </a>
+            
+            {/* Warmup Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors text-sm focus:outline-none">
+                Warmup
+                <ChevronDown className="w-3 h-3" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-48">
+                <DropdownMenuItem asChild>
+                  <a href="/warmup-guide" className="flex items-center gap-2 w-full">
+                    <ThermometerSun className="w-4 h-4" />
+                    Warmup Guide
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/warmup-calculator" className="flex items-center gap-2 w-full">
+                    <Calculator className="w-4 h-4" />
+                    Strategy Planner
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             <button 
               onClick={() => handleNavigation('guarantee')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors text-sm"
             >
               Guarantee
             </button>
             <button 
               onClick={() => handleNavigation('contact')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors text-sm"
             >
               Contact
             </button>
           </nav>
           
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost">
+          <div className="hidden md:flex items-center gap-3">
+            <Button variant="ghost" size="sm">
               Sign In
             </Button>
             <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline">
-                Book a Call
+              <Button variant="outline" size="sm">
+                Book Call
               </Button>
             </a>
             <GetStartedButton compact />
@@ -130,56 +153,72 @@ const Header = () => {
         
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-3">
               <button 
                 onClick={() => handleNavigation('features')}
-                className="text-muted-foreground hover:text-primary transition-colors text-left"
+                className="text-muted-foreground hover:text-primary transition-colors text-left text-sm"
               >
                 Features
               </button>
               <button 
                 onClick={() => handleNavigation('pricing')}
-                className="text-muted-foreground hover:text-primary transition-colors text-left"
+                className="text-muted-foreground hover:text-primary transition-colors text-left text-sm"
               >
                 Pricing
               </button>
               <button 
                 onClick={() => handleNavigation('comparison')}
-                className="text-muted-foreground hover:text-primary transition-colors text-left"
+                className="text-muted-foreground hover:text-primary transition-colors text-left text-sm"
               >
                 Compare
               </button>
               <button 
                 onClick={() => handleNavigation('calculator')}
-                className="text-muted-foreground hover:text-primary transition-colors text-left"
+                className="text-muted-foreground hover:text-primary transition-colors text-left text-sm"
               >
                 Calculator
               </button>
-              <a 
-                href="/warmup-guide"
-                className="text-muted-foreground hover:text-primary transition-colors text-left"
-              >
-                Warmup Guide
-              </a>
+              
+              {/* Warmup section */}
+              <div className="pl-2 border-l-2 border-muted space-y-2">
+                <div className="text-xs font-medium text-muted-foreground mb-1">Warmup Tools</div>
+                <a 
+                  href="/warmup-guide"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <ThermometerSun className="w-4 h-4" />
+                  Warmup Guide
+                </a>
+                <a 
+                  href="/warmup-calculator"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Calculator className="w-4 h-4" />
+                  Strategy Planner
+                </a>
+              </div>
+              
               <button 
                 onClick={() => handleNavigation('guarantee')}
-                className="text-muted-foreground hover:text-primary transition-colors text-left"
+                className="text-muted-foreground hover:text-primary transition-colors text-left text-sm"
               >
                 Guarantee
               </button>
               <button 
                 onClick={() => handleNavigation('contact')}
-                className="text-muted-foreground hover:text-primary transition-colors text-left"
+                className="text-muted-foreground hover:text-primary transition-colors text-left text-sm"
               >
                 Contact
               </button>
-              <div className="flex flex-col gap-2 pt-4">
-                <Button variant="ghost" className="justify-start">
+              <div className="flex flex-col gap-2 pt-3 border-t border-border">
+                <Button variant="ghost" size="sm" className="justify-start">
                   Sign In
                 </Button>
                 <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="justify-start w-full">
-                    Book a Call
+                  <Button variant="outline" size="sm" className="justify-start w-full">
+                    Book Call
                   </Button>
                 </a>
                 <GetStartedButton className="justify-start" compact />
