@@ -10,7 +10,8 @@ import {
   Mail,
   BarChart3,
   AlertTriangle,
-  BookOpen
+  BookOpen,
+  Wrench
 } from "lucide-react";
 import { siteConfig } from "@/config/config";
 
@@ -50,6 +51,12 @@ const features = [
     title: "Cold Email Optimized",
     description: "Purpose-built for cold email marketers with advanced deliverability features, backup domains, and campaign management tools.",
     highlight: "Cold Email Focus"
+  },
+  {
+    icon: Wrench,
+    title: "Free Cold Email Tools",
+    description: "Username generators, domain name ideas, and persona generators to streamline your campaign setup and testing processes.",
+    highlight: "Free Tools"
   }
 ];
 
@@ -75,31 +82,39 @@ const FeaturesSection = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <Card 
-              key={index} 
-              className="relative group hover:shadow-card transition-all duration-300 hover:scale-[1.02] bg-gradient-card border-primary/10"
-            >
-              <CardHeader>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                    <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-right">
-                    <div className="text-sm font-semibold text-primary">{feature.highlight}</div>
-                  </div>
-                </div>
-                <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                  {feature.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+          {features.map((feature, index) => {
+            const isToolsCard = feature.highlight === "Free Tools";
+            const CardWrapper = isToolsCard ? 'a' : 'div';
+            const cardProps = isToolsCard ? { href: '/tools' } : {};
+            
+            return (
+              <CardWrapper key={index} {...cardProps} className={isToolsCard ? "block" : ""}>
+                <Card 
+                  className={`relative group hover:shadow-card transition-all duration-300 hover:scale-[1.02] bg-gradient-card border-primary/10 ${isToolsCard ? 'cursor-pointer hover:border-primary/30' : ''}`}
+                >
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                        <feature.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="text-right">
+                        <div className="text-sm font-semibold text-primary">{feature.highlight}</div>
+                      </div>
+                    </div>
+                    <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {feature.title}
+                      {isToolsCard && <span className="text-sm text-primary ml-2">→</span>}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </CardWrapper>
+            );
+          })}
         </div>
         
         <div className="mt-12 max-w-4xl mx-auto">
