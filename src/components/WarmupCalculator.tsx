@@ -10,7 +10,7 @@ import { BarChart3, Settings, Calendar, TrendingUp, Mail, Clock, Download, Info 
 const WarmupCalculator = () => {
   // Basic Settings
   const [mailboxes, setMailboxes] = useState(1);
-  const [maxPerDay, setMaxPerDay] = useState(50);
+  const [maxPerDay, setMaxPerDay] = useState(10);
   const [duration, setDuration] = useState(8);
   
   // Advanced Settings
@@ -18,7 +18,7 @@ const WarmupCalculator = () => {
   const [readEmulation, setReadEmulation] = useState(true);
   const [customTracking, setCustomTracking] = useState(false);
   const [increasePerDay, setIncreasePerDay] = useState(1);
-  const [replyRate, setReplyRate] = useState([30]);
+  const [replyRate, setReplyRate] = useState([80]);
   const [openRate, setOpenRate] = useState([100]);
   const [spamProtection, setSpamProtection] = useState([100]);
   const [markImportant, setMarkImportant] = useState([100]);
@@ -129,8 +129,8 @@ const WarmupCalculator = () => {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Main Calculator Card */}
+    <div className="grid lg:grid-cols-2 gap-6">
+      {/* Left Column - Calculator Settings */}
       <Card className="bg-card border border-border">
         <CardHeader>
           <div className="flex items-center gap-2 mb-2">
@@ -140,6 +140,8 @@ const WarmupCalculator = () => {
           <p className="text-muted-foreground text-sm">
             Plan your warmup strategy and export settings to sequencers like Instantly, SmartLead, or Apollo.
           </p>
+          
+          
         </CardHeader>
         <CardContent className="space-y-6">
           
@@ -406,7 +408,7 @@ const WarmupCalculator = () => {
         </CardContent>
       </Card>
 
-      {/* Results Card */}
+      {/* Right Column - Results */}
       <Card className="bg-card border border-border">
         <CardHeader>
           <div className="flex items-center gap-2 mb-2">
@@ -422,25 +424,21 @@ const WarmupCalculator = () => {
             <table className="min-w-full text-sm border rounded-lg">
               <thead>
                 <tr className="bg-muted">
-                  <th className="px-3 py-2 text-left">Week</th>
-                  <th className="px-3 py-2 text-left">Per Mailbox/Day</th>
-                  <th className="px-3 py-2 text-left">Per Mailbox/Week</th>
-                  <th className="px-3 py-2 text-left">Total Daily</th>
-                  <th className="px-3 py-2 text-left">Total Weekly</th>
-                  <th className="px-3 py-2 text-left">Est. Opens</th>
-                  <th className="px-3 py-2 text-left">Est. Replies</th>
+                  <th className="px-2 py-2 text-left">Week</th>
+                  <th className="px-2 py-2 text-left">Per Day</th>
+                  <th className="px-2 py-2 text-left">Total Daily</th>
+                  <th className="px-2 py-2 text-left">Opens</th>
+                  <th className="px-2 py-2 text-left">Replies</th>
                 </tr>
               </thead>
               <tbody>
                 {plan.map(row => (
                   <tr key={row.week} className="border-t hover:bg-muted/30">
-                    <td className="px-3 py-2 font-medium">Week {row.week}</td>
-                    <td className="px-3 py-2">{row.perMailboxDaily}</td>
-                    <td className="px-3 py-2">{row.perMailboxWeekly}</td>
-                    <td className="px-3 py-2 font-medium">{row.totalDaily}</td>
-                    <td className="px-3 py-2">{row.totalWeekly}</td>
-                    <td className="px-3 py-2 text-green-600">{row.estimatedOpens}</td>
-                    <td className="px-3 py-2 text-blue-600">{row.estimatedReplies}</td>
+                    <td className="px-2 py-2 font-medium">W{row.week}</td>
+                    <td className="px-2 py-2">{row.perMailboxDaily}</td>
+                    <td className="px-2 py-2 font-medium">{row.totalDaily}</td>
+                    <td className="px-2 py-2 text-green-600">{row.estimatedOpens}</td>
+                    <td className="px-2 py-2 text-blue-600">{row.estimatedReplies}</td>
                   </tr>
                 ))}
               </tbody>
@@ -448,59 +446,39 @@ const WarmupCalculator = () => {
           </div>
           
           {/* Summary Stats */}
-          <div className="grid md:grid-cols-4 gap-4 mt-6 p-4 bg-muted/30 rounded-lg">
+          <div className="grid grid-cols-2 gap-3 mt-6 p-4 bg-muted/30 rounded-lg">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">{plan[plan.length - 1]?.perMailboxDaily || 0}</div>
-              <div className="text-xs text-muted-foreground">Final Daily Volume</div>
+              <div className="text-xl font-bold text-primary">{plan[plan.length - 1]?.perMailboxDaily || 0}</div>
+              <div className="text-xs text-muted-foreground">Final Daily</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-green-600">{plan.reduce((sum, week) => sum + week.totalWeekly, 0)}</div>
+              <div className="text-xl font-bold text-green-600">{plan.reduce((sum, week) => sum + week.totalWeekly, 0)}</div>
               <div className="text-xs text-muted-foreground">Total Emails</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">{Math.round(plan.reduce((sum, week) => sum + week.estimatedReplies, 0))}</div>
-              <div className="text-xs text-muted-foreground">Expected Replies</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600">{duration}</div>
-              <div className="text-xs text-muted-foreground">Weeks Duration</div>
             </div>
           </div>
           
           {/* Action Buttons */}
           <div className="space-y-4 mt-6">
-            {/* Compatible Platforms */}
-            <div className="text-center">
-              <p className="text-sm text-muted-foreground mb-3">
-                Compatible with popular email sequencers:
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-medium">Instantly</span>
-                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">SmartLead</span>
-                <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-medium">Apollo</span>
-                <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-medium">Outreach</span>
-              </div>
-            </div>
+           
             
             {/* Export Buttons */}
-            <div className="grid md:grid-cols-2 gap-3">
-              <Button onClick={exportToCSV} variant="outline" className="flex items-center gap-2">
-                <Download className="w-4 h-4" />
-                Export CSV
+            <div className="grid grid-cols-2 gap-2">
+              <Button onClick={exportToCSV} variant="outline" size="sm" className="flex items-center gap-1">
+                <Download className="w-3 h-3" />
+                CSV
               </Button>
-              <Button onClick={exportToJSON} variant="outline" className="flex items-center gap-2">
-                <Download className="w-4 h-4" />
-                Export JSON
+              <Button onClick={exportToJSON} variant="outline" size="sm" className="flex items-center gap-1">
+                <Download className="w-3 h-3" />
+                JSON
               </Button>
             </div>
             
             {/* Implementation Note */}
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <p className="text-yellow-800 text-sm">
-                <strong>Next Steps:</strong> Import your schedule into your chosen sequencer and configure 
-                your warmup pools using the exported settings. Need help with setup? 
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+              <p className="text-yellow-800 text-xs">
+                <strong>Next Steps:</strong> Import into your sequencer. 
                 <a href="/warmup-guide" className="underline hover:no-underline ml-1">
-                  View our implementation guide
+                  View guide →
                 </a>
               </p>
             </div>
