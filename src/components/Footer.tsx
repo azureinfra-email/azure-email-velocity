@@ -1,6 +1,14 @@
-import { Mail, Twitter, Linkedin, Github } from "lucide-react";
+import { Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import { siteConfig } from "@/config/config";
 
 const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  };
+
   return (
     <footer className="bg-muted/30 border-t border-border">
       <div className="container mx-auto px-6 py-12">
@@ -10,42 +18,72 @@ const Footer = () => {
               <div className="p-2 bg-primary rounded-lg">
                 <Mail className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-foreground">azureinfra.email</span>
+              <span className="text-xl font-bold text-foreground">{siteConfig.domain}</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Enterprise-grade cold email infrastructure powered by Azure. 
-              Reliable, fast, and built for results.
+              {siteConfig.description}
             </p>
           </div>
           
           <div>
             <h3 className="font-semibold text-foreground mb-4">Product</h3>
             <ul className="space-y-2">
-              <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Features</a></li>
-              <li><a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</a></li>
+              {siteConfig.navigation.footer.product.map((item, index) => (
+                <li key={index}>
+                  <button 
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-muted-foreground hover:text-primary transition-colors text-left"
+                  >
+                    {item.name}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold text-foreground mb-4">Company</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">About</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
+              {siteConfig.navigation.footer.company.map((item, index) => (
+                <li key={index}>
+                  {item.link ? (
+                    <a 
+                      href={item.link}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <button 
+                      onClick={() => scrollToSection(item.id!)}
+                      className="text-muted-foreground hover:text-primary transition-colors text-left"
+                    >
+                      {item.name}
+                    </button>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
         
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 azureinfra.email. All rights reserved.
+            {siteConfig.company.copyright}
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+            <Link 
+              to={siteConfig.links.privacyPolicy}
+              className="text-muted-foreground hover:text-primary text-sm transition-colors"
+            >
               Privacy Policy
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+            </Link>
+            <Link 
+              to={siteConfig.links.termsOfService}
+              className="text-muted-foreground hover:text-primary text-sm transition-colors"
+            >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
