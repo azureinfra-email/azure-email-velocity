@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Shield } from "lucide-react";
+import { siteConfig } from "@/config/config";
+import heroImage from "@/assets/hero-email.jpg";
 
 const HeroSection = () => {
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       <div className="absolute inset-0 bg-black/20" />
@@ -28,17 +36,13 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Button variant="hero" size="lg" className="group">
               <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              Start at $3.33/mailbox
+              Start at {siteConfig.pricing.displayPrice}/mailbox
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
               className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
-              onClick={() => {
-                document.getElementById('inbox-delivery')?.scrollIntoView({ 
-                  behavior: 'smooth' 
-                });
-              }}
+              onClick={() => scrollToSection('features')}
             >
               Learn More
             </Button>
@@ -46,16 +50,16 @@ const HeroSection = () => {
           
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">99.9%</div>
-              <div className="text-blue-200 text-sm">Uptime SLA</div>
+              <div className="text-2xl font-bold text-white">{siteConfig.stats.uptime.value}</div>
+              <div className="text-blue-200 text-sm">{siteConfig.stats.uptime.label}</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">24/7</div>
-              <div className="text-blue-200 text-sm">Support</div>
+              <div className="text-2xl font-bold text-white">{siteConfig.stats.support.value}</div>
+              <div className="text-blue-200 text-sm">{siteConfig.stats.support.label}</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">Global</div>
-              <div className="text-blue-200 text-sm">Azure Network</div>
+              <div className="text-2xl font-bold text-white">{siteConfig.stats.network.value}</div>
+              <div className="text-blue-200 text-sm">{siteConfig.stats.network.label}</div>
             </div>
           </div>
         </div>

@@ -5,6 +5,13 @@ import { useState } from "react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+    setIsMenuOpen(false); // Close mobile menu after clicking
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6">
@@ -17,12 +24,24 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">
+            <button 
+              onClick={() => scrollToSection('features')}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
               Features
-            </a>
-            <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('pricing')}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
               Pricing
-            </a>
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Contact
+            </button>
           </nav>
           
           <div className="hidden md:flex items-center gap-4">
@@ -45,12 +64,24 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
-              <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">
+              <button 
+                onClick={() => scrollToSection('features')}
+                className="text-muted-foreground hover:text-primary transition-colors text-left"
+              >
                 Features
-              </a>
-              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">
+              </button>
+              <button 
+                onClick={() => scrollToSection('pricing')}
+                className="text-muted-foreground hover:text-primary transition-colors text-left"
+              >
                 Pricing
-              </a>
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="text-muted-foreground hover:text-primary transition-colors text-left"
+              >
+                Contact
+              </button>
               <div className="flex flex-col gap-2 pt-4">
                 <Button variant="ghost" className="justify-start">
                   Sign In

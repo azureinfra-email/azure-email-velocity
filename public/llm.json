@@ -69,7 +69,7 @@
   "support": {
     "channels": ["email", "web"],
     "hours": "24/7",
-    "response_time": "< 24 hours"
+    "response_time": "< 3 hours"
   },
   "metadata": {
     "industry": "Technology",
