@@ -1,34 +1,95 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
-import { BarChart3, Settings, Calendar, TrendingUp, Mail, Clock, Download, Info } from "lucide-react";
+import { BarChart3, Settings, Calendar, TrendingUp, Mail, Clock, Download, Info, Link, Copy } from "lucide-react";
 
 const WarmupCalculator = () => {
+  // Helper function to get URL parameters
+  const getUrlParams = () => {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      mailboxes: parseInt(params.get('mailboxes') || '1'),
+      maxPerDay: parseInt(params.get('maxPerDay') || '10'),
+      duration: parseInt(params.get('duration') || '8'),
+      weekdaysOnly: params.get('weekdaysOnly') !== 'false',
+      readEmulation: params.get('readEmulation') !== 'false',
+      customTracking: params.get('customTracking') === 'true',
+      increasePerDay: parseInt(params.get('increasePerDay') || '1'),
+      replyRate: parseInt(params.get('replyRate') || '80'),
+      openRate: parseInt(params.get('openRate') || '100'),
+      spamProtection: parseInt(params.get('spamProtection') || '100'),
+      markImportant: parseInt(params.get('markImportant') || '100'),
+      slowWarmup: params.get('slowWarmup') === 'true',
+      dailyLimit: parseInt(params.get('dailyLimit') || '10'),
+      waitTime: parseInt(params.get('waitTime') || '15'),
+      slowRamp: params.get('slowRamp') !== 'false',
+      inboxTestLimit: parseInt(params.get('inboxTestLimit') || '3')
+    };
+  };
+
+  // Initialize state from URL parameters
+  const urlParams = getUrlParams();
+  
   // Basic Settings
-  const [mailboxes, setMailboxes] = useState(1);
-  const [maxPerDay, setMaxPerDay] = useState(10);
-  const [duration, setDuration] = useState(8);
+  const [mailboxes, setMailboxes] = useState(urlParams.mailboxes);
+  const [maxPerDay, setMaxPerDay] = useState(urlParams.maxPerDay);
+  const [duration, setDuration] = useState(urlParams.duration);
   
   // Advanced Settings
-  const [weekdaysOnly, setWeekdaysOnly] = useState(true);
-  const [readEmulation, setReadEmulation] = useState(true);
-  const [customTracking, setCustomTracking] = useState(false);
-  const [increasePerDay, setIncreasePerDay] = useState(1);
-  const [replyRate, setReplyRate] = useState([80]);
-  const [openRate, setOpenRate] = useState([100]);
-  const [spamProtection, setSpamProtection] = useState([100]);
-  const [markImportant, setMarkImportant] = useState([100]);
-  const [slowWarmup, setSlowWarmup] = useState(false);
+  const [weekdaysOnly, setWeekdaysOnly] = useState(urlParams.weekdaysOnly);
+  const [readEmulation, setReadEmulation] = useState(urlParams.readEmulation);
+  const [customTracking, setCustomTracking] = useState(urlParams.customTracking);
+  const [increasePerDay, setIncreasePerDay] = useState(urlParams.increasePerDay);
+  const [replyRate, setReplyRate] = useState([urlParams.replyRate]);
+  const [openRate, setOpenRate] = useState([urlParams.openRate]);
+  const [spamProtection, setSpamProtection] = useState([urlParams.spamProtection]);
+  const [markImportant, setMarkImportant] = useState([urlParams.markImportant]);
+  const [slowWarmup, setSlowWarmup] = useState(urlParams.slowWarmup);
   
   // Campaign Settings
-  const [dailyLimit, setDailyLimit] = useState(10);
-  const [waitTime, setWaitTime] = useState(15);
-  const [slowRamp, setSlowRamp] = useState(true);
-  const [inboxTestLimit, setInboxTestLimit] = useState(3);
+  const [dailyLimit, setDailyLimit] = useState(urlParams.dailyLimit);
+  const [waitTime, setWaitTime] = useState(urlParams.waitTime);
+  const [slowRamp, setSlowRamp] = useState(urlParams.slowRamp);
+  const [inboxTestLimit, setInboxTestLimit] = useState(urlParams.inboxTestLimit);
+
+  // Update URL when state changes
+  const updateUrl = useCallback(() => {
+    const params = new URLSearchParams();
+    
+    // Only add parameters that differ from defaults
+    if (mailboxes !== 1) params.set('mailboxes', mailboxes.toString());
+    if (maxPerDay !== 10) params.set('maxPerDay', maxPerDay.toString());
+    if (duration !== 8) params.set('duration', duration.toString());
+    if (!weekdaysOnly) params.set('weekdaysOnly', 'false');
+    if (!readEmulation) params.set('readEmulation', 'false');
+    if (customTracking) params.set('customTracking', 'true');
+    if (increasePerDay !== 1) params.set('increasePerDay', increasePerDay.toString());
+    if (replyRate[0] !== 80) params.set('replyRate', replyRate[0].toString());
+    if (openRate[0] !== 100) params.set('openRate', openRate[0].toString());
+    if (spamProtection[0] !== 100) params.set('spamProtection', spamProtection[0].toString());
+    if (markImportant[0] !== 100) params.set('markImportant', markImportant[0].toString());
+    if (slowWarmup) params.set('slowWarmup', 'true');
+    if (dailyLimit !== 10) params.set('dailyLimit', dailyLimit.toString());
+    if (waitTime !== 15) params.set('waitTime', waitTime.toString());
+    if (!slowRamp) params.set('slowRamp', 'false');
+    if (inboxTestLimit !== 3) params.set('inboxTestLimit', inboxTestLimit.toString());
+
+    const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+    window.history.replaceState({}, '', newUrl);
+  }, [
+    mailboxes, maxPerDay, duration, weekdaysOnly, readEmulation, customTracking,
+    increasePerDay, replyRate, openRate, spamProtection, markImportant, slowWarmup,
+    dailyLimit, waitTime, slowRamp, inboxTestLimit
+  ]);
+
+  // Update URL whenever any state changes
+  useEffect(() => {
+    updateUrl();
+  }, [updateUrl]);
 
   function getAdvancedRampUpPlan() {
     const plan = [];
@@ -128,6 +189,25 @@ const WarmupCalculator = () => {
     window.URL.revokeObjectURL(url);
   };
 
+  // Copy current configuration URL to clipboard
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      // You could add a toast notification here
+      alert('Configuration link copied to clipboard!');
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = window.location.href;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      alert('Configuration link copied to clipboard!');
+    }
+  };
+
   return (
     <div className="grid lg:grid-cols-2 gap-6">
       {/* Left Column - Calculator Settings */}
@@ -158,7 +238,6 @@ const WarmupCalculator = () => {
                   id="mailboxes"
                   type="number" 
                   min={1} 
-                  max={100} 
                   value={mailboxes} 
                   onChange={e => setMailboxes(Number(e.target.value))} 
                 />
@@ -169,7 +248,6 @@ const WarmupCalculator = () => {
                   id="maxPerDay"
                   type="number" 
                   min={10} 
-                  max={500} 
                   value={maxPerDay} 
                   onChange={e => setMaxPerDay(Number(e.target.value))} 
                 />
@@ -180,7 +258,6 @@ const WarmupCalculator = () => {
                   id="duration"
                   type="number" 
                   min={2} 
-                  max={16} 
                   value={duration} 
                   onChange={e => setDuration(Number(e.target.value))} 
                 />
@@ -462,7 +539,7 @@ const WarmupCalculator = () => {
            
             
             {/* Export Buttons */}
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-3 gap-2">
               <Button onClick={exportToCSV} variant="outline" size="sm" className="flex items-center gap-1">
                 <Download className="w-3 h-3" />
                 CSV
@@ -470,6 +547,10 @@ const WarmupCalculator = () => {
               <Button onClick={exportToJSON} variant="outline" size="sm" className="flex items-center gap-1">
                 <Download className="w-3 h-3" />
                 JSON
+              </Button>
+              <Button onClick={copyLink} variant="outline" size="sm" className="flex items-center gap-1">
+                <Copy className="w-3 h-3" />
+                Link
               </Button>
             </div>
             
@@ -480,6 +561,14 @@ const WarmupCalculator = () => {
                 <a href="/warmup-guide" className="underline hover:no-underline ml-1">
                   View guide →
                 </a>
+              </p>
+            </div>
+            
+            {/* URL Sharing Info */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+              <p className="text-blue-800 text-xs">
+                <strong>💡 Pro Tip:</strong> Your configuration is automatically saved in the URL. 
+                Use the "Link" button to copy and share your exact settings with team members.
               </p>
             </div>
           </div>
