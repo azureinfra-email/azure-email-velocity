@@ -8,22 +8,29 @@ import { Outlet } from 'react-router-dom';
 import ScrollToTop from "./components/ScrollToTop";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { AnalyticsProvider, CookieConsentBanner } from './components/AnalyticsProvider';
+import { IntercomProvider } from './components/IntercomProvider';
 
 const queryClient = new QueryClient();
 
 const Layout = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-          <Header />
-          <Outlet />
-          <Footer />
-          <Toaster />
-          <Sonner />
-          <ScrollToTop />
-        </div>
-      </TooltipProvider>
+      <AnalyticsProvider autoConsent={true}>
+        <IntercomProvider>
+          <TooltipProvider>
+            <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+              <Header />
+              <Outlet />
+              <Footer />
+              <Toaster />
+              <Sonner />
+              <ScrollToTop />
+              <CookieConsentBanner />
+            </div>
+          </TooltipProvider>
+        </IntercomProvider>
+      </AnalyticsProvider>
     </QueryClientProvider>
   );
 };

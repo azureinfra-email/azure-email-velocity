@@ -198,9 +198,23 @@ export const siteConfig = {
     }
   },
   
-  // Intercom widget ID
+  // Intercom widget configuration
   intercom: {
-    appId: "hzgdupaj"
+    appId: process.env.VITE_INTERCOM_APP_ID || "jqgoxl25",
+    widgetId: process.env.VITE_INTERCOM_WIDGET_ID || "hzgdupaj"
+  },
+  
+  // Analytics configuration
+  analytics: {
+    googleAnalytics: {
+      enabled: Boolean(process.env.VITE_GA_MEASUREMENT_ID),
+      measurementId: process.env.VITE_GA_MEASUREMENT_ID || ""
+    },
+    posthog: {
+      enabled: Boolean(process.env.VITE_POSTHOG_API_KEY),
+      apiKey: process.env.VITE_POSTHOG_API_KEY || "",
+      apiHost: process.env.VITE_POSTHOG_API_HOST || "https://app.posthog.com"
+    }
   }
 };
 
