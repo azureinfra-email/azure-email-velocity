@@ -1,8 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import GetStartedButton from "@/components/ui/GetStartedButton";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { seoConfig } from "@/config/seo";
 import { 
@@ -179,7 +177,6 @@ const WarmupGuide = () => {
         canonical={seoConfig.warmupGuide.canonical}
         schemaType={seoConfig.warmupGuide.schemaType}
       />
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-purple-50">

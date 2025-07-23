@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import PricingSection from "@/components/PricingSection";
@@ -10,7 +9,6 @@ import GuaranteeSection from "@/components/GuaranteeSection";
 import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
 import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -36,7 +34,6 @@ const Index = () => {
         canonical="/"
         schemaType="WebPage"
       />
-      <Header />
       <HeroSection />
       <FeaturesSection />
       <PricingSection />
@@ -44,7 +41,6 @@ const Index = () => {
       <CalculatorSection />
       <GuaranteeSection />
       <ContactSection />
-      <Footer />
     </div>
   );
 };

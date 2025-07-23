@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { seoConfig } from "@/config/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -397,7 +395,6 @@ ${results.recommendations.map(rec => `• ${rec}`).join('\n')}
         canonical={seoConfig.abSubjectLineTester.canonical}
         schemaType={seoConfig.abSubjectLineTester.schemaType}
       />
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 bg-gradient-to-br from-amber-50 to-orange-50">

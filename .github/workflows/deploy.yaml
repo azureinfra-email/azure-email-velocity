@@ -32,6 +32,27 @@ jobs:
         run: npm install
 
       - name: Build with Vite
+        env:
+          # Analytics Configuration
+          VITE_GTM_CONTAINER_ID: G-01DQLD7ZL4
+          VITE_GA_MEASUREMENT_ID: G-01DQLD7ZL4
+          
+          # PostHog Configuration
+          VITE_POSTHOG_API_KEY: phc_sl7WL3TIdVUG4FvrsADy5xIjkpVw3agM8jprG92YMJx
+          VITE_POSTHOG_API_HOST: https://us.i.posthog.com
+          
+          # Intercom Configuration
+          VITE_INTERCOM_APP_ID: jqgoxl25
+          VITE_INTERCOM_WIDGET_ID: hzgdupaj
+          
+          # Production environment settings
+          VITE_ANALYTICS_DEBUG: false
+          VITE_COOKIE_CONSENT_REQUIRED: false
+          NODE_ENV: production
+          
+          # GitHub Actions environment variables for release tracking
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          BRANCH_NAME: ${{ github.ref_name }}
         run: npm run build
 
       - name: Upload GitHub Pages artifact
