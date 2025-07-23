@@ -257,7 +257,7 @@ const ToolsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SimpleSEO 
-        title="Email Marketing Tools - Azure Email Velocity"
+        title="Email Marketing Tools - AzureInfra.email"
         description="Free email marketing tools collection. Subject line generators, warmup calculators, email validators, spam analyzers and more professional tools."
       />
       <Header />
