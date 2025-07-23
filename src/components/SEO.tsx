@@ -7,7 +7,7 @@ interface SEOProps {
   canonical?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
-  schemaType?: 'WebPage' | 'SoftwareApplication' | 'WebApplication';
+  schemaType?: 'WebPage' | 'SoftwareApplication' | 'WebApplication' | 'Article';
   breadcrumbs?: Array<{ name: string; url: string }>;
 }
 

@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import GetStartedButton from "@/components/ui/GetStartedButton";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { seoConfig } from "@/config/seo";
 import { 
   ThermometerSun, 
   Clock, 
@@ -170,6 +172,13 @@ const WarmupGuide = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={seoConfig.warmupGuide.title}
+        description={seoConfig.warmupGuide.description}
+        keywords={seoConfig.warmupGuide.keywords}
+        canonical={seoConfig.warmupGuide.canonical}
+        schemaType={seoConfig.warmupGuide.schemaType}
+      />
       <Header />
       
       {/* Hero Section */}

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { seoConfig } from "@/config/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -422,6 +424,13 @@ const TemplateGeneratorPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={seoConfig.templateGenerator.title}
+        description={seoConfig.templateGenerator.description}
+        keywords={seoConfig.templateGenerator.keywords}
+        canonical={seoConfig.templateGenerator.canonical}
+        schemaType={seoConfig.templateGenerator.schemaType}
+      />
       <Header />
       
       {/* Hero Section */}

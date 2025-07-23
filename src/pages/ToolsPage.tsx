@@ -258,6 +258,9 @@ const ToolsPage = () => {
       <SEO 
         title="Cold Email Tools - AzureInfra.email"
         description="Professional cold email tools collection. Subject line generators, warmup calculators, email validators, spam analyzers and more professional tools."
+        keywords="cold email tools, subject line generator, email validator, spam analyzer, email warmup calculator, email marketing tools"
+        canonical="/tools"
+        schemaType="WebPage"
       />
       <Header />
       

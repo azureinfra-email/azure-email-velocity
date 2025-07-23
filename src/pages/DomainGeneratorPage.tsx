@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { seoConfig } from "@/config/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -251,6 +253,13 @@ const DomainGeneratorPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={seoConfig.domainGenerator.title}
+        description={seoConfig.domainGenerator.description}
+        keywords={seoConfig.domainGenerator.keywords}
+        canonical={seoConfig.domainGenerator.canonical}
+        schemaType={seoConfig.domainGenerator.schemaType}
+      />
       <Header />
       
       {/* Hero Section */}

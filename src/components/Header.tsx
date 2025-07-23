@@ -145,6 +145,12 @@ const Header = () => {
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
+                  <a href="/tools/dns-record-generator" className="flex items-center gap-2 w-full">
+                    <Globe className="w-4 h-4" />
+                    DNS Record Generator
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <a href="/tools/email-signature-generator" className="flex items-center gap-2 w-full">
                     <Signature className="w-4 h-4" />
                     Email Signature Generator
@@ -330,6 +336,14 @@ const Header = () => {
                 >
                   <UserCircle className="w-3 h-3" />
                   Person Generator
+                </a>
+                <a 
+                  href="/tools/dns-record-generator"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Globe className="w-3 h-3" />
+                  DNS Record Generator
                 </a>
                 <a 
                   href="/tools/email-signature-generator"

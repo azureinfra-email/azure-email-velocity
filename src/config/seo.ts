@@ -139,6 +139,22 @@ export const seoConfig = {
     schemaType: "WebApplication" as const
   },
 
+  dnsRecordGenerator: {
+    title: "DNS Record Generator for Email Marketing",
+    description: "Generate SPF, DKIM, DMARC, and MX DNS records for email deliverability. Configure email authentication and improve inbox placement.",
+    keywords: "DNS records, SPF record, DKIM record, DMARC record, email authentication, email deliverability",
+    canonical: "/tools/dns-record-generator",
+    schemaType: "WebApplication" as const
+  },
+
+  templateGenerator: {
+    title: "Cold Email Template Generator",
+    description: "Generate professional cold email templates with proven frameworks. Create engaging email copy that converts prospects into customers.",
+    keywords: "cold email templates, email copywriting, email templates, cold outreach templates, email marketing templates",
+    canonical: "/tools/template-generator",
+    schemaType: "WebApplication" as const
+  },
+
   // Static Pages
   warmupGuide: {
     title: "Complete Email Warmup Guide - Improve Deliverability",

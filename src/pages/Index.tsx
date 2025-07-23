@@ -32,6 +32,9 @@ const Index = () => {
       <SEO 
         title="AzureInfra.email - Premium Cold Email Infrastructure"
         description="Premium Azure-powered cold email infrastructure at $1.50/mailbox. 99.9% inbox rates, dedicated IPs, domain isolation, instant setup for high-volume marketers."
+        keywords="cold email infrastructure, azure email, dedicated IPs, email deliverability, outlook 365, cold email service, email hosting, domain isolation"
+        canonical="/"
+        schemaType="WebPage"
       />
       <Header />
       <HeroSection />

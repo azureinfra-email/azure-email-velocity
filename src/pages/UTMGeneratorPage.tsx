@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { seoConfig } from "@/config/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -339,6 +341,13 @@ const UTMGeneratorPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={seoConfig.utmGenerator.title}
+        description={seoConfig.utmGenerator.description}
+        keywords={seoConfig.utmGenerator.keywords}
+        canonical={seoConfig.utmGenerator.canonical}
+        schemaType={seoConfig.utmGenerator.schemaType}
+      />
       <Header />
       
       {/* Hero Section */}
