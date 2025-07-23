@@ -1,9 +1,9 @@
-// Global configuration file for Azure Email Velocity
+// Global configuration file for AzureInfra.email
 // Update values here to change them across the entire website
 
 export const siteConfig = {
   // Basic site information
-  name: "Azure Email Velocity",
+  name: "AzureInfra.email",
   domain: "azureinfra.email",
   tagline: "Cold Email Infrastructure for Maximum Deliverability",
   description: "Premium Azure-powered cold email infrastructure for marketers who need maximum deliverability potential. Enterprise-grade Outlook 365 mailboxes with dedicated IPs, domain isolation, and optimized infrastructure for high inbox rates.",
@@ -152,9 +152,9 @@ export const siteConfig = {
   
   // SEO metadata
   seo: {
-    title: "Azure Email Velocity - Premium Cold Email Infrastructure for Maximum Deliverability",
+    title: "AzureInfra.email - Premium Cold Email Infrastructure for Maximum Deliverability",
     metaDescription: "Premium Azure-powered cold email infrastructure at $1.50/mailbox. Maximum deliverability potential with dedicated IPs, domain isolation, instant setup. Built for high-volume cold email marketers.",
-    ogTitle: "Premium Cold Email Infrastructure - Azure Email Velocity",
+    ogTitle: "Premium Cold Email Infrastructure - AzureInfra.email",
     ogDescription: "Maximum deliverability potential with dedicated Azure infrastructure. Premium cold email infrastructure at $1.50/mailbox with domain isolation and instant setup.",
     ogImage: "/assets/hero-email.jpg",
     keywords: [
