@@ -10,6 +10,7 @@ import GuaranteeSection from "@/components/GuaranteeSection";
 import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
 import CTASection from "@/components/CTASection";
+import FAQSection from "@/components/FAQSection";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -42,6 +43,7 @@ const Index = () => {
       <PriceComparisonSection />
       <CalculatorSection />
       <GuaranteeSection />
+      <FAQSection />
       <ContactSection />
     </div>
   );
