@@ -1,5 +1,5 @@
 {
-  "name": "Azure Email Velocity",
+  "name": "AzureInfra.email",
   "description": "Enterprise-grade Outlook 365 email infrastructure provider offering professional mailboxes with Microsoft Azure backing, enterprise security, and 99.9% uptime guarantee at $3.33 per mailbox.",
   "version": "1.0.0",
   "author": "Sending AC",
@@ -58,9 +58,9 @@
     "support": "24/7"
   },
   "seo": {
-    "title": "Azure Email Velocity - Enterprise Outlook 365 Infrastructure Provider",
+    "title": "AzureInfra.email - Enterprise Outlook 365 Infrastructure Provider",
     "meta_description": "Get enterprise-grade Outlook 365 email infrastructure at $3.33/mailbox. Microsoft Azure-powered, 99.9% uptime, enterprise security, instant activation. No compromise on quality.",
-    "og_title": "Enterprise Email Infrastructure - Azure Email Velocity",
+    "og_title": "Enterprise Email Infrastructure - AzureInfra.email",
     "og_description": "Professional Outlook 365 mailboxes with enterprise-grade security and reliability. Built on Microsoft Azure with 99.9% uptime guarantee.",
     "og_image": "/assets/hero-email.jpg",
     "twitter_card": "summary_large_image",
@@ -71,7 +71,7 @@
   "structured_data": {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Azure Email Velocity",
+    "name": "AzureInfra.email",
     "description": "Enterprise-grade Outlook 365 email infrastructure provider",
     "url": "https://azureinfra.email",
     "logo": "https://azureinfra.email/logo.png",
