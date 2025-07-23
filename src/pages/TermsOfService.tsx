@@ -50,6 +50,16 @@ const TermsOfService = () => {
               Agreement to Terms
             </h2>
             <p className="text-muted-foreground">
+              These Terms of Service ("Terms") govern your use of the {siteConfig.name} website and services operated by <strong>Elitale Softwares Private Limited</strong> ("we," "us," or "our"), a technology company specializing in cold email infrastructure solutions.
+            </p>
+            <p className="text-muted-foreground mt-4">
+              <strong>Company Information:</strong><br/>
+              Business Name: Elitale Softwares Private Limited<br/>
+              Website: {siteConfig.domain}<br/>
+              Contact: {siteConfig.contact.email}<br/>
+              Service: Premium Azure-powered cold email infrastructure
+            </p>
+            <p className="text-muted-foreground mt-4">
               By accessing and using {siteConfig.name}'s email infrastructure services, you accept and agree to be bound by the terms and provisions of this agreement.
             </p>
           </div>
