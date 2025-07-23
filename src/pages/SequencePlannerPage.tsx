@@ -366,7 +366,7 @@ P.S. If you're not the right person for this, I'd appreciate a quick redirect to
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Email Sequence Planner - Azure Email Velocity"
+        title="Email Sequence Planner - AzureInfra.email"
         description="Free email sequence planner tool. Plan and optimize your email sequences for maximum conversion. Create drip campaigns, follow-up sequences, and automated workflows."
       />
       <Header />

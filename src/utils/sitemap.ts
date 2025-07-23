@@ -1,6 +1,6 @@
 // Generate sitemap.xml content
 const generateSitemap = () => {
-  const baseUrl = 'https://sending-ac.vercel.app';
+  const baseUrl = 'https://azureinfra.email';
   const currentDate = new Date().toISOString();
   
   const routes = [
@@ -44,7 +44,7 @@ ${routes.map(route => `  <url>
 
 // Generate robots.txt content
 const generateRobotsTxt = () => {
-  const baseUrl = 'https://sending-ac.vercel.app';
+  const baseUrl = 'https://azureinfra.email';
   
   return `User-agent: *
 Allow: /

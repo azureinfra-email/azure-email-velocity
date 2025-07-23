@@ -30,7 +30,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Azure Email Velocity - Premium Cold Email Infrastructure"
+        title="AzureInfra.email - Premium Cold Email Infrastructure"
         description="Premium Azure-powered cold email infrastructure at $1.50/mailbox. 99.9% inbox rates, dedicated IPs, domain isolation, instant setup for high-volume marketers."
       />
       <Header />
