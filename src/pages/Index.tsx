@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import HeroSection from "@/components/HeroSection";
+import InboxDeliverySection from "@/components/InboxDeliverySection";
 import FeaturesSection from "@/components/FeaturesSection";
 import PricingSection from "@/components/PricingSection";
 import PriceComparisonSection from "@/components/PriceComparisonSection";
@@ -28,13 +29,14 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="AzureInfra.email - Premium Cold Email Infrastructure"
-        description="Premium Azure-powered cold email infrastructure at $1.50/mailbox. 99.9% inbox rates, dedicated IPs, domain isolation, instant setup for high-volume marketers."
-        keywords="cold email infrastructure, azure email, dedicated IPs, email deliverability, outlook 365, cold email service, email hosting, domain isolation"
+        title="Land Every Email in GSuite & Outlook Inboxes - AzureInfra.email"
+        description="Guarantee inbox delivery for your cold emails. 99.9% delivery rate to GSuite and Outlook inboxes. Enterprise-grade Azure infrastructure, 1-hour setup, $1.50/mailbox."
+        keywords="gmail inbox delivery, outlook inbox delivery, cold email infrastructure, gsuite email delivery, microsoft 365 inbox, email deliverability, spam folder fix"
         canonical="/"
         schemaType="WebPage"
       />
       <HeroSection />
+      <InboxDeliverySection />
       <FeaturesSection />
       <PricingSection />
       <PriceComparisonSection />
