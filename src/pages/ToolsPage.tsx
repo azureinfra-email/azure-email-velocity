@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
-import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -262,7 +261,6 @@ const ToolsPage = () => {
         canonical="/tools"
         schemaType="WebPage"
       />
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-purple-50 to-pink-50">

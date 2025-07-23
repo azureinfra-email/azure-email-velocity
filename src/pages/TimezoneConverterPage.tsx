@@ -1,6 +1,4 @@
 import { useState, useEffect, useMemo } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { seoConfig } from "@/config/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -415,7 +413,6 @@ const TimezoneConverterPage = () => {
         canonical={seoConfig.timezoneConverter.canonical}
         schemaType={seoConfig.timezoneConverter.schemaType}
       />
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 bg-gradient-to-br from-indigo-50 to-purple-50">

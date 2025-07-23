@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { seoConfig } from "@/config/seo";
 import WarmupCalculator from "@/components/WarmupCalculator";
@@ -31,7 +29,6 @@ const WarmupCalculatorPage = () => {
         canonical={seoConfig.warmupCalculator.canonical}
         schemaType={seoConfig.warmupCalculator.schemaType}
       />
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-green-50 to-blue-50">

@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { seoConfig, breadcrumbConfig } from "@/config/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -148,7 +146,6 @@ John Smith`,
         schemaType={seoConfig.emailPreview.schemaType}
         breadcrumbs={breadcrumbConfig.toolsChild("Email Preview Tool", "/tools/email-preview")}
       />
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 bg-gradient-to-br from-cyan-50 to-blue-50">

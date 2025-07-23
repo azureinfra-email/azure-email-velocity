@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Mail, FileText, AlertTriangle, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/config";
-import Footer from "@/components/Footer";
 
 const TermsOfService = () => {
   return (
