@@ -1,4 +1,4 @@
-import { Helmet } from '@/lib/helmet';
+import { Head } from 'vite-react-ssg'
 
 interface SEOProps {
   title: string;
@@ -7,7 +7,7 @@ interface SEOProps {
   canonical?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
-  schemaType?: 'WebPage' | 'SoftwareApplication' | 'WebApplication';
+  schemaType?: 'WebPage' | 'SoftwareApplication' | 'WebApplication' | 'Article';
   breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
@@ -21,8 +21,8 @@ export default function SEO({
   schemaType = 'WebPage',
   breadcrumbs
 }: SEOProps) {
-  const siteUrl = 'https://sending-ac.vercel.app';
-  const fullTitle = title.includes('Sending AC') ? title : `${title} | Sending AC`;
+  const siteUrl = 'https://azureinfra.email';
+  const fullTitle = title.includes('AzureInfra.email') ? title : `${title} | AzureInfra.email`;
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : undefined;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 
@@ -36,7 +36,7 @@ export default function SEO({
     image: fullOgImage,
     publisher: {
       '@type': 'Organization',
-      name: 'Sending AC',
+      name: 'AzureInfra.email',
       url: siteUrl,
       logo: {
         '@type': 'ImageObject',
@@ -59,7 +59,7 @@ export default function SEO({
   }
 
   return (
-    <>
+    <Head>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
@@ -72,7 +72,7 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={fullOgImage} />
       {fullCanonical && <meta property="og:url" content={fullCanonical} />}
-      <meta property="og:site_name" content="Sending AC" />
+      <meta property="og:site_name" content="AzureInfra.email" />
       
       {/* Twitter Card Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -82,7 +82,7 @@ export default function SEO({
       
       {/* Additional Meta Tags */}
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <meta name="author" content="Sending AC" />
+      <meta name="author" content="AzureInfra.email" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Language" content="en" />
       
@@ -90,6 +90,6 @@ export default function SEO({
       <script type="application/ld+json">
         {JSON.stringify(schemaData)}
       </script>
-    </>
+    </Head>
   );
 }

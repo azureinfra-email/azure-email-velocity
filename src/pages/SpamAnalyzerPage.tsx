@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { seoConfig } from "@/config/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -294,6 +296,13 @@ const SpamAnalyzerPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={seoConfig.spamAnalyzer.title}
+        description={seoConfig.spamAnalyzer.description}
+        keywords={seoConfig.spamAnalyzer.keywords}
+        canonical={seoConfig.spamAnalyzer.canonical}
+        schemaType={seoConfig.spamAnalyzer.schemaType}
+      />
       <Header />
       
       {/* Hero Section */}

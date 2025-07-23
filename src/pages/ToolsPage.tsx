@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import SimpleSEO from "@/components/SimpleSEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -27,6 +25,7 @@ import {
   Wand2,
   Eye
 } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const ToolsPage = () => {
   const location = useLocation();
@@ -256,9 +255,12 @@ const ToolsPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SimpleSEO 
-        title="Email Marketing Tools - AzureInfra.email"
-        description="Free email marketing tools collection. Subject line generators, warmup calculators, email validators, spam analyzers and more professional tools."
+      <SEO 
+        title="Cold Email Tools - AzureInfra.email"
+        description="Professional cold email tools collection. Subject line generators, warmup calculators, email validators, spam analyzers and more professional tools."
+        keywords="cold email tools, subject line generator, email validator, spam analyzer, email warmup calculator, email marketing tools"
+        canonical="/tools"
+        schemaType="WebPage"
       />
       <Header />
       

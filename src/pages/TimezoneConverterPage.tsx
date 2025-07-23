@@ -1,6 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { seoConfig } from "@/config/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -406,6 +408,13 @@ const TimezoneConverterPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={seoConfig.timezoneConverter.title}
+        description={seoConfig.timezoneConverter.description}
+        keywords={seoConfig.timezoneConverter.keywords}
+        canonical={seoConfig.timezoneConverter.canonical}
+        schemaType={seoConfig.timezoneConverter.schemaType}
+      />
       <Header />
       
       {/* Hero Section */}

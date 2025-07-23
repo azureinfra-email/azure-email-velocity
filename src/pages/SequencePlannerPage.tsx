@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SimpleSEO from "@/components/SimpleSEO";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -364,9 +364,12 @@ P.S. If you're not the right person for this, I'd appreciate a quick redirect to
 
   return (
     <div className="min-h-screen bg-background">
-      <SimpleSEO 
+      <SEO
         title="Email Sequence Planner - AzureInfra.email"
         description="Free email sequence planner tool. Plan and optimize your email sequences for maximum conversion. Create drip campaigns, follow-up sequences, and automated workflows."
+        keywords="email sequence planner, drip campaigns, follow-up sequences, email automation, cold email planning, email marketing strategy"
+        canonical="/tools/sequence-planner"
+        schemaType="WebApplication"
       />
       <Header />
       

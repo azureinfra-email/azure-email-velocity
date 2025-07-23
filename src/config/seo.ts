@@ -2,9 +2,9 @@
 export const seoConfig = {
   // Homepage
   home: {
-    title: "Sending AC - Cold Email Marketing Tools & Resources",
-    description: "Professional cold email marketing tools including warmup calculators, spintax generators, subject line testers, and deliverability optimization. Boost your email campaign success rates.",
-    keywords: "cold email, email marketing, email warmup, spintax generator, subject line tester, email deliverability, outreach tools, email automation",
+    title: "AzureInfra.email - Premium Cold Email Infrastructure",
+    description: "Premium Azure-powered cold email infrastructure at $1.50/mailbox. 99.9% inbox rates, dedicated IPs, domain isolation, instant setup for high-volume marketers.",
+    keywords: "cold email infrastructure, azure email, dedicated IPs, email deliverability, outlook 365, cold email service, email hosting, domain isolation",
     canonical: "/",
     schemaType: "WebPage" as const
   },
@@ -139,6 +139,22 @@ export const seoConfig = {
     schemaType: "WebApplication" as const
   },
 
+  dnsRecordGenerator: {
+    title: "DNS Record Generator for Email Marketing",
+    description: "Generate SPF, DKIM, DMARC, and MX DNS records for email deliverability. Configure email authentication and improve inbox placement.",
+    keywords: "DNS records, SPF record, DKIM record, DMARC record, email authentication, email deliverability",
+    canonical: "/tools/dns-record-generator",
+    schemaType: "WebApplication" as const
+  },
+
+  templateGenerator: {
+    title: "Cold Email Template Generator",
+    description: "Generate professional cold email templates with proven frameworks. Create engaging email copy that converts prospects into customers.",
+    keywords: "cold email templates, email copywriting, email templates, cold outreach templates, email marketing templates",
+    canonical: "/tools/template-generator",
+    schemaType: "WebApplication" as const
+  },
+
   // Static Pages
   warmupGuide: {
     title: "Complete Email Warmup Guide - Improve Deliverability",
@@ -148,17 +164,17 @@ export const seoConfig = {
     schemaType: "Article" as const
   },
 
-  privacyPolicy: {
-    title: "Privacy Policy - Sending AC",
-    description: "Privacy policy for Sending AC email marketing tools. Learn how we protect your data and what information we collect.",
+  privacy: {
+    title: "Privacy Policy - AzureInfra.email",
+    description: "Privacy policy for AzureInfra.email cold email infrastructure. Learn how we protect your data and what information we collect.",
     keywords: "privacy policy, data protection, privacy, email marketing privacy",
     canonical: "/privacy",
     schemaType: "WebPage" as const
   },
 
-  termsOfService: {
-    title: "Terms of Service - Sending AC",
-    description: "Terms of service for Sending AC email marketing tools and services. Usage guidelines and service agreements.",
+  terms: {
+    title: "Terms of Service - AzureInfra.email",
+    description: "Terms of service for AzureInfra.email cold email infrastructure and services. Usage guidelines and service agreements.",
     keywords: "terms of service, terms and conditions, service agreement, email marketing terms",
     canonical: "/terms",
     schemaType: "WebPage" as const
