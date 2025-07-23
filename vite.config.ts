@@ -7,20 +7,36 @@ import { execSync } from 'child_process';
 
 // Plugin to generate release.json with build information
 const releaseInfoPlugin = (): Plugin => {
+  const generateReleaseInfo = () => {
+    return {
+      BUILDTIME: new Date().toISOString(),
+      VERSION: process.env.GITHUB_REF_NAME || process.env.BRANCH_NAME || 'local',
+      REVISION: (() => {
+        try {
+          return execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim();
+        } catch {
+          return 'unknown';
+        }
+      })()
+    };
+  };
+
   return {
     name: 'release-info',
+    buildStart() {
+      // Generate release.json for both development and build
+      const releaseInfo = generateReleaseInfo();
+      const releaseJsonContent = JSON.stringify(releaseInfo, null, 2);
+      
+      // Write to public folder so it's accessible during development
+      const publicPath = path.resolve(__dirname, 'public', 'release.json');
+      fs.writeFileSync(publicPath, releaseJsonContent);
+      
+      console.log(`✨ Generated release.json: ${releaseInfo.VERSION} (${releaseInfo.REVISION.substring(0, 8)})`);
+    },
     generateBundle() {
-      const releaseInfo = {
-        BUILDTIME: new Date().toISOString(),
-        VERSION: process.env.GITHUB_REF_NAME || process.env.BRANCH_NAME || 'local',
-        REVISION: (() => {
-          try {
-            return execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim();
-          } catch {
-            return 'unknown';
-          }
-        })()
-      };
+      // Also emit for production build
+      const releaseInfo = generateReleaseInfo();
       
       this.emitFile({
         type: 'asset',
