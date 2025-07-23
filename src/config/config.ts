@@ -67,6 +67,7 @@ export const siteConfig = {
     sitemap: "https://azureinfra.email/sitemap.xml",
     privacyPolicy: "/privacy",
     termsOfService: "/terms",
+    refundPolicy: "/refund-policy",
     logo: "https://azureinfra.email/logo.png"
   },
   

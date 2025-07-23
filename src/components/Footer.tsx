@@ -112,6 +112,12 @@ const Footer = () => {
             >
               Terms of Service
             </Link>
+            <Link 
+              to={siteConfig.links.refundPolicy}
+              className="text-muted-foreground hover:text-primary text-sm transition-colors"
+            >
+              Refund Policy
+            </Link>
           </div>
         </div>
       </div>
