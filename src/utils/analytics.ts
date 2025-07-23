@@ -1,10 +1,11 @@
-// Analytics utilities for Google Analytics and PostHog integration
+// Analytics utilities using the 'analytics' package with GTM and PostHog integration
 import posthog from 'posthog-js';
 import { 
+  getAnalyticsInstance,
   analyticsConfig, 
-  shouldLoadGoogleAnalytics, 
+  shouldLoadGoogleTagManager,
   shouldLoadPostHog,
-  getGoogleAnalyticsId,
+  getGoogleTagManagerId,
   getPostHogConfig
 } from '@/config/analytics';
 
@@ -41,59 +42,46 @@ export interface ConversionEvent {
 
 // Initialize analytics
 export const initializeAnalytics = () => {
-  // Initialize Google Analytics
-  if (shouldLoadGoogleAnalytics()) {
-    const measurementId = getGoogleAnalyticsId();
-    
-    // Load gtag script
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-    document.head.appendChild(script);
-    
-    // Initialize gtag
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag() {
-      // eslint-disable-next-line prefer-rest-params
-      window.dataLayer.push(arguments);
-    };
-    
-    gtag('js', new Date());
-    gtag('config', measurementId, analyticsConfig.googleAnalytics.config);
-    
-    if (analyticsConfig.environment.enableDebug) {
-      console.log('🔍 Google Analytics initialized:', measurementId);
-    }
-  }
-  
-  // Initialize PostHog
+  // The analytics instance is already configured in the config file
+  // Just initialize PostHog separately if enabled
   if (shouldLoadPostHog()) {
     const { apiKey, options } = getPostHogConfig();
     posthog.init(apiKey, options);
     
     if (analyticsConfig.environment.enableDebug) {
-      console.log('📊 PostHog initialized:', apiKey);
+      console.log('� PostHog initialized:', apiKey);
+    }
+  }
+
+  // Analytics package with GTM is already initialized in config
+  if (shouldLoadGoogleTagManager()) {
+    if (analyticsConfig.environment.enableDebug) {
+      console.log('� Google Tag Manager initialized via analytics package:', getGoogleTagManagerId());
     }
   }
 };
 
-// Track page views
+// Track page views using analytics package
 export const trackPageView = (path?: string, title?: string) => {
-  const pagePath = path || window.location.pathname;
-  const pageTitle = title || document.title;
-  
-  // Google Analytics page view
-  if (shouldLoadGoogleAnalytics()) {
-    gtag('config', getGoogleAnalyticsId(), {
-      page_path: pagePath,
-      page_title: pageTitle,
-    });
+  const pagePath = path || (typeof window !== 'undefined' ? window.location.pathname : '');
+  const pageTitle = title || (typeof document !== 'undefined' ? document.title : '');
+
+  // Use analytics package for GTM tracking
+  if (shouldLoadGoogleTagManager()) {
+    const analytics = getAnalyticsInstance();
+    if (analytics) {
+      analytics.page({
+        path: pagePath,
+        title: pageTitle,
+        url: typeof window !== 'undefined' ? window.location.href : ''
+      });
+    }
   }
-  
+
   // PostHog page view (automatically tracked if capture_pageview is true)
   if (shouldLoadPostHog()) {
     posthog.capture('$pageview', {
-      $current_url: window.location.href,
+      $current_url: typeof window !== 'undefined' ? window.location.href : '',
       $pathname: pagePath,
       $title: pageTitle,
     });
@@ -104,26 +92,31 @@ export const trackPageView = (path?: string, title?: string) => {
   }
 };
 
-// Track custom events
+// Track custom events using analytics package
 export const trackEvent = (event: AnalyticsEvent) => {
-  // Google Analytics event
-  if (shouldLoadGoogleAnalytics()) {
-    gtag('event', event.event, {
-      ...event.parameters,
-      custom_parameters: event.user_properties,
-    });
+  const { event: eventName, parameters = {}, user_properties = {} } = event;
+
+  // Use analytics package for GTM tracking
+  if (shouldLoadGoogleTagManager()) {
+    const analytics = getAnalyticsInstance();
+    if (analytics) {
+      analytics.track(eventName, {
+        ...parameters,
+        ...user_properties
+      });
+    }
   }
-  
-  // PostHog event
+
+  // PostHog event tracking
   if (shouldLoadPostHog()) {
-    posthog.capture(event.event, {
-      ...event.parameters,
-      ...event.user_properties,
+    posthog.capture(eventName, {
+      ...parameters,
+      ...user_properties
     });
   }
-  
+
   if (analyticsConfig.environment.enableDebug) {
-    console.log('🎯 Event tracked:', event);
+    console.log('📈 Event tracked:', eventName, parameters);
   }
 };
 
@@ -248,11 +241,12 @@ export const identifyUser = (userId: string, properties?: Record<string, string 
 
 // Set user properties
 export const setUserProperties = (properties: Record<string, string | number | boolean>) => {
-  // Google Analytics user properties
-  if (shouldLoadGoogleAnalytics()) {
-    gtag('config', getGoogleAnalyticsId(), {
-      custom_map: properties,
-    });
+  // Use analytics package for GTM
+  if (shouldLoadGoogleTagManager()) {
+    const analytics = getAnalyticsInstance();
+    if (analytics) {
+      analytics.identify('anonymous', properties);
+    }
   }
   
   // PostHog user properties
@@ -267,12 +261,16 @@ export const setUserProperties = (properties: Record<string, string | number | b
 
 // Consent management
 export const setAnalyticsConsent = (consentGiven: boolean) => {
-  // Google Analytics consent
-  if (shouldLoadGoogleAnalytics()) {
-    gtag('consent', 'update', {
-      analytics_storage: consentGiven ? 'granted' : 'denied',
-      ad_storage: consentGiven ? 'granted' : 'denied',
-    });
+  // For analytics package with GTM, consent is typically handled by GTM itself
+  // But we can track consent events
+  if (shouldLoadGoogleTagManager()) {
+    const analytics = getAnalyticsInstance();
+    if (analytics) {
+      analytics.track('consent_updated', {
+        analytics_storage: consentGiven ? 'granted' : 'denied',
+        ad_storage: consentGiven ? 'granted' : 'denied',
+      });
+    }
   }
   
   // PostHog consent
@@ -292,9 +290,9 @@ export const setAnalyticsConsent = (consentGiven: boolean) => {
 // Debugging utilities
 export const getAnalyticsDebugInfo = () => {
   return {
-    googleAnalytics: {
-      enabled: shouldLoadGoogleAnalytics(),
-      measurementId: getGoogleAnalyticsId(),
+    googleTagManager: {
+      enabled: shouldLoadGoogleTagManager(),
+      containerId: getGoogleTagManagerId(),
     },
     posthog: {
       enabled: shouldLoadPostHog(),
@@ -312,17 +310,20 @@ export const trackPurchase = (transactionId: string, value: number, items: Array
   quantity: number;
   price: number;
 }>) => {
-  trackEvent({
-    event: 'purchase',
-    parameters: {
-      transaction_id: transactionId,
-      value,
-      currency: 'USD',
-      item_count: items.length,
-    },
-  });
+  // Use analytics package for GTM ecommerce tracking
+  if (shouldLoadGoogleTagManager()) {
+    const analytics = getAnalyticsInstance();
+    if (analytics) {
+      analytics.track('purchase', {
+        transaction_id: transactionId,
+        value,
+        currency: 'USD',
+        items: items,
+      });
+    }
+  }
   
-  // Track items separately for detailed analysis
+  // PostHog purchase tracking
   if (shouldLoadPostHog()) {
     posthog.capture('purchase', {
       transaction_id: transactionId,
@@ -330,5 +331,9 @@ export const trackPurchase = (transactionId: string, value: number, items: Array
       currency: 'USD',
       items: items,
     });
+  }
+
+  if (analyticsConfig.environment.enableDebug) {
+    console.log('💰 Purchase tracked:', { transactionId, value, items });
   }
 };

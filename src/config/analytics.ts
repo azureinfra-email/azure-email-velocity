@@ -1,11 +1,27 @@
-// Analytics configuration for Google Analytics and PostHog
-// Update these values with your actual tracking IDs
+// Analytics configuration using the 'analytics' package with GTM and PostHog
+import Analytics from 'analytics'
+import googleTagManager from '@analytics/google-tag-manager'
 
 export const analyticsConfig = {
-  // Google Analytics 4 Configuration
+  // Google Tag Manager Configuration (via analytics package)
+  googleTagManager: {
+    containerId: import.meta.env.VITE_GTM_CONTAINER_ID || "", // e.g., "GTM-XXXXXXX" or GA measurement ID "G-XXXXXXXXXX"
+    enabled: Boolean(import.meta.env.VITE_GTM_CONTAINER_ID),
+    
+    // GTM configuration options
+    config: {
+      // Enable enhanced ecommerce
+      dataLayerName: 'dataLayer',
+      customScriptSrc: false,
+      preview: import.meta.env.MODE === 'development' ? false : undefined,
+      auth: undefined
+    }
+  },
+
+  // Fallback Google Analytics Configuration
   googleAnalytics: {
-    measurementId: process.env.VITE_GA_MEASUREMENT_ID || "", // e.g., "G-XXXXXXXXXX"
-    enabled: Boolean(process.env.VITE_GA_MEASUREMENT_ID),
+    measurementId: import.meta.env.VITE_GA_MEASUREMENT_ID || "", // e.g., "G-XXXXXXXXXX"
+    enabled: Boolean(import.meta.env.VITE_GA_MEASUREMENT_ID),
     
     // Default gtag config
     config: {
@@ -49,13 +65,13 @@ export const analyticsConfig = {
   
   // PostHog Configuration
   posthog: {
-    apiKey: process.env.VITE_POSTHOG_API_KEY || "", // Your PostHog project API key
-    apiHost: process.env.VITE_POSTHOG_API_HOST || "https://app.posthog.com", // PostHog instance URL
-    enabled: Boolean(process.env.VITE_POSTHOG_API_KEY),
+    apiKey: import.meta.env.VITE_POSTHOG_API_KEY || "", // Your PostHog project API key
+    apiHost: import.meta.env.VITE_POSTHOG_API_HOST || "https://app.posthog.com", // PostHog instance URL
+    enabled: Boolean(import.meta.env.VITE_POSTHOG_API_KEY),
     
     // PostHog initialization options
     options: {
-      api_host: process.env.VITE_POSTHOG_API_HOST || "https://app.posthog.com",
+      api_host: import.meta.env.VITE_POSTHOG_API_HOST || "https://app.posthog.com",
       capture_pageview: true,
       capture_pageleave: true,
       session_recording: {
@@ -74,7 +90,7 @@ export const analyticsConfig = {
       
       // Performance
       loaded: (posthog: unknown) => {
-        if (process.env.NODE_ENV === 'development') {
+        if (import.meta.env.MODE === 'development') {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (posthog as any).debug();
         }
@@ -110,14 +126,14 @@ export const analyticsConfig = {
   
   // Environment settings
   environment: {
-    isDevelopment: process.env.NODE_ENV === 'development',
-    isProduction: process.env.NODE_ENV === 'production',
-    enableDebug: process.env.VITE_ANALYTICS_DEBUG === 'true' || process.env.NODE_ENV === 'development'
+    isDevelopment: import.meta.env.MODE === 'development',
+    isProduction: import.meta.env.MODE === 'production',
+    enableDebug: import.meta.env.VITE_ANALYTICS_DEBUG === 'true' || import.meta.env.MODE === 'development'
   },
   
   // Cookie consent (if needed for GDPR compliance)
   consent: {
-    required: process.env.VITE_COOKIE_CONSENT_REQUIRED === 'true',
+    required: import.meta.env.VITE_COOKIE_CONSENT_REQUIRED === 'true',
     categories: {
       necessary: true,
       analytics: true,
@@ -127,9 +143,50 @@ export const analyticsConfig = {
   }
 };
 
+// Initialize the analytics instance (client-side only)
+export const createAnalyticsInstance = () => {
+  if (typeof window === 'undefined') {
+    return null; // Return null on server-side
+  }
+  
+  return Analytics({
+    app: 'sending-ac-landing',
+    version: '1.0.0',
+    debug: analyticsConfig.environment.enableDebug,
+    plugins: [
+      // Google Tag Manager plugin
+      ...(analyticsConfig.googleTagManager.enabled ? [
+        googleTagManager({
+          containerId: analyticsConfig.googleTagManager.containerId,
+          ...analyticsConfig.googleTagManager.config
+        })
+      ] : [])
+    ]
+  });
+};
+
+// Analytics instance (lazy-loaded)
+let analyticsInstance: ReturnType<typeof Analytics> | null = null;
+
+export const getAnalyticsInstance = () => {
+  if (typeof window === 'undefined') {
+    return null; // Return null on server-side
+  }
+  
+  if (!analyticsInstance) {
+    analyticsInstance = createAnalyticsInstance();
+  }
+  
+  return analyticsInstance;
+};
+
 // Helper functions
 export const isAnalyticsEnabled = () => {
-  return analyticsConfig.googleAnalytics.enabled || analyticsConfig.posthog.enabled;
+  return analyticsConfig.googleTagManager.enabled || analyticsConfig.posthog.enabled;
+};
+
+export const shouldLoadGoogleTagManager = () => {
+  return analyticsConfig.googleTagManager.enabled && analyticsConfig.googleTagManager.containerId;
 };
 
 export const shouldLoadGoogleAnalytics = () => {
@@ -138,6 +195,10 @@ export const shouldLoadGoogleAnalytics = () => {
 
 export const shouldLoadPostHog = () => {
   return analyticsConfig.posthog.enabled && analyticsConfig.posthog.apiKey;
+};
+
+export const getGoogleTagManagerId = () => {
+  return analyticsConfig.googleTagManager.containerId;
 };
 
 export const getGoogleAnalyticsId = () => {
