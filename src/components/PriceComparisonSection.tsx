@@ -84,40 +84,40 @@ const PriceComparisonSection = () => {
   ];
 
   return (
-    <section id="comparison" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+    <section id="comparison" className="py-16 sm:py-20 lg:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-card rounded-full px-4 py-2 mb-6 border border-primary/20">
             <AlertTriangle className="w-4 h-4 text-primary" />
             <span className="text-primary text-sm font-medium">Price Comparison</span>
           </div>
           
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-foreground px-4">
             Why We're The
             <span className="block bg-gradient-primary bg-clip-text text-transparent">Clear Winner</span>
           </h2>
           
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 px-4">
             Premium enterprise infrastructure at startup prices. Compare our advanced features and better value.
           </p>
           
           {/* Key Advantages */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-            <div className="text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 max-w-4xl mx-auto px-4">
+            <div className="text-center p-4 bg-card rounded-lg border border-border">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Check className="w-6 h-6 text-green-600" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Fastest Setup</h3>
               <p className="text-sm text-muted-foreground">1 hour vs 5-8 hours (competitors)</p>
             </div>
-            <div className="text-center">
+            <div className="text-center p-4 bg-card rounded-lg border border-border">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Check className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Pure Azure Enterprise</h3>
               <p className="text-sm text-muted-foreground">Not shared O365 like others</p>
             </div>
-            <div className="text-center">
+            <div className="text-center p-4 bg-card rounded-lg border border-border sm:col-span-2 md:col-span-1">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Check className="w-6 h-6 text-purple-600" />
               </div>
@@ -128,49 +128,49 @@ const PriceComparisonSection = () => {
         </div>
 
         {/* Mobile-friendly comparison cards */}
-        <div className="lg:hidden space-y-6 mb-12">
+        <div className="lg:hidden space-y-4 sm:space-y-6 mb-8 sm:mb-12 px-4">
           {comparisonData.map((provider, index) => (
-            <Card key={index} className={`${provider.highlight ? 'border-primary bg-gradient-card' : 'bg-card'}`}>
-              <CardHeader>
-                <CardTitle className={`${provider.highlight ? 'text-primary' : 'text-foreground'}`}>
-                  {provider.provider}
+            <Card key={index} className={`${provider.highlight ? 'border-primary bg-gradient-card shadow-lg' : 'bg-card border-border'}`}>
+              <CardHeader className="pb-4">
+                <CardTitle className={`text-lg sm:text-xl flex items-center justify-between ${provider.highlight ? 'text-primary' : 'text-foreground'}`}>
+                  <span>{provider.provider}</span>
                   {provider.highlight && (
-                    <span className="ml-2 text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full">
+                    <span className="text-xs bg-primary text-primary-foreground px-3 py-1 rounded-full font-medium">
                       Recommended
                     </span>
                   )}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div>
-                    <span className="font-medium text-muted-foreground">Setup Cost:</span>
-                    <p className="font-semibold">{provider.setupCost}</p>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                  <div className="p-3 bg-muted/30 rounded-lg">
+                    <span className="font-medium text-muted-foreground block mb-1">Setup Cost:</span>
+                    <p className="font-bold text-base text-foreground">{provider.setupCost}</p>
                   </div>
-                  <div>
-                    <span className="font-medium text-muted-foreground">Mailbox Cost:</span>
-                    <p className="font-semibold">{provider.mailboxCost}</p>
+                  <div className="p-3 bg-muted/30 rounded-lg">
+                    <span className="font-medium text-muted-foreground block mb-1">Mailbox Cost:</span>
+                    <p className="font-bold text-base text-foreground">{provider.mailboxCost}</p>
                   </div>
-                  <div>
-                    <span className="font-medium text-muted-foreground">Domain Cost:</span>
-                    <p className="font-semibold">{provider.domainCost}</p>
+                  <div className="p-3 bg-muted/30 rounded-lg">
+                    <span className="font-medium text-muted-foreground block mb-1">Domain Cost:</span>
+                    <p className="font-bold text-base text-foreground">{provider.domainCost}</p>
                   </div>
-                  <div>
-                    <span className="font-medium text-muted-foreground">Setup Time:</span>
-                    <p className="font-semibold">{provider.setupTime}</p>
+                  <div className="p-3 bg-muted/30 rounded-lg">
+                    <span className="font-medium text-muted-foreground block mb-1">Setup Time:</span>
+                    <p className="font-bold text-base text-foreground">{provider.setupTime}</p>
                   </div>
-                  <div>
-                    <span className="font-medium text-muted-foreground">IP Quality:</span>
-                    <p className="font-semibold">{provider.ipQuality}</p>
+                  <div className="p-3 bg-muted/30 rounded-lg">
+                    <span className="font-medium text-muted-foreground block mb-1">IP Quality:</span>
+                    <p className="font-bold text-base text-foreground">{provider.ipQuality}</p>
                   </div>
-                  <div>
-                    <span className="font-medium text-muted-foreground">Isolation:</span>
-                    <p className="font-semibold">{provider.isolation}</p>
+                  <div className="p-3 bg-muted/30 rounded-lg">
+                    <span className="font-medium text-muted-foreground block mb-1">Isolation:</span>
+                    <p className="font-bold text-base text-foreground">{provider.isolation}</p>
                   </div>
                 </div>
                 {provider.highlight && (
                   <div className="pt-4 border-t border-primary/20">
-                    <GetStartedButton className="w-full" />
+                    <GetStartedButton className="w-full py-3 text-base font-semibold" />
                   </div>
                 )}
               </CardContent>
@@ -179,9 +179,10 @@ const PriceComparisonSection = () => {
         </div>
 
         {/* Desktop comparison table */}
-        <div className="hidden lg:block overflow-x-auto">
-          <div className="bg-card rounded-2xl border border-border p-8">
-            <div className="grid grid-cols-4 gap-4">
+        <div className="hidden lg:block">
+          <div className="bg-card rounded-2xl border border-border p-4 lg:p-8 overflow-x-auto">
+            <div className="min-w-[800px]">
+              <div className="grid grid-cols-4 gap-2 lg:gap-4">
               {/* Feature column */}
               <div className="space-y-4">
                 <div className="h-16 flex items-center">
@@ -289,6 +290,7 @@ const PriceComparisonSection = () => {
                   )}
                 </div>
               ))}
+              </div>
             </div>
           </div>
         </div>

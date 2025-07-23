@@ -36,7 +36,7 @@ const Index = () => {
         schemaType="WebPage"
       />
       <HeroSection />
-      <InboxDeliverySection />
+      {/* <InboxDeliverySection /> */}
       <FeaturesSection />
       <PricingSection />
       <PriceComparisonSection />

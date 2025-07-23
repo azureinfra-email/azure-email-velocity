@@ -1,44 +1,22 @@
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, Mail, Shield, Eye, Lock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Mail, Shield, Eye, Lock } from "lucide-react";
 import { siteConfig } from "@/config/config";
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-white/95 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="p-2 bg-primary rounded-lg">
-                <Mail className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-foreground">{siteConfig.domain}</span>
-            </Link>
-            <Link to="/">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
       {/* Content */}
-      <main className="container mx-auto px-6 py-12 max-w-4xl">
-        <div className="mb-8">
-          <div className="inline-flex items-center gap-2 bg-gradient-card rounded-full px-4 py-2 mb-6 border border-primary/20">
-            <Shield className="w-4 h-4 text-primary" />
-            <span className="text-primary text-sm font-medium">Privacy & Security</span>
+      <main className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-4xl">
+        <div className="mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 bg-gradient-card rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6 border border-primary/20">
+            <Shield className="w-4 h-4 text-primary flex-shrink-0" />
+            <span className="text-primary text-xs sm:text-sm font-medium">Privacy & Security</span>
           </div>
           
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground leading-tight">
             Privacy Policy
           </h1>
           
-          <p className="text-xl text-muted-foreground">
+          <p className="text-lg sm:text-xl text-muted-foreground">
             Last updated: {new Date().toLocaleDateString()}
           </p>
         </div>

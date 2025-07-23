@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Shield, Clock, CheckCircle, Mail } from "lucide-react";
+import { Shield, Clock, CheckCircle, Mail } from "lucide-react";
 import { siteConfig } from "@/config/config";
 import SEO from "@/components/SEO";
 
@@ -14,28 +14,20 @@ const RefundPolicy = () => {
         schemaType="WebPage"
       />
 
-      <div className="container mx-auto px-6 py-12">
-        {/* Header */}
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        {/* Content */}
         <div className="max-w-4xl mx-auto">
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-          
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 rounded-full px-4 py-2 mb-6 border border-green-200">
-              <Shield className="w-4 h-4" />
-              <span className="text-sm font-medium">Money-Back Guarantee</span>
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6 border border-green-200">
+              <Shield className="w-4 h-4 flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-medium">Money-Back Guarantee</span>
             </div>
             
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
               Refund Policy
             </h1>
             
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               We're confident in our service quality. Try AzureInfra.email risk-free with our 30-day money-back guarantee.
             </p>
           </div>

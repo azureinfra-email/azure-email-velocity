@@ -158,7 +158,7 @@ const InboxDeliverySection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <GetStartedButton 
               size="lg" 
-              className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg group shadow-lg"
+              className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg group shadow-lg border-2 border-white"
             >
               <Mail className="w-5 h-5 group-hover:scale-110 transition-transform mr-2" />
               Start Delivering to Inboxes
@@ -167,7 +167,7 @@ const InboxDeliverySection = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4 text-lg"
+              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 backdrop-blur-sm px-8 py-4 text-lg transition-all duration-300"
               onClick={() => document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' })}
             >
               See Pricing Details
