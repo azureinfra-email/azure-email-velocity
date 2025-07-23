@@ -1,7 +1,7 @@
 import { Mail } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 import { siteConfig } from "@/config/config";
+import ReleaseInfoDisplay from "./ReleaseInfoDisplay";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -93,9 +93,12 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">
-            {siteConfig.company.copyright}
-          </p>
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <p className="text-muted-foreground text-sm">
+              {siteConfig.company.copyright}
+            </p>
+            <ReleaseInfoDisplay />
+          </div>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link 
               to={siteConfig.links.privacyPolicy}
