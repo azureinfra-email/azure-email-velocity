@@ -27,6 +27,7 @@ import {
   Wand2,
   Eye
 } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const ToolsPage = () => {
   const location = useLocation();
@@ -256,7 +257,7 @@ const ToolsPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SimpleSEO 
+      <SEO 
         title="Email Marketing Tools - Azure Email Velocity"
         description="Free email marketing tools collection. Subject line generators, warmup calculators, email validators, spam analyzers and more professional tools."
       />

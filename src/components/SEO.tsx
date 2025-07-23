@@ -1,4 +1,4 @@
-import { Helmet } from '@/lib/helmet';
+import { Head } from 'vite-react-ssg'
 
 interface SEOProps {
   title: string;
@@ -59,7 +59,7 @@ export default function SEO({
   }
 
   return (
-    <>
+    <Head>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
@@ -90,6 +90,6 @@ export default function SEO({
       <script type="application/ld+json">
         {JSON.stringify(schemaData)}
       </script>
-    </>
+    </Head>
   );
 }

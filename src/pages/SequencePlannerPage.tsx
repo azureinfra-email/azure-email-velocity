@@ -25,6 +25,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import { toast } from "sonner";
+import SEO from "@/components/SEO";
 
 interface EmailSequence {
   id: number;
@@ -364,7 +365,7 @@ P.S. If you're not the right person for this, I'd appreciate a quick redirect to
 
   return (
     <div className="min-h-screen bg-background">
-      <SimpleSEO 
+      <SEO
         title="Email Sequence Planner - Azure Email Velocity"
         description="Free email sequence planner tool. Plan and optimize your email sequences for maximum conversion. Create drip campaigns, follow-up sequences, and automated workflows."
       />
