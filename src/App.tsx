@@ -126,6 +126,10 @@ export const routes: RouteRecord[] = [
         Component: React.lazy(() => import('./pages/TemplateGeneratorPage')),
       },
       {
+        path: 'sales-brochure',
+        Component: React.lazy(() => import('./pages/SalesBrochurePage')),
+      },
+      {
         path: '*',
         Component: React.lazy(() => import('./pages/NotFound')),
       },

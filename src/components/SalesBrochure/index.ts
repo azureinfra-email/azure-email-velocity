@@ -1,0 +1,11 @@
+export { SalesBrochureContainer } from './SalesBrochureContainer';
+export { SalesBrochureHeader } from './SalesBrochureHeader';
+export { ICPSection } from './ICPSection';
+export { SuccessStoriesSection } from './SuccessStoriesSection';
+export { WarmupStrategiesSection } from './WarmupStrategiesSection';
+export { CustomerTransformationSection } from './CustomerTransformationSection';
+export { PricingROISection } from './PricingROISection';
+export { ObjectionHandlingSection } from './ObjectionHandlingSection';
+export { CompetitiveComparisonSection } from './CompetitiveComparisonSection';
+export { SalesResourcesSection } from './SalesResourcesSection';
+export { default as SalesBrochureDemo } from './SalesBrochureDemo';

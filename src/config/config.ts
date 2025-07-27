@@ -65,6 +65,7 @@ export const siteConfig = {
   links: {
     homepage: "https://azureinfra.email",
     sitemap: "https://azureinfra.email/sitemap.xml",
+    start: "https://app.azureinfra.email/order",
     privacyPolicy: "/privacy",
     termsOfService: "/terms",
     refundPolicy: "/refund-policy",
@@ -194,6 +195,7 @@ export const siteConfig = {
       ],
       company: [
         { name: "Support", link: "mailto:support@azureinfra.email" },
+        { name: "Sales Brochure", link: "/sales-brochure" },
         { name: "Get Started", id: "contact" }
       ]
     }
