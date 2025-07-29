@@ -195,7 +195,7 @@ export const siteConfig = {
       ],
       company: [
         { name: "Support", link: "mailto:support@azureinfra.email" },
-        { name: "Sales Brochure", link: "/sales-brochure" },
+        // { name: "Sales Brochure", link: "/sales-brochure" },
         { name: "Get Started", id: "contact" }
       ]
     }
