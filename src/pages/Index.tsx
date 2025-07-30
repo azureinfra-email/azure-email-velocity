@@ -40,7 +40,7 @@ const Index = () => {
       {/* <InboxDeliverySection /> */}
       <FeaturesSection />
       <PricingSection />
-      <PriceComparisonSection />
+      {/* <PriceComparisonSection /> */}
       <CalculatorSection />
       <GuaranteeSection />
       <FAQSection />

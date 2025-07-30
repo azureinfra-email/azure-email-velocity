@@ -95,6 +95,12 @@ const Header = () => {
             >
               Calculator
             </button>
+            <a 
+              href="/sales-brochure"
+              className="text-muted-foreground hover:text-primary transition-colors text-sm"
+            >
+              Sales Guide
+            </a>
             
             
             {/* Tools Dropdown */}
@@ -301,6 +307,13 @@ const Header = () => {
               >
                 Calculator
               </button>
+              <a 
+                href="/sales-brochure"
+                className="text-muted-foreground hover:text-primary transition-colors text-left text-sm"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sales Guide
+              </a>
               
               {/* Tools section */}
               <div className="pl-2 border-l-2 border-muted space-y-2">
