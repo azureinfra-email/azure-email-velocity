@@ -11,28 +11,43 @@ import {
   BarChart3,
   AlertTriangle,
   BookOpen,
-  Wrench
+  Wrench,
+  ArrowRight,
+  Rocket,
+  ShieldCheck,
+  Settings,
+  Route,
+  Server,
+  Award,
+  Briefcase
 } from "lucide-react";
 import { siteConfig } from "@/config/config";
+import ComparisonTable from "./ComparisonTable";
 
 const features = [
   {
-    icon: Target,
+    icon: Rocket,
     title: "Maximum Deliverability Potential",
     description: "Optimized infrastructure with dedicated Azure IPs, advanced reputation management, and pre-warmed domain infrastructure designed for high inbox delivery rates in cold email campaigns.",
     highlight: "Premium Infrastructure"
   },
   {
-    icon: Shield,
+    icon: ShieldCheck,
     title: "Domain Isolation & Protection",
     description: "Each domain gets dedicated Azure infrastructure with IP isolation, protecting your reputation from other users and campaigns.",
     highlight: "Dedicated IPs"
   },
   {
-    icon: Zap,
+    icon: Settings,
     title: "100% Compliance - Auto Setup",
     description: "SPF, DKIM, DMARC, and DNS records automatically configured and maintained. Fully compliant with all email authentication standards - no technical setup required.",
     highlight: "Auto SPF/DKIM/DMARC"
+  },
+  {
+    icon: Route,
+    title: "Smart Domain Redirects",
+    description: "All domains can be easily redirected to point to any other domain of your choice. Perfect for maintaining brand consistency and creating seamless user experiences across your domain portfolio.",
+    highlight: "Domain Management"
   },
   {
     icon: Mail,
@@ -41,19 +56,19 @@ const features = [
     highlight: "Office 365"
   },
   {
-    icon: Cloud,
+    icon: Server,
     title: "Scalable Azure Infrastructure",
     description: "Built on Microsoft Azure with auto-scaling capabilities to handle high-volume campaigns (10k+ emails per day per domain).",
     highlight: "High Volume"
   },
   {
-    icon: CheckCircle,
+    icon: Award,
     title: "Cold Email Optimized",
     description: "Purpose-built for cold email marketers with advanced deliverability features, backup domains, and campaign management tools.",
     highlight: "Cold Email Focus"
   },
   {
-    icon: Wrench,
+    icon: Briefcase,
     title: "Free Cold Email Tools",
     description: "Username generators, domain name ideas, and persona generators to streamline your campaign setup and testing processes.",
     highlight: "Free Tools"
@@ -117,25 +132,8 @@ const FeaturesSection = () => {
           })}
         </div>
         
-        <div className="mt-12 max-w-4xl mx-auto">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-            <div className="flex items-start gap-3">
-              <AlertTriangle className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="font-semibold text-blue-800 mb-2">Deliverability Success Requires Proper Execution</h3>
-                <p className="text-blue-700 text-sm mb-3">
-                  While our infrastructure provides the foundation for high deliverability, your actual inbox rates depend on 
-                  proper warmup strategies, list quality, content relevance, and sending patterns.
-                </p>
-                <a href="/warmup-guide" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors group">
-                  <BookOpen className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-medium underline">Learn our proven warmup strategies →</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+        <ComparisonTable />
+      
         <div className="mt-16 text-center">
           <div className="bg-gradient-card rounded-2xl p-8 border border-primary/20">
             <div className="flex items-center justify-center gap-8 flex-wrap">
