@@ -197,7 +197,7 @@ export const siteConfig = {
       company: [
         { name: "Support", link: "mailto:support@azureinfra.email" },
         { name: "Sales Brochure", link: "/sales-brochure" },
-        { name: "Get Started", id: "contact" }
+        { name: "Get Started", link: "https://app.azureinfra.email/order", external: true }
       ]
     }
   },
@@ -218,5 +218,6 @@ export const getUptime = () => siteConfig.tech.uptime;
 export const getWebsiteUrl = () => siteConfig.links.homepage;
 export const getCalendlyLink = () => siteConfig.contact.calendly;
 export const getLoginUrl = () => siteConfig.links.login;
+export const getStartUrl = () => siteConfig.links.start;
 
 export default siteConfig;

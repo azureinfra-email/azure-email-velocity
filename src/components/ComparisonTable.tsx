@@ -178,7 +178,9 @@ const ComparisonTable = () => {
       
       <div className="text-center mt-8">
         <a
-          href={siteConfig.contact.calendly}
+          href={siteConfig.links.start}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
         >
           {comparisonData.cta.text}

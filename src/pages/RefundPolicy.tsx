@@ -206,13 +206,15 @@ const RefundPolicy = () => {
             <p className="text-lg text-blue-100 mb-6">
               Start your 30-day trial today with complete confidence in our money-back guarantee.
             </p>
-            <Link 
-              to="/"
+            <a 
+              href={siteConfig.links.start}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-colors"
             >
               <Mail className="w-5 h-5" />
               Get Started Now
-            </Link>
+            </a>
           </div>
 
           {/* Last Updated */}
