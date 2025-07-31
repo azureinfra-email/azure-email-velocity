@@ -69,25 +69,33 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Company</h3>
             <ul className="space-y-2">
-              {siteConfig.navigation.footer.company.map((item, index) => (
-                <li key={index}>
-                  {item.link ? (
-                    <a 
-                      href={item.link}
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {item.name}
-                    </a>
-                  ) : (
+              {siteConfig.navigation.footer.company.map((item, index) => {
+                if (item.link) {
+                  // Check if this is an external link
+                  const isExternal = item.link.startsWith('http') || item.link.startsWith('mailto:');
+                  return (
+                    <li key={index}>
+                      <a 
+                        href={item.link}
+                        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  );
+                }
+                return (
+                  <li key={index}>
                     <button 
-                      onClick={() => handleNavigation(item.id!)}
+                      onClick={() => handleNavigation('contact')}
                       className="text-muted-foreground hover:text-primary transition-colors text-left"
                     >
                       {item.name}
                     </button>
-                  )}
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

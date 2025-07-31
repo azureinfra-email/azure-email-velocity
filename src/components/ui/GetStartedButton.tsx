@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/config";
 
 interface GetStartedButtonProps extends Omit<ButtonProps, 'onClick' | 'variant'> {
   /**
@@ -8,7 +9,7 @@ interface GetStartedButtonProps extends Omit<ButtonProps, 'onClick' | 'variant'>
    */
   text?: string;
   /**
-   * Custom onClick handler. If not provided, scrolls to contact section
+   * Custom onClick handler. If not provided, redirects to order page
    */
   onClick?: () => void;
   /**
@@ -42,14 +43,8 @@ const GetStartedButton = ({
     if (onClick) {
       onClick();
     } else {
-      // Default behavior: scroll to contact section
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
+      // Default behavior: redirect to order page
+      window.open(siteConfig.links.start, '_blank', 'noopener,noreferrer');
     }
   };
 

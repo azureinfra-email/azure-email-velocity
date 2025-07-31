@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, ButtonProps } from './ui/button';
 import { cn } from '../lib/utils';
 import { Mail, ArrowRight } from 'lucide-react';
+import { siteConfig } from '../config/config';
 
 interface GetStartedButtonProps extends ButtonProps {
   compact?: boolean;
@@ -18,7 +19,7 @@ const GetStartedButton: React.FC<GetStartedButtonProps> = ({
   ...props 
 }) => {
   const defaultOnClick = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    window.open(siteConfig.links.start, '_blank', 'noopener,noreferrer');
   };
 
   const buttonText = text || (compact ? 'Get Started' : 'Get Started - Land in Inboxes');
