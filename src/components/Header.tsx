@@ -261,9 +261,11 @@ const Header = () => {
           </nav>
           
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="sm">
-              Sign In
-            </Button>
+            <a href={siteConfig.links.login} target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="sm">
+                Sign In
+              </Button>
+            </a>
             <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="sm">
                 Book Call
@@ -441,9 +443,11 @@ const Header = () => {
                 Contact
               </button>
               <div className="flex flex-col gap-2 pt-3 border-t border-border">
-                <Button variant="ghost" size="sm" className="justify-start">
-                  Sign In
-                </Button>
+                <a href={siteConfig.links.login} target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" size="sm" className="justify-start w-full">
+                    Sign In
+                  </Button>
+                </a>
                 <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="sm" className="justify-start w-full">
                     Book Call

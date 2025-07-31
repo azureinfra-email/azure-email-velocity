@@ -66,6 +66,7 @@ export const siteConfig = {
     homepage: "https://azureinfra.email",
     sitemap: "https://azureinfra.email/sitemap.xml",
     start: "https://app.azureinfra.email/order",
+    login: "https://app.azureinfra.email/login",
     privacyPolicy: "/privacy",
     termsOfService: "/terms",
     refundPolicy: "/refund-policy",
@@ -216,5 +217,6 @@ export const getResponseTimeShort = () => siteConfig.contact.responseTimeShort;
 export const getUptime = () => siteConfig.tech.uptime;
 export const getWebsiteUrl = () => siteConfig.links.homepage;
 export const getCalendlyLink = () => siteConfig.contact.calendly;
+export const getLoginUrl = () => siteConfig.links.login;
 
 export default siteConfig;
