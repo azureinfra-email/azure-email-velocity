@@ -21,11 +21,11 @@ const GetStartedButton: React.FC<GetStartedButtonProps> = ({
   ...props 
 }) => {
   const defaultOnClick = () => {
-    let orderUrl = siteConfig.links.start;
+    const orderUrl = new URL(siteConfig.links.start);
     if (plan) {
-      orderUrl += `?plan=${plan}`;
+      orderUrl.searchParams.set('plan', plan);
     }
-    window.open(orderUrl, '_blank', 'noopener,noreferrer');
+    window.open(orderUrl.toString(), '_blank', 'noopener,noreferrer');
   };
 
   const buttonText = text || (compact ? 'Get Started' : 'Get Started - Land in Inboxes');
