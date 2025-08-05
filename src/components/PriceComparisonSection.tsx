@@ -15,7 +15,7 @@ const PriceComparisonSection = () => {
   
   // Calculator logic
   const setupCost = 0;
-  const mailboxPrice = siteConfig.pricing.price;
+  const mailboxPrice = 1.35; // Use quarterly monthly equivalent price
   const domainPrice = siteConfig.pricing.domain.price;
   
   const monthlyMailboxCost = mailboxCount * mailboxPrice;
@@ -25,7 +25,7 @@ const PriceComparisonSection = () => {
     {
       provider: "AzureInfra",
       setupCost: "Free",
-      mailboxCost: `${siteConfig.pricing.displayPrice} each`,
+      mailboxCost: `${siteConfig.pricing.quarterly.monthlyEquivalent} each/month`,
       domainCost: `${siteConfig.pricing.domain.displayPrice} one-time`,
       domainsNeeded: "2-6 domains",
       setupTime: "1 hour",

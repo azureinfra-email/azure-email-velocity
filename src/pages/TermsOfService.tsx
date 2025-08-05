@@ -62,7 +62,7 @@ const TermsOfService = () => {
             <h3 className="text-xl font-semibold text-foreground mb-3">Service Fees</h3>
             <div className="bg-gradient-card rounded-lg p-4 border border-primary/10 mb-4">
               <p className="text-muted-foreground">
-                Current pricing: <strong className="text-foreground">{siteConfig.pricing.displayPrice} {siteConfig.pricing.period}</strong>
+                Current pricing: <strong className="text-foreground">Starting at {siteConfig.pricing.quarterly.monthlyEquivalent}/month per mailbox (quarterly billing)</strong>
               </p>
             </div>
             

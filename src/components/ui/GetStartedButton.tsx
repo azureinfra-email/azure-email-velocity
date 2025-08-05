@@ -24,6 +24,10 @@ interface GetStartedButtonProps extends Omit<ButtonProps, 'onClick' | 'variant'>
    * Additional CSS classes
    */
   className?: string;
+  /**
+   * Pricing plan to pass to order page
+   */
+  plan?: 'monthly' | 'quarterly' | 'annual';
 }
 
 const GetStartedButton = ({ 
@@ -33,6 +37,7 @@ const GetStartedButton = ({
   className,
   variant = "default",
   size = "default",
+  plan,
   ...props 
 }: GetStartedButtonProps) => {
   
@@ -43,8 +48,12 @@ const GetStartedButton = ({
     if (onClick) {
       onClick();
     } else {
-      // Default behavior: redirect to order page
-      window.open(siteConfig.links.start, '_blank', 'noopener,noreferrer');
+      // Default behavior: redirect to order page with plan parameter
+      let orderUrl = siteConfig.links.start;
+      if (plan) {
+        orderUrl += `?plan=${plan}`;
+      }
+      window.open(orderUrl, '_blank', 'noopener,noreferrer');
     }
   };
 

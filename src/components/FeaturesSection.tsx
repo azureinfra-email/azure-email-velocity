@@ -92,7 +92,7 @@ const FeaturesSection = () => {
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Premium Azure-powered infrastructure designed specifically for cold email marketers who need maximum inbox delivery rates. 
-            Get dedicated IPs, domain isolation, and enterprise-grade deliverability at {siteConfig.pricing.displayPrice} per mailbox.
+            Get dedicated IPs, domain isolation, and enterprise-grade deliverability starting at {siteConfig.pricing.quarterly.monthlyEquivalent} per mailbox/month.
           </p>
         </div>
         

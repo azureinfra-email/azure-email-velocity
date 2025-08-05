@@ -79,9 +79,13 @@ const Header = () => {
             </button>
             <button 
               onClick={() => handleNavigation('pricing')}
-              className="text-muted-foreground hover:text-primary transition-colors text-sm"
+              className="relative text-muted-foreground hover:text-primary transition-colors text-sm group"
             >
               Pricing
+              <span className="absolute -top-1 -right-3 bg-gradient-to-r from-green-500 to-blue-500 text-white text-xs px-1.5 py-0.5 rounded-full font-medium animate-pulse">
+                NEW
+              </span>
+              <span className="absolute -top-1 -right-3 bg-gradient-to-r from-green-500 to-blue-500 rounded-full w-5 h-5 animate-ping opacity-20"></span>
             </button>
             <button 
               onClick={() => handleNavigation('comparison')}
@@ -95,12 +99,7 @@ const Header = () => {
             >
               Calculator
             </button>
-            <a 
-              href="/sales-brochure"
-              className="text-muted-foreground hover:text-primary transition-colors text-sm"
-            >
-              Sales Guide
-            </a>
+            
             
             
             {/* Tools Dropdown */}
@@ -293,9 +292,12 @@ const Header = () => {
               </button>
               <button 
                 onClick={() => handleNavigation('pricing')}
-                className="text-muted-foreground hover:text-primary transition-colors text-left text-sm"
+                className="relative text-muted-foreground hover:text-primary transition-colors text-left text-sm"
               >
                 Pricing
+                <span className="absolute -top-1 -right-2 bg-gradient-to-r from-green-500 to-blue-500 text-white text-xs px-1.5 py-0.5 rounded-full font-medium animate-pulse">
+                  NEW
+                </span>
               </button>
               <button 
                 onClick={() => handleNavigation('comparison')}

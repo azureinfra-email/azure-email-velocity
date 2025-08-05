@@ -65,7 +65,7 @@ const HeroSection = () => {
               className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold px-8 py-4 text-lg group shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <Mail className="w-5 h-5 group-hover:scale-110 transition-transform mr-2" />
-              Get Started - {siteConfig.pricing.displayPrice}/mailbox
+              Get Started - {siteConfig.pricing.quarterly.monthlyEquivalent}/month
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </GetStartedButton>
             <Button 

@@ -13,7 +13,7 @@ const CalculatorSection = () => {
   
   // Calculator logic
   const setupCost = 0;
-  const mailboxPrice = siteConfig.pricing.price;
+  const mailboxPrice = siteConfig.pricing.monthly.price;
   const domainPrice = siteConfig.pricing.domain.price;
   
   const monthlyMailboxCost = mailboxCount * mailboxPrice;
