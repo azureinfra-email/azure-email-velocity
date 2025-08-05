@@ -13,7 +13,7 @@ const CalculatorSection = () => {
   
   // Calculator logic
   const setupCost = 0;
-  const mailboxPrice = siteConfig.pricing.price;
+  const mailboxPrice = siteConfig.pricing.monthly.price;
   const domainPrice = siteConfig.pricing.domain.price;
   
   const monthlyMailboxCost = mailboxCount * mailboxPrice;
@@ -283,7 +283,7 @@ const CalculatorSection = () => {
                 </div>
                 
                 <div className="pt-4">
-                  <GetStartedButton className="w-full" />
+                  <GetStartedButton className="w-full" location="calculator_section" />
                 </div>
               </CardContent>
             </Card>

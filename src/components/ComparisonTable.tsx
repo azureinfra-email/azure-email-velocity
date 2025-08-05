@@ -114,7 +114,7 @@ const comparisonData = {
 
 const ComparisonTable = () => {
   return (
-    <div className="mt-16">
+    <div className="mt-16" id="comparison">
       <div className="text-center mb-12">
         <h3 className="text-3xl font-bold mb-4 text-foreground">
           {comparisonData.title.split(' ').slice(0, 2).join(' ')} <span className="bg-gradient-primary bg-clip-text text-transparent">{comparisonData.title.split(' ').slice(2).join(' ')}</span>

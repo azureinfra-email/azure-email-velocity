@@ -10,10 +10,34 @@ export const siteConfig = {
   
   // Pricing
   pricing: {
-    price: 1.50,
+    monthly: {
+      price: 1.89,
+      displayPrice: "$1.89",
+      period: "per mailbox/month",
+      billingCycle: "monthly",
+      popular: false,
+      monthlyEquivalent: null,
+      savings: null
+    },
+    quarterly: {
+      price: 5.07, // $1.69/month * 3 months
+      displayPrice: "$5.07",
+      period: "per mailbox/quarter",
+      billingCycle: "quarterly",
+      monthlyEquivalent: "$1.69",
+      savings: "10.6%",
+      popular: true
+    },
+    annual: {
+      price: 18.00, // $1.50/month * 12 months
+      displayPrice: "$18.00",
+      period: "per mailbox/year",
+      billingCycle: "annual",
+      monthlyEquivalent: "$1.50",
+      savings: "20.6%",
+      popular: false
+    },
     currency: "USD",
-    period: "per mailbox/month",
-    displayPrice: "$1.50",
     domain: {
       price: 15.55,
       displayPrice: "$15.55",
@@ -209,7 +233,10 @@ export const siteConfig = {
 };
 
 // Helper functions to get formatted values
-export const getFormattedPrice = () => siteConfig.pricing.displayPrice;
+export const getFormattedPrice = (period = 'monthly') => {
+  const pricing = siteConfig.pricing[period as keyof typeof siteConfig.pricing];
+  return typeof pricing === 'object' && 'displayPrice' in pricing ? pricing.displayPrice : '$1.50';
+};
 export const getFormattedDomainPrice = () => siteConfig.pricing.domain.displayPrice;
 export const getContactEmail = () => siteConfig.contact.email;
 export const getResponseTime = () => siteConfig.contact.responseTime;
@@ -219,5 +246,6 @@ export const getWebsiteUrl = () => siteConfig.links.homepage;
 export const getCalendlyLink = () => siteConfig.contact.calendly;
 export const getLoginUrl = () => siteConfig.links.login;
 export const getStartUrl = () => siteConfig.links.start;
+export const getPricingOptions = () => [siteConfig.pricing.monthly, siteConfig.pricing.quarterly, siteConfig.pricing.annual];
 
 export default siteConfig;

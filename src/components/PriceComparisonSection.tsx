@@ -1,31 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import GetStartedButton from "@/components/ui/GetStartedButton";
 import { Check, X, AlertTriangle, Calculator } from "lucide-react";
 import { siteConfig } from "@/config/config";
-import { useState } from "react";
 
 const PriceComparisonSection = () => {
-  const [mailboxCount, setMailboxCount] = useState(600);
   
-  // Calculate domains automatically (50 mailboxes per domain, minimum 1)
-  const domainCount = Math.max(1, Math.ceil(mailboxCount / 50));
-  
-  // Calculator logic
-  const setupCost = 0;
-  const mailboxPrice = siteConfig.pricing.price;
-  const domainPrice = siteConfig.pricing.domain.price;
-  
-  const monthlyMailboxCost = mailboxCount * mailboxPrice;
-  const totalDomainCost = domainCount * domainPrice;
-  const firstMonthTotal = setupCost + monthlyMailboxCost + totalDomainCost;
   const comparisonData = [
     {
       provider: "AzureInfra",
       setupCost: "Free",
-      mailboxCost: `${siteConfig.pricing.displayPrice} each`,
+      mailboxCost: `${siteConfig.pricing.quarterly.monthlyEquivalent} each/month`,
       domainCost: `${siteConfig.pricing.domain.displayPrice} one-time`,
       domainsNeeded: "2-6 domains",
       setupTime: "1 hour",
@@ -170,7 +154,10 @@ const PriceComparisonSection = () => {
                 </div>
                 {provider.highlight && (
                   <div className="pt-4 border-t border-primary/20">
-                    <GetStartedButton className="w-full py-3 text-base font-semibold" />
+                    <GetStartedButton 
+                      className="w-full py-3 text-base font-semibold" 
+                      location="price_comparison_mobile"
+                    />
                   </div>
                 )}
               </CardContent>
@@ -284,6 +271,7 @@ const PriceComparisonSection = () => {
                         className="w-full max-w-[120px]" 
                         size="sm"
                         compact
+                        location="price_comparison_desktop"
                         onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                       />
                     </div>

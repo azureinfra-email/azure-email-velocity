@@ -8,18 +8,24 @@ interface GetStartedButtonProps extends ButtonProps {
   compact?: boolean;
   showIcon?: boolean;
   text?: string;
+  plan?: 'monthly' | 'quarterly' | 'annual';
 }
 
 const GetStartedButton: React.FC<GetStartedButtonProps> = ({ 
   compact = false, 
   showIcon = true,
   text,
+  plan,
   className, 
   onClick,
   ...props 
 }) => {
   const defaultOnClick = () => {
-    window.open(siteConfig.links.start, '_blank', 'noopener,noreferrer');
+    const orderUrl = new URL(siteConfig.links.start);
+    if (plan) {
+      orderUrl.searchParams.set('plan', plan);
+    }
+    window.open(orderUrl.toString(), '_blank', 'noopener,noreferrer');
   };
 
   const buttonText = text || (compact ? 'Get Started' : 'Get Started - Land in Inboxes');
