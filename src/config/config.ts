@@ -11,8 +11,8 @@ export const siteConfig = {
   // Pricing
   pricing: {
     monthly: {
-      price: 1.50,
-      displayPrice: "$1.50",
+      price: 1.89,
+      displayPrice: "$1.89",
       period: "per mailbox/month",
       billingCycle: "monthly",
       popular: false,
@@ -20,21 +20,21 @@ export const siteConfig = {
       savings: null
     },
     quarterly: {
-      price: 4.05, // $1.35/month * 3 months (10% discount)
-      displayPrice: "$4.05",
+      price: 5.07, // $1.69/month * 3 months
+      displayPrice: "$5.07",
       period: "per mailbox/quarter",
       billingCycle: "quarterly",
-      monthlyEquivalent: "$1.35",
-      savings: "10%",
+      monthlyEquivalent: "$1.69",
+      savings: "10.6%",
       popular: true
     },
     annual: {
-      price: 14.40, // $1.20/month * 12 months (20% discount)
-      displayPrice: "$14.40",
+      price: 18.00, // $1.50/month * 12 months
+      displayPrice: "$18.00",
       period: "per mailbox/year",
       billingCycle: "annual",
-      monthlyEquivalent: "$1.20",
-      savings: "20%",
+      monthlyEquivalent: "$1.50",
+      savings: "20.6%",
       popular: false
     },
     currency: "USD",

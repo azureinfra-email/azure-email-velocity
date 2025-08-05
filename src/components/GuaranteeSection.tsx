@@ -80,6 +80,7 @@ const GuaranteeSection = () => {
             <GetStartedButton 
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-3"
               text="Start Risk-Free Trial"
+              location="guarantee_section"
             />
           </div>
         </div>

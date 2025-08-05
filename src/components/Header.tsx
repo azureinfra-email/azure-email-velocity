@@ -270,7 +270,7 @@ const Header = () => {
                 Book Call
               </Button>
             </a>
-            <GetStartedButton compact />
+            <GetStartedButton compact location="header_desktop" />
           </div>
           
           <button
@@ -455,7 +455,7 @@ const Header = () => {
                     Book Call
                   </Button>
                 </a>
-                <GetStartedButton className="justify-start" compact />
+                <GetStartedButton className="justify-start" compact location="header_mobile" />
               </div>
             </nav>
           </div>

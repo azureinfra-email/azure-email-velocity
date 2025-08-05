@@ -2,9 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import GetStartedButton from "@/components/ui/GetStartedButton";
 import { Check, Mail, Zap, Share2 } from "lucide-react";
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 import siteConfig from "@/config/config";
+import { usePricing } from "@/hooks/usePricing";
 
 const features = [
   "Azure-powered infrastructure",
@@ -19,25 +18,11 @@ const features = [
 ];
 
 const PricingSection = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'quarterly' | 'annual'>('quarterly');
-  
-  // Initialize selected plan from URL params or default to quarterly
-  useEffect(() => {
-    const planParam = searchParams.get('plan');
-    if (planParam && ['monthly', 'quarterly', 'annual'].includes(planParam)) {
-      setSelectedPlan(planParam as 'monthly' | 'quarterly' | 'annual');
-    }
-  }, [searchParams]);
+  const { selectedPlan, setSelectedPlan } = usePricing();
   
   // Update URL when plan changes
   const handlePlanChange = (plan: 'monthly' | 'quarterly' | 'annual') => {
     setSelectedPlan(plan);
-    
-    // Update URL search params
-    const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.set('plan', plan);
-    setSearchParams(newSearchParams, { replace: true });
   };
 
   // Generate shareable URL
@@ -181,6 +166,7 @@ const PricingSection = () => {
                 className="w-full mb-4" 
                 size="lg"
                 plan={selectedPlan}
+                location="pricing_section"
                 text={`Get Started - ${currentPlan.billingCycle.charAt(0).toUpperCase() + currentPlan.billingCycle.slice(1)} Plan`}
               />
               

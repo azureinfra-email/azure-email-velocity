@@ -21,12 +21,13 @@ Disallow: /tailwind.config.ts
 Disallow: /postcss.config.js
 Disallow: /eslint.config.js
 Disallow: /components.json
+Disallow: /sales-brochure
 
 # Crawl delay (optional - be respectful to crawlers)
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://sending-ac.vercel.app/sitemap.xml
+Sitemap: https://azureinfra.email/sitemap.xml
 
 # Specific user agents
 User-agent: Googlebot

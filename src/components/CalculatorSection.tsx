@@ -283,7 +283,7 @@ const CalculatorSection = () => {
                 </div>
                 
                 <div className="pt-4">
-                  <GetStartedButton className="w-full" />
+                  <GetStartedButton className="w-full" location="calculator_section" />
                 </div>
               </CardContent>
             </Card>
